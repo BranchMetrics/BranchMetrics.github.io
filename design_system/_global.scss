@@ -1,0 +1,17 @@
+/*global*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+*, html, button, input, select, textarea,
+.bds-grid [class *= "bds-u"]{ font-family: $font-family; color: $grey; }
+
+img{ max-width: 100%;}
+
+.bds-container{ width:1200px; max-width:100%; margin:0 auto; position:relative;}

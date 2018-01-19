@@ -1,0 +1,103 @@
+/*flex & positioning*/
+@mixin flexCenter { display: inline-flex !important; align-items: center; justify-content: center; }
+
+.bds-flex{
+    display:-webkit-box; 
+    display:-moz-box;
+    display:-ms-flexbox; 
+    display:-webkit-flex;
+    display:flex;
+}
+.bds-inline-flex{
+    display:-webkit-inline-box; 
+    display:-moz-inline-box;
+    display:-ms-inline-flexbox; 
+    display:-webkit-inline-flex;
+    display:inline-flex;
+}
+
+.bds-flex{
+  &-xy-center{align-items: center; justify-content: center; }
+  &-y-center{align-items: center; }
+}
+
+.bds{
+    &-order-1{order:1;}
+    &-order-2{order:2;}
+    &-order-3{order:3;}
+    &-order-4{order:4;}
+    &-order-5{order:5;}
+
+    @media screen and (min-width: $lg-bkpt) {
+      &-order-lg-1{order:1;}
+      &-order-lg-2{order:2;}
+      &-order-lg-3{order:3;}
+      &-order-lg-4{order:4;}
+      &-order-lg-5{order:5;}
+    }
+}
+
+.clearfix{ clear: both;}
+
+/*positioning*/
+.bds-relative{ position:relative; }
+.bds-absolute{ position:absolute; }
+.bds-fixed{ position:fixed;}
+
+
+/*z-index*/
+.bds-z-index{
+  &-0 {z-index:0;}
+  &-1 {z-index:1;}
+  &-2 {z-index:2;}
+  &-3 {z-index:3;}
+  &-4 {z-index:4;}
+  &-5 {z-index:5;}
+  &-10 {z-index:10;}
+  &-100 {z-index:100;}
+}
+
+/* text align */
+.bds-txt{
+  &-left {text-align: left;}
+  &-right {text-align: right;}
+  &-center {text-align: center;}
+  &-justify {text-align: justify;}
+}
+
+
+.bds-show-at-xs, .bds-show-at-s, .bds-show-at-md, .bds-show-at-lg, .bds-hide{ display:none; }
+
+@media screen and (min-width: $s-bkpt) {
+  .bds-show-at-s{ display:block;}
+  .bds-hide-at-s{ display:none;}
+}
+@media screen and (min-width: $md-bkpt) {
+  .bds-show-at-md{ display:block;}
+  .bds-hide-at-md{ display:none;}
+  .bds-txt-md{
+    &-left {text-align: left;}
+    &-right {text-align: right;}
+    &-center {text-align: center;margin-left: auto;margin-right: auto;}
+    &-justify {text-align: justify;}
+  }
+}
+@media screen and (min-width: $lg-bkpt) {
+  .bds-show-at-lg{ display:block;}
+  .bds-hide-at-lg{ display:none;}
+  .bds-txt-lg{
+    &-left {text-align: left;}
+    &-right {text-align: right;}
+    &-center {text-align: center;margin-left: auto;margin-right: auto;}
+    &-justify {text-align: justify;}
+  }
+}
+
+
+
+
+/*extra utilities*/
+.bds-cursor-pointer{ cursor: pointer; }
+.bds-ps-tl-0{ top:0; left:0;}
+.bds-height-100{ height:100%;}
+.bds-width-100{ width:100%;}

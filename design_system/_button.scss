@@ -1,0 +1,51 @@
+
+/*buttons*/
+a[class^='bds-btn'], a[class*=' bds-btn']{
+  font-weight: $font-weight-regular;
+  font-size: $font-size-14;
+  text-decoration: none;
+  height:40px;
+  width:180px;
+  padding: 6px 6px 8px 6px;
+
+  border:1px;
+  border-style: solid;
+  border-color:transparent;
+  box-sizing: border-box;
+  border-radius: 22px;
+  // margin: $spacing-xs $spacing-md;
+  @include flexCenter;
+  &:hover {
+    transition: background-color 100ms linear, color 100ms linear;
+  }
+}
+
+.bds-btn{
+  &-primary{
+    color:$white;
+    background-color: $blue;
+    &:hover{
+      background-color: $dark-blue;
+    }
+  }
+
+  &-ghost{
+    color:$white;
+    border-color:$white !important;
+    background-color: transparent;
+    &:hover{
+      color:$black;
+      background-color: $white;
+    }
+  }
+
+  &-secondary{
+    color:$white;
+    background-color:$yellow;
+    &:hover{
+      background-color: $yellow-85;
+    }
+  }
+
+}
+
