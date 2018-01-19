@@ -9,18 +9,15 @@
     <style>
     .bds-container{ background-color:#eee; }
     .swatch{ height:100px; width:200px; display:flex; align-items: center; justify-content: center;}
+
     section{ border-bottom:1px solid #000; padding: 50px 0; }
 
     .typography-weights > span{ cursor: pointer; padding:10px; background-color:white; border:1px solid #ccc;}
     .typography-weights > span:hover{ background-color:#eee; }
     .typography-swap-weight *{ margin: 10px 0; }
 
-    .spacingStyles > .row > div > div{ border:1px dashed #000; display: inline-block;}
+    .spacingStyles > .bds-row > div > div{ border:1px dashed #000; display: inline-block;}
 
-
-    /*.buttonStyles .classNames{ display: none; }*/
-
-    .showClassNames{ float:right; }
     .plusMinus::before{ content: '+' ; }
     .plusMinus.active::before{ content: '-'; }
     </style>
@@ -39,6 +36,7 @@
           <li><a href="#breakpoints">Breakpoints</a>
           <li><a href="#buttons">Buttons</a></li>
           <li><a href="#utility">Utility</a></li>
+          <li><a href="#flexbox">Flexbox</a></li>
         </ul>
       </section>
 
@@ -87,13 +85,14 @@
         </div>
 
       </section>
+      <!--/typography-->
 
       
 
       <!-- **********************************************
                 color palette
       ********************************************** -->
-      <section class="colorPalate">
+      <section class="colorPalette">
         <h2 class="bds-marg-b-s"><a name="bds-colorPalette">Color Palette</a></h2>
         <h4>Prefixes</h4>
 
@@ -126,6 +125,7 @@
           </div>
         </div>
 
+        <!-- color swatches -->
         <div class="bds-row bds-txt-center bds-marg-t-md">
           <div class="bds-col bds-marg-b-s">
             <div class="swatch bds-bg-grey bds-txt-white">PRE-grey <br> #333E48</div>
@@ -151,6 +151,7 @@
             <div class="swatch bds-bg-red-65 bds-txt-white">PRE-red-65 <br> #ff988a</div>
           </div>
         </div>
+
         <div class="bds-row bds-txt-center">
           <div class="bds-col bds-marg-b-s">
             <div class="swatch bds-bg-green bds-txt-white">PRE-green <br> #00bd70</div>
@@ -172,7 +173,9 @@
             <div class="swatch bds-bg-black bds-txt-white">PRE-black <br>#000000</div>
           </div>
         </div>
+        <!--/color swatches-->
       </section>
+      <!--/color palette-->
 
       
       <!-- **********************************************
@@ -181,6 +184,7 @@
       <section class="spacingStyles">
         <h2 class="bds-marg-b-s"><a name="spacing">Spacing</a></h2>
         <h4>Prefixes</h4>
+
         <div class="bds-row">
           <div class="bds-col">
             <u>margin</u>: 
@@ -241,8 +245,10 @@
             PRE-xxl<br>
             <div class="bds-space-xxl"> </div>
           </div>
-        </ul>
+        </div>
+
       </section>
+      <!--/spacing-->
 
 
 
@@ -267,8 +273,8 @@
             1200px and larger
           </div>
         </div>
-
       </section>
+      <!--/breakpoints-->
 
 
      
@@ -280,7 +286,7 @@
         <!-- <div class="showClassNames bds-cursor-pointer">
           show classes <span class="plusMinus"></span>
         </div> -->
-        <div class="moreButtons bds-marg-all-md">
+        <div class="bds-marg-all-md">
           <h4>Base buttons</h4>
           <u>Prefix & Class:</u> 
           <ul>
@@ -288,7 +294,6 @@
           </ul>
           ex: bds-btn-primary<br>
           ex. bds-btn .bts-bg-white
-
 
           <div class="bds-row bds-txt-center bds-marg-y-s">
             <div class="bds-col">
@@ -305,10 +310,9 @@
             </div>
           </div>
 
-
+          <!--custom buttons-->
           <h4 class="bds-marg-t-lg bds-marg-b-xxs">Custom Chipotle Style Buttons</h4>
           Declare class="bds-btn" and then append your color and typography utility classes.
-
           <div class="bds-row bds-txt-center bds-marg-y-s">
             <div class="bds-col">
               <div class="classNames bds-marg-b-xxs">
@@ -325,8 +329,12 @@
               <a class="bds-btn bds-bg-white bds-txt-yellow bds-hov-bg-yellow bds-hov-txt-white" href="">Create Links</a>
             </div>
           </div>
-        </div><!--/more buttons -->
+          <!--/custom buttons -->
+
+        </div>
       </section>
+      <!--/custom buttons -->
+
 
       <!-- **********************************************
                utility
@@ -409,6 +417,7 @@
             </p>
         </div>
       </section>
+      <!--/utility-->
 
 
       <!-- **********************************************
@@ -420,13 +429,13 @@
             <li>bds-flex</li>
           </ul>
 
-          <div class="moreFlexbox bds-marg-l-md">
+          <div class="bds-marg-l-md">
+            <!-- flex centering-->
             <h6>Centering</h6>
             <ul>
               <li>bds-flex-xy-center (horizontal & vertically center)</li>
               <li>bds-flex-y-center (vertically center)</li>
             </ul>
-
             <div class="bds-marg-all-lg">
               <h6 class="bds-marg-y-xs">Examples</h6>
               <div class="bds-bg-green-65 bds-flex bds-flex-y-center" style="height:200px">
@@ -437,7 +446,9 @@
                 class="bds-flex bds-flex-xy-center"
               </div>
             </div>
+            <!--/flex centering-->
 
+            <!-- flex ordering -->
             <h6 class="bds-marg-y-s">Order</h6>
             <ul>
               <div class="bds-row">
@@ -458,8 +469,7 @@
               </div>
             </ul>
 
-
-
+            <!-- flex order example -->
             <div class="bds-marg-all-lg">
               <h6 class="bds-marg-y-xs">Examples</h6>
               bds-order-* changes the order in which your content shows up. <br>
@@ -486,6 +496,7 @@
               </div>
 
             </div>
+            <!--/flexorder example -->
 
           </div>
       </section>
