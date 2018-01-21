@@ -8,18 +8,17 @@
   <body>
     <style>
     .bds-container{ background-color:#eee; }
-    .swatch{ height:100px; width:200px; display:flex; align-items: center; justify-content: center;}
-
     section{ border-bottom:1px solid #000; padding: 50px 0; }
+
+    .swatch{ height:100px; width:200px; display:flex; align-items: center; justify-content: center;}
 
     .typography-weights > span{ cursor: pointer; padding:10px; background-color:white; border:1px solid #ccc;}
     .typography-weights > span:hover{ background-color:#eee; }
     .typography-swap-weight *{ margin: 10px 0; }
 
     .spacingStyles > .bds-row > div > div{ border:1px dashed #000; display: inline-block;}
-
-    .plusMinus::before{ content: '+' ; }
-    .plusMinus.active::before{ content: '-'; }
+    /*.plusMinus::before{ content: '+' ; }
+    .plusMinus.active::before{ content: '-'; }*/
     </style>
 
     <div class="bds-container">
@@ -47,22 +46,21 @@
       <section class="typography">
         <h2 class="bds-marg-b-s"><a name="typography">Typography</a></h2>
 
-        <p class="typography-weights">
-          <!-- <u>Change Weight</u> -->
-          <!-- <span class="bds-txt-extra-light">extra-light</span> -->
+        <div class="typography-weights">
           <span class="bds-txt-light">light</span>
           <span class="bds-txt-regular">regular</span>
           <span class="bds-txt-semi-bold">semi-bold</span>
           <span class="bds-txt-bold">bold</span>
 
-          <p class="typography-weight-class bds-marg-t-s">
-            class="<span class="heading-prefix">bds-txt-regular</span>"
-          </p>
-          <p>
-            ex: 
-            <span class="bds-txt-regular bds-b1"> class="bds-txt-regular bds-b3"</span>
-          </p>
-        </p>
+          <div class="typography-weight-class bds-marg-t-s">
+            <p>
+              class="<span class="heading-prefix">bds-txt-regular</span>"
+            </p>
+            <p>
+              ex: <span class="bds-txt-regular bds-b1"> class="bds-txt-regular bds-b3"</span>
+            </p>
+          </div>
+        </dvi>
         
         <div class="typography-swap-weight">
           <div class="typography-headings">
@@ -266,7 +264,7 @@
             xl
           </div>
           <div class="bds-col">
-            up to 480px<br>
+            up to 479px<br>
             480px - 767px<br>
             768px - 991px<br>
             992px - 1199px<br>

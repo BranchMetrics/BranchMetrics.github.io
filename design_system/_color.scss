@@ -61,6 +61,12 @@
 
 
 /*border color*/
+
+a[class^='bds-border'], a[class*=' bds-border']{
+  border: 1px;
+  border-style:solid;
+}
+
 .bds-border{
   &-grey{ border-color:$grey; }
   &-grey-85{ border-color:$grey-85; }
