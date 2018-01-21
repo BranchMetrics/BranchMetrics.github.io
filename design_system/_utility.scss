@@ -7,6 +7,7 @@
     display:-ms-flexbox; 
     display:-webkit-flex;
     display:flex;
+    flex-wrap:wrap;
 }
 .bds-inline-flex{
     display:-webkit-inline-box; 
@@ -14,11 +15,14 @@
     display:-ms-inline-flexbox; 
     display:-webkit-inline-flex;
     display:inline-flex;
+    flex-wrap:wrap;
 }
 
-.bds-flex{
+.bds{
   &-xy-center{align-items: center; justify-content: center; }
   &-y-center{align-items: center; }
+  &-space-between{ justify-content: space-between; }
+  &-space-around{ justify-content: space-around; }
 }
 
 .bds{

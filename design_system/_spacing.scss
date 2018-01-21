@@ -2,7 +2,7 @@
 .bds-space{
   &-xxs{ height:$spacing-xxs; width:$spacing-xxs; }
   &-xs{ height:$spacing-xs; width:$spacing-xs; }
-  &-s{ height:$spacing-s; width:$spacing-s; }
+  &-sm{ height:$spacing-s; width:$spacing-s; }
   &-md{ height:$spacing-md; width:$spacing-md; }
   &-lg{ height:$spacing-lg; width:$spacing-lg; }
   &-xl{ height:$spacing-xl; width:$spacing-xl; }
@@ -13,7 +13,7 @@
   &-all{
     &-xxs{ padding:$spacing-xxs; }
     &-xs{ padding:$spacing-xs; }
-    &-s{ padding:$spacing-s; }
+    &-sm{ padding:$spacing-s; }
     &-md{ padding:$spacing-md; }
     &-lg{ padding:$spacing-lg; }
     &-xl{ padding:$spacing-xl; }
@@ -22,7 +22,7 @@
   &-t{
     &-xxs{ padding-top:$spacing-xxs; }
     &-xs{ padding-top:$spacing-xs; }
-    &-s{ padding-top:$spacing-s; }
+    &-sm{ padding-top:$spacing-s; }
     &-md{ padding-top:$spacing-md; }
     &-lg{ padding-top:$spacing-lg; }
     &-xl{ padding-top:$spacing-xl; }
@@ -31,7 +31,7 @@
   &-b{
     &-xxs{ padding-bottom:$spacing-xxs; }
     &-xs{ padding-bottom:$spacing-xs; }
-    &-s{ padding-bottom:$spacing-s; }
+    &-sm{ padding-bottom:$spacing-s; }
     &-md{ padding-bottom:$spacing-md; }
     &-lg{ padding-bottom:$spacing-lg; }
     &-xl{ padding-bottom:$spacing-xl; }
@@ -40,7 +40,7 @@
   &-y{
     &-xxs{ padding-top:$spacing-xxs; padding-bottom:$spacing-xxs; }
     &-xs{ padding-top:$spacing-xs; padding-bottom:$spacing-xs; }
-    &-s{ padding-top:$spacing-s; padding-bottom:$spacing-s; }
+    &-sm{ padding-top:$spacing-s; padding-bottom:$spacing-s; }
     &-md{ padding-top:$spacing-md; padding-bottom:$spacing-md; }
     &-lg{ padding-top:$spacing-lg; padding-bottom:$spacing-lg; }
     &-xl{ padding-top:$spacing-xl; padding-bottom:$spacing-xl; }
@@ -49,7 +49,7 @@
   &-l{
     &-xxs{ padding-left:$spacing-xxs; }
     &-xs{ padding-left:$spacing-xs; }
-    &-s{ padding-left:$spacing-s; }
+    &-sm{ padding-left:$spacing-s; }
     &-md{ padding-left:$spacing-md; }
     &-lg{ padding-left:$spacing-lg; }
     &-xl{ padding-left:$spacing-xl; }
@@ -58,7 +58,7 @@
   &-r{
     &-xxs{ padding-right:$spacing-xxs; }
     &-xs{ padding-right:$spacing-xs; }
-    &-s{ padding-right:$spacing-s; }
+    &-sm{ padding-right:$spacing-s; }
     &-md{ padding-right:$spacing-md; }
     &-lg{ padding-right:$spacing-lg; }
     &-xl{ padding-right:$spacing-xl; }
@@ -67,7 +67,7 @@
   &-x{
     &-xxs{ padding-left:$spacing-xxs; padding-right:$spacing-xxs; }
     &-xs{ padding-left:$spacing-xs; padding-right:$spacing-xs; }
-    &-s{ padding-left:$spacing-s; padding-right:$spacing-s; }
+    &-sm{ padding-left:$spacing-s; padding-right:$spacing-s; }
     &-md{ padding-left:$spacing-md; padding-right:$spacing-md; }
     &-lg{ padding-left:$spacing-lg; padding-right:$spacing-lg; }
     &-xl{ padding-left:$spacing-xl; padding-right:$spacing-xl; }
@@ -79,7 +79,7 @@
   &-all{
     &-xxs{ margin:$spacing-xxs; }
     &-xs{ margin:$spacing-xs; }
-    &-s{ margin:$spacing-s; }
+    &-sm{ margin:$spacing-s; }
     &-md{ margin:$spacing-md; }
     &-lg{ margin:$spacing-lg; }
     &-xl{ margin:$spacing-xl; }
@@ -88,7 +88,7 @@
   &-t{
     &-xxs{ margin-top:$spacing-xxs; }
     &-xs{ margin-top:$spacing-xs; }
-    &-s{ margin-top:$spacing-s; }
+    &-sm{ margin-top:$spacing-s; }
     &-md{ margin-top:$spacing-md; }
     &-lg{ margin-top:$spacing-lg; }
     &-xl{ margin-top:$spacing-xl; }
@@ -97,7 +97,7 @@
   &-b{
     &-xxs{ margin-bottom:$spacing-xxs; }
     &-xs{ margin-bottom:$spacing-xs; }
-    &-s{ margin-bottom:$spacing-s; }
+    &-sm{ margin-bottom:$spacing-s; }
     &-md{ margin-bottom:$spacing-md; }
     &-lg{ margin-bottom:$spacing-lg; }
     &-xl{ margin-bottom:$spacing-xl; }
@@ -106,7 +106,7 @@
   &-y{
    &-xxs{ margin-top:$spacing-xxs; margin-bottom:$spacing-xxs; }
     &-xs{ margin-top:$spacing-xs; margin-bottom:$spacing-xs; }
-    &-s{ margin-top:$spacing-s; margin-bottom:$spacing-s; }
+    &-sm{ margin-top:$spacing-s; margin-bottom:$spacing-s; }
     &-md{ margin-top:$spacing-md; margin-bottom:$spacing-md; }
     &-lg{ margin-top:$spacing-lg; margin-bottom:$spacing-lg; }
     &-xl{ margin-top:$spacing-xl; margin-bottom:$spacing-xl; }
@@ -115,7 +115,7 @@
   &-l{
     &-xxs{ margin-left:$spacing-xxs; }
     &-xs{ margin-left:$spacing-xs; }
-    &-s{ margin-left:$spacing-s; }
+    &-sm{ margin-left:$spacing-s; }
     &-md{ margin-left:$spacing-md; }
     &-lg{ margin-left:$spacing-lg; }
     &-xl{ margin-left:$spacing-xl; }
@@ -124,7 +124,7 @@
   &-r{
     &-xxs{ margin-right:$spacing-xxs; }
     &-xs{ margin-right:$spacing-xs; }
-    &-s{ margin-right:$spacing-s; }
+    &-sm{ margin-right:$spacing-s; }
     &-md{ margin-right:$spacing-md; }
     &-lg{ margin-right:$spacing-lg; }
     &-xl{ margin-right:$spacing-xl; }
@@ -133,7 +133,7 @@
   &-x{
     &-xxs{ margin-left:$spacing-xxs; margin-right:$spacing-xxs; }
     &-xs{ margin-left:$spacing-xs; margin-right:$spacing-xs; }
-    &-s{ margin-left:$spacing-s; margin-right:$spacing-s; }
+    &-sm{ margin-left:$spacing-s; margin-right:$spacing-s; }
     &-md{ margin-left:$spacing-md; margin-right:$spacing-md; }
     &-lg{ margin-left:$spacing-lg; margin-right:$spacing-lg; }
     &-xl{ margin-left:$spacing-xl; margin-right:$spacing-xl; }

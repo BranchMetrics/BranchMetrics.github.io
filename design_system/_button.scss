@@ -8,9 +8,6 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
   width:180px;
   padding: 6px 6px 8px 6px;
 
-  border:1px;
-  border-style: solid;
-  border-color:transparent;
   box-sizing: border-box;
   border-radius: 22px;
   // margin: $spacing-xs $spacing-md;
@@ -31,7 +28,7 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
 
   &-ghost{
     color:$white;
-    border-color:$white !important;
+     border:1px solid $white;
     background-color: transparent;
     &:hover{
       color:$black;

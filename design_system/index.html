@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Branch Design System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="stylesheet" type="text/css" href="grid.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
     <style>
-    .bds-container{ background-color:#eee; }
-    section{ border-bottom:1px solid #000; padding: 50px 0; }
+    .bds-container{ width:1280px; }
+    
+    @media (min-width: 992px){
+      nav{ position: fixed; margin-top:20px; width:13.5%;}
+      nav ul{  padding:0; }
+      nav ul li{ list-style: none; }
+      nav ul li a{ display:block; padding:10px 20px;}
+      nav ul li a:hover{ font-weight: bold; }
+    }
+    
+    section{ border-bottom:1px solid #000; padding: 50px 0;}
+    section:first-child{ padding-top: 0; }
 
     .swatch{ height:100px; width:200px; display:flex; align-items: center; justify-content: center;}
 
@@ -16,489 +27,522 @@
     .typography-weights > span:hover{ background-color:#eee; }
     .typography-swap-weight *{ margin: 10px 0; }
 
-    .spacingStyles > .bds-row > div > div{ border:1px dashed #000; display: inline-block;}
+    .spacingStyles > .spaces > div > div{ border:1px dashed #000; display: inline-block;}
     /*.plusMinus::before{ content: '+' ; }
     .plusMinus.active::before{ content: '-'; }*/
     </style>
 
     <div class="bds-container">
 
-      <!-- **********************************************
-                table of contents
-      ********************************************** -->
-      <section class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#typography">Tyography</a></li>
-          <li><a href="#colorPalette">Color Palette</a></li>
-          <li><a href="#spacing">Spacing</a></li>
-          <li><a href="#breakpoints">Breakpoints</a>
-          <li><a href="#buttons">Buttons</a></li>
-          <li><a href="#utility">Utility</a></li>
-          <li><a href="#flexbox">Flexbox</a></li>
-        </ul>
-      </section>
-
-
-      <!-- **********************************************
-                typography
-      ********************************************** -->
-      <section class="typography">
-        <h2 class="bds-marg-b-s"><a name="typography">Typography</a></h2>
-
-        <div class="typography-weights">
-          <span class="bds-txt-light">light</span>
-          <span class="bds-txt-regular">regular</span>
-          <span class="bds-txt-semi-bold">semi-bold</span>
-          <span class="bds-txt-bold">bold</span>
-
-          <div class="typography-weight-class bds-marg-t-s">
-            <p>
-              class="<span class="heading-prefix">bds-txt-regular</span>"
-            </p>
-            <p>
-              ex: <span class="bds-txt-regular bds-b1"> class="bds-txt-regular bds-b3"</span>
-            </p>
-          </div>
-        </dvi>
-        
-        <div class="typography-swap-weight">
-          <div class="typography-headings">
-            <h1 class="bds-txt-regular">bds-h1: Heading 1 ~ 44px</h1>
-            <h2 class="bds-txt-regular">bds-h2: Heading 2 ~ 40</h2>
-            <h3 class="bds-txt-regular">bds-h3: Heading 3 ~ 34</h3>
-            <h4 class="bds-txt-regular">bds-h4: Heading 4 ~ 24</h4>
-            <h5 class="bds-txt-regular">bds-h5: Heading 5 ~ 22</h5>
-            <h6 class="bds-txt-regular">bds-h6: Heading 6 ~ 20</h6>
-          </div>
-
-          <!-- <h6>Heading 6</h6> -->
-          <div class="typography-other">
-            <div class="bds-b1">bds-b1: body 1 ~ 18px</div>
-            <div class="bds-b2">bds-b2: body 2 ~ 16px</div>
-            <div class="bds-b3">bds-b3: body 3 ~ 14px</div>
-            <div class="bds-b4">bds-b4: body 4 ~ 12px</div>
-            <div class="bds-l1">bds-l1: legal ~ 11px</div>
-          </div>
-        </div>
-
-      </section>
-      <!--/typography-->
-
-      
-
-      <!-- **********************************************
-                color palette
-      ********************************************** -->
-      <section class="colorPalette">
-        <h2 class="bds-marg-b-s"><a name="bds-colorPalette">Color Palette</a></h2>
-        <h4>Prefixes</h4>
-
-        <div class="bds-row">
-          <div class="bds-col">
-            <u>background</u>: 
-              <ul>
-                <li>bds-bg</li>
-                <li>bds-hov-bg</li>
-              </ul>
-
-              ex: bds-bg-grey
-          </div>
-          <div class="bds-col">
-            <u>text color</u>: 
-              <ul>
-              <li>bds-txt</li>
-              <li>bds-hov-txt</li>
+      <div class="bds-row">
+        <!-- nav -->
+        <div class="bds-col-md-2">
+          <nav class="bds-marg-t-md">
+            <h2 class="bds-txt-bold bds-marg-x-xs">BDS</h2>
+            <ul>
+              <li><a href="#typography">Tyography</a></li>
+              <li><a href="#colorPalette">Color Palette</a></li>
+              <li><a href="#spacing">Spacing</a></li>
+              <li><a href="#breakpoints">Breakpoints</a></li>
+              <li><a href="#buttons">Buttons</a></li>
+              <li><a href="#utility">Utility</a></li>
+              <li><a href="#flexbox">Flexbox</a></li>
             </ul>
-
-            ex: bds-txt-grey-85
-          </div>
-          <div class="bds-col">
-            <u>border color</u>: 
-              <ul>
-              <li>bds-border</li><br>
-            </ul>
-
-            ex: bds-border-dark-blue
-          </div>
-        </div>
-
-        <!-- color swatches -->
-        <div class="bds-row bds-txt-center bds-marg-t-md">
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-grey bds-txt-white">PRE-grey <br> #333E48</div>
-            <div class="swatch bds-bg-grey-85 bds-txt-white">PRE-grey-85 <br> #4E5760</div>
-            <div class="swatch bds-bg-grey-65 bds-txt-white">PRE-grey-65 <br> #757C83</div>
-            <div class="swatch bds-bg-grey-45 bds-txt-white">PRE-grey-45 <br> #9EA2A7</div>
-            <div class="swatch bds-bg-grey-15 bds-txt-white">PRE-grey-15 <br> #e3e2e2</div>
-            <div class="swatch bds-bg-grey-05 bds-txt-white">PRE-grey-05 <br> #f0f0f0</div>
-          </div>
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-blue bds-txt-white">PRE-blue <br> #0075C9</div>
-            <div class="swatch bds-bg-blue-85 bds-txt-white">PRE-blue-85 <br> #0088D1</div>
-            <div class="swatch bds-bg-blue-65 bds-txt-white">PRE-blue-65 <br> #4DA3DC</div>
-            <div class="swatch bds-bg-blue-45 bds-txt-white">PRE-blue-45 <br> #8DBEE7</div>
-          </div>
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-dark-blue bds-txt-white">PRE-dark-blue <br> #004876</div>
-            <div class="swatch bds-bg-dark-blue-85 bds-txt-white">PRE-dark-blue-85 <br> #356189</div>
-          </div>
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-red bds-txt-white">PRE-red <br> #F42534</div>
-            <div class="swatch bds-bg-red-85 bds-txt-white">PRE-red-85 <br> #FC564F</div>
-            <div class="swatch bds-bg-red-65 bds-txt-white">PRE-red-65 <br> #ff988a</div>
-          </div>
-        </div>
-
-        <div class="bds-row bds-txt-center">
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-green bds-txt-white">PRE-green <br> #00bd70</div>
-            <div class="swatch bds-bg-green-85 bds-txt-white">PRE-green-85 <br> #00c884</div>
-            <div class="swatch bds-bg-green-65 bds-txt-white">PRE-green-65 <br> #5fd6a0</div>
-          </div>
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-yellow bds-txt-white">PRE-yellow <br> #ff9e16</div>
-            <div class="swatch bds-bg-yellow-85 bds-txt-white">PRE-yellow-85 <br> #ffad45</div>
-            <div class="swatch bds-bg-yellow-65 bds-txt-white">PRE-yellow-65 <br> #ffc072</div>
-          </div>
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-purple bds-txt-white">PRE-purple <br>#8547ad</div>
-            <div class="swatch bds-bg-purple-85 bds-txt-white">PRE-purple-85 <br>#9862b9</div>
-            <div class="swatch bds-bg-purple-65 bds-txt-white">PRE-purple-65 <br>#b388cb</div>
-          </div>
-          <div class="bds-col bds-marg-b-s">
-            <div class="swatch bds-bg-white bds-txt-black">PRE-white <br>#ffffff</div>
-            <div class="swatch bds-bg-black bds-txt-white">PRE-black <br>#000000</div>
-          </div>
-        </div>
-        <!--/color swatches-->
-      </section>
-      <!--/color palette-->
-
-      
-      <!-- **********************************************
-                spacing styles
-      ********************************************** -->
-      <section class="spacingStyles">
-        <h2 class="bds-marg-b-s"><a name="spacing">Spacing</a></h2>
-        <h4>Prefixes</h4>
-
-        <div class="bds-row">
-          <div class="bds-col">
-            <u>margin</u>: 
-              <ul>
-                <li>bds-marg-all</li>
-                <li>bds-marg-t</li>
-                <li>bds-marg-b</li>
-                <li>bds-marg-l</li> 
-                <li>bds-marg-r</li>
-                <li>bds-marg-x (left and right)</li>
-                <li>bds-marg-y (top and bottom)</li>
-              </ul>
-
-              ex: bds-marg-x-xs
-          </div>
-          <div class="bds-col">
-            <u>padding</u>: 
-              <ul>
-                <li>bds-pad-all</li>
-                <li>bds-pad-t</li>
-                <li>bds-pad-b</li>
-                <li>bds-pad-l</li> 
-                <li>bds-pad-r</li>
-                <li>bds-pad-x (left and right)</li>
-                <li>bds-pad-y (top and bottom)</li>
-              </ul>
-
-            ex: bds-pad-all-s
-          </div>
-        </div>
-
-        <div class="bds-row bds-marg-t-md">
-          <div class="bds-col">
-            PRE-xxs<br>
-            <div class="bds-space-xxs"> </div>
-          </div>
-          <div class="bds-col">
-            PRE-xs<br>
-            <div class="bds-space-xs"> </div>
-          </div>
-          <div class="bds-col">
-            PRE-s<br>
-            <div class="bds-space-s"> </div>
-          </div>
-          <div class="bds-col">
-            PRE-md<br>
-            <div class="bds-space-md"> </div>
-          </div>
-          <div class="bds-col">
-            PRE-lg<br>
-            <div class="bds-space-lg"> </div>
-          </div>
-          <div class="bds-col">
-            PRE-xl<br>
-            <div class="bds-space-xl"> </div>
-          </div>
-          <div class="bds-col">
-            PRE-xxl<br>
-            <div class="bds-space-xxl"> </div>
-          </div>
-        </div>
-
-      </section>
-      <!--/spacing-->
+          </nav>
+        </div> <!--/bds-col-3-->
 
 
+        <!-- right column, main content -->
+        <div class="bds-col-md-10 bds-bg-grey-05 bds-pad-all-md">
+          <!-- **********************************************
+                    typography
+          ********************************************** -->
+          <section class="typography">
+            <h2 class="bds-marg-b-sm"><a name="typography">Typography</a></h2>
 
-      <!-- **********************************************
-                breakpoints
-      ********************************************** -->
-      <section class="breakpoints">
-        <h2 class="bds-marg-b-xxs"><a name="breakpoints">Breakpoints</a></h2>
-        <div class="bds-row">
-          <div class="bds-col">
-            xs<br> 
-            sm<br>
-            md<br>
-            lg<br>
-            xl
-          </div>
-          <div class="bds-col">
-            up to 479px<br>
-            480px - 767px<br>
-            768px - 991px<br>
-            992px - 1199px<br>
-            1200px and larger
-          </div>
-        </div>
-      </section>
-      <!--/breakpoints-->
+            <!-- font weights -->
+            <div class="typography-weights">
+              <span class="bds-txt-light">light</span>
+              <span class="bds-txt-regular">regular</span>
+              <span class="bds-txt-semi-bold">semi-bold</span>
+              <span class="bds-txt-bold">bold</span>
 
-
-     
-      <!-- **********************************************
-                button styles
-      ********************************************** -->
-      <section class="buttonStyles">
-        <h2 class="bds-marg-b-xxs"><a name="buttons">Buttons</a></h2>
-        <!-- <div class="showClassNames bds-cursor-pointer">
-          show classes <span class="plusMinus"></span>
-        </div> -->
-        <div class="bds-marg-all-md">
-          <h4>Base buttons</h4>
-          <u>Prefix & Class:</u> 
-          <ul>
-            <li>bds-btn</li>
-          </ul>
-          ex: bds-btn-primary<br>
-          ex. bds-btn .bts-bg-white
-
-          <div class="bds-row bds-txt-center bds-marg-y-s">
-            <div class="bds-col">
-              <div class="classNames bds-marg-b-xxs">PRE-primary</div>
-              <a class="bds-btn-primary" href="">Primary</a>
-            </div>
-            <div class="bds-col">
-              <div class="classNames bds-marg-b-xxs">PRE-ghost</div>
-              <a class="bds-btn-ghost" href="">Ghost</a>
-            </div>
-            <div class="bds-col">
-              <div class="classNames bds-marg-b-xxs">PRE-secondary</div>
-              <a class="bds-btn-secondary" href="">Tertiary</a>
-            </div>
-          </div>
-
-          <!--custom buttons-->
-          <h4 class="bds-marg-t-lg bds-marg-b-xxs">Custom Chipotle Style Buttons</h4>
-          Declare class="bds-btn" and then append your color and typography utility classes.
-          <div class="bds-row bds-txt-center bds-marg-y-s">
-            <div class="bds-col">
-              <div class="classNames bds-marg-b-xxs">
-                bds-btn bds-bg-yellow bds-txt-white <br>
-                bds-hov-bg-white bds-hov-txt-yellow<br>
+              <div class="typography-weight-class bds-marg-t-sm">
+                <p>
+                  class="<span class="heading-prefix">bds-txt-regular</span>"
+                </p>
+                <p>
+                  ex: <span class="bds-txt-regular bds-b1"> class="bds-txt-regular bds-b3"</span>
+                </p>
               </div>
-              <a class="bds-btn bds-bg-yellow bds-txt-white bds-hov-bg-white bds-hov-txt-yellow" href="">Request Demo</a>
             </div>
-            <div class="bds-col">
-              <div class="classNames bds-marg-b-xxs">
-                bds-btn bds-bg-yellow bds-txt-white <br>
-                bds-hov-bg-white bds-hov-txt-yellow<br>
+            
+            <!-- font sizes -->
+            <div class="typography-swap-weight">
+              <div class="typography-headings">
+                <h1 class="bds-txt-regular">bds-h1: Heading 1 ~ 44px</h1>
+                <h2 class="bds-txt-regular">bds-h2: Heading 2 ~ 40</h2>
+                <h3 class="bds-txt-regular">bds-h3: Heading 3 ~ 34</h3>
+                <h4 class="bds-txt-regular">bds-h4: Heading 4 ~ 24</h4>
+                <h5 class="bds-txt-regular">bds-h5: Heading 5 ~ 22</h5>
+                <h6 class="bds-txt-regular">bds-h6: Heading 6 ~ 20</h6>
               </div>
-              <a class="bds-btn bds-bg-white bds-txt-yellow bds-hov-bg-yellow bds-hov-txt-white" href="">Create Links</a>
+              <div class="typography-other">
+                <div class="bds-b1">bds-b1: body 1 ~ 18px</div>
+                <div class="bds-b2">bds-b2: body 2 ~ 16px</div>
+                <div class="bds-b3">bds-b3: body 3 ~ 14px</div>
+                <div class="bds-b4">bds-b4: body 4 ~ 12px</div>
+                <div class="bds-l1">bds-l1: legal ~ 11px</div>
+              </div>
             </div>
-          </div>
+
+          </section>
+          <!--/typography-->
+
+          
+
+          <!-- **********************************************
+                    color palette
+          ********************************************** -->
+          <section class="colorPalette">
+            <h2 class="bds-marg-b-sm"><a name="colorPalette">Color Palette</a></h2>
+            <h4>Prefixes</h4>
+            <div class="bds-row">
+              <div class="bds-col">
+                <u>background</u>: 
+                  <ul>
+                    <li>bds-bg</li>
+                    <li>bds-hov-bg</li>
+                  </ul>
+
+                  ex: bds-bg-grey
+              </div>
+              <div class="bds-col">
+                <u>text color</u>: 
+                  <ul>
+                  <li>bds-txt</li>
+                  <li>bds-hov-txt</li>
+                </ul>
+
+                ex: bds-txt-grey-85
+              </div>
+              <div class="bds-col">
+                <u>border color</u>: 
+                  <ul>
+                  <li>bds-border</li><br>
+                </ul>
+
+                ex: bds-border-dark-blue
+              </div>
+            </div>
+
+            <!-- color swatches -->
+            <div class="bds-row bds-txt-center bds-marg-t-md">
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-grey bds-txt-white">PRE-grey <br> #333E48</div>
+                <div class="swatch bds-bg-grey-85 bds-txt-white">PRE-grey-85 <br> #4E5760</div>
+                <div class="swatch bds-bg-grey-65 bds-txt-white">PRE-grey-65 <br> #757C83</div>
+                <div class="swatch bds-bg-grey-45 bds-txt-white">PRE-grey-45 <br> #9EA2A7</div>
+                <div class="swatch bds-bg-grey-15 bds-txt-white">PRE-grey-15 <br> #e3e2e2</div>
+                <div class="swatch bds-bg-grey-05 bds-txt-white">PRE-grey-05 <br> #f0f0f0</div>
+              </div>
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-blue bds-txt-white">PRE-blue <br> #0075C9</div>
+                <div class="swatch bds-bg-blue-85 bds-txt-white">PRE-blue-85 <br> #0088D1</div>
+                <div class="swatch bds-bg-blue-65 bds-txt-white">PRE-blue-65 <br> #4DA3DC</div>
+                <div class="swatch bds-bg-blue-45 bds-txt-white">PRE-blue-45 <br> #8DBEE7</div>
+              </div>
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-dark-blue bds-txt-white">PRE-dark-blue <br> #004876</div>
+                <div class="swatch bds-bg-dark-blue-85 bds-txt-white">PRE-dark-blue-85 <br> #356189</div>
+              </div>
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-red bds-txt-white">PRE-red <br> #F42534</div>
+                <div class="swatch bds-bg-red-85 bds-txt-white">PRE-red-85 <br> #FC564F</div>
+                <div class="swatch bds-bg-red-65 bds-txt-white">PRE-red-65 <br> #ff988a</div>
+              </div>
+            </div>
+
+            <div class="bds-row bds-txt-center">
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-green bds-txt-white">PRE-green <br> #00bd70</div>
+                <div class="swatch bds-bg-green-85 bds-txt-white">PRE-green-85 <br> #00c884</div>
+                <div class="swatch bds-bg-green-65 bds-txt-white">PRE-green-65 <br> #5fd6a0</div>
+              </div>
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-yellow bds-txt-white">PRE-yellow <br> #ff9e16</div>
+                <div class="swatch bds-bg-yellow-85 bds-txt-white">PRE-yellow-85 <br> #ffad45</div>
+                <div class="swatch bds-bg-yellow-65 bds-txt-white">PRE-yellow-65 <br> #ffc072</div>
+              </div>
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-purple bds-txt-white">PRE-purple <br>#8547ad</div>
+                <div class="swatch bds-bg-purple-85 bds-txt-white">PRE-purple-85 <br>#9862b9</div>
+                <div class="swatch bds-bg-purple-65 bds-txt-white">PRE-purple-65 <br>#b388cb</div>
+              </div>
+              <div class="bds-col bds-marg-b-sm">
+                <div class="swatch bds-bg-white bds-txt-black">PRE-white <br>#ffffff</div>
+                <div class="swatch bds-bg-black bds-txt-white">PRE-black <br>#000000</div>
+              </div>
+            </div>
+            <!--/color swatches-->
+          </section>
+          <!--/color palette-->
+
+          
+          <!-- **********************************************
+                    spacing styles
+          ********************************************** -->
+          <section class="spacingStyles">
+            <h2 class="bds-marg-b-sm"><a name="spacing">Spacing</a></h2>
+            <h4>Prefixes</h4>
+            <div class="bds-row">
+              <div class="bds-col">
+                <u>margin</u>: 
+                  <ul>
+                    <li>bds-marg-all</li>
+                    <li>bds-marg-t</li>
+                    <li>bds-marg-b</li>
+                    <li>bds-marg-l</li> 
+                    <li>bds-marg-r</li>
+                    <li>bds-marg-x (left and right)</li>
+                    <li>bds-marg-y (top and bottom)</li>
+                  </ul>
+                  ex: bds-marg-x-xs
+              </div>
+              <div class="bds-col">
+                <u>padding</u>: 
+                  <ul>
+                    <li>bds-pad-all</li>
+                    <li>bds-pad-t</li>
+                    <li>bds-pad-b</li>
+                    <li>bds-pad-l</li> 
+                    <li>bds-pad-r</li>
+                    <li>bds-pad-x (left and right)</li>
+                    <li>bds-pad-y (top and bottom)</li>
+                  </ul>
+                ex: bds-pad-all-s
+              </div>
+            </div>
+
+            <div class="spaces bds-flex bds-space-between bds-marg-t-md">
+              <div>
+                PRE-xxs<br>
+                <div class="bds-space-xxs"> </div>
+              </div>
+              <div>
+                PRE-xs<br>
+                <div class="bds-space-xs"> </div>
+              </div>
+              <div>
+                PRE-sm<br>
+                <div class="bds-space-sm"> </div>
+              </div>
+              <div>
+                PRE-md<br>
+                <div class="bds-space-md"> </div>
+              </div>
+              <div>
+                PRE-lg<br>
+                <div class="bds-space-lg"> </div>
+              </div>
+              <div>
+                PRE-xl<br>
+                <div class="bds-space-xl"> </div>
+              </div>
+              <div>
+                PRE-xxl<br>
+                <div class="bds-space-xxl"> </div>
+              </div>
+              <div></div>
+            </div>
+
+          </section>
+          <!--/spacing-->
+
+
+
+          <!-- **********************************************
+                    breakpoints
+          ********************************************** -->
+          <section class="breakpoints">
+            <h2 class="bds-marg-b-xxs"><a name="breakpoints">Breakpoints</a></h2>
+            <div class="bds-row">
+              <div class="bds-col bds-marg-r-sm">
+                xs<br> 
+                sm<br>
+                md<br>
+                lg<br>
+                xl
+              </div>
+              <div class="bds-col">
+                up to 479px<br>
+                480px - 767px<br>
+                768px - 991px<br>
+                992px - 1199px<br>
+                1200px and larger
+              </div>
+            </div>
+          </section>
+          <!--/breakpoints-->
+
+
+         
+          <!-- **********************************************
+                    button styles
+          ********************************************** -->
+          <section class="buttonStyles">
+            <h2 class="bds-marg-b-xxs"><a name="buttons">Buttons</a></h2>
+            <!-- <div class="showClassNames bds-cursor-pointer">
+              show classes <span class="plusMinus"></span>
+            </div> -->
+            <div class="bds-marg-all-md">
+              <h4>Base buttons</h4>
+              <u>Prefix & Class:</u> 
+              <ul>
+                <li>bds-btn</li>
+              </ul>
+              ex: bds-btn-primary<br>
+              ex. bds-btn .bts-bg-white
+
+              <div class="bds-row bds-txt-center">
+                <div class="bds-col bds-pad-all-sm">
+                  <div class="classNames bds-marg-b-xxs">PRE-primary</div>
+                  <a class="bds-btn-primary" href="">Primary</a>
+                </div>
+                <div class="bds-col bds-pad-all-sm">
+                  <div class="classNames bds-marg-b-xxs">PRE-ghost</div>
+                  <a class="bds-btn-ghost" href="">Ghost</a>
+                </div>
+                <div class="bds-col bds-pad-all-sm">
+                  <div class="classNames bds-marg-b-xxs">PRE-secondary</div>
+                  <a class="bds-btn-secondary" href="">Tertiary</a>
+                </div>
+              </div>
+
+              <!--custom buttons-->
+              <h4 class="bds-marg-t-lg bds-marg-b-xxs">Custom Chipotle Style Buttons</h4>
+              Declare class="bds-btn" and then append your color and typography utility classes.
+              <div class="bds-row bds-txt-center">
+                <div class="bds-col">
+                  <div class="classNames bds-pad-all-sm">
+                    bds-btn bds-bg-yellow bds-txt-white <br>
+                    bds-hov-bg-white bds-hov-txt-yellow<br>
+                  </div>
+                  <a class="bds-btn bds-bg-yellow bds-txt-white bds-hov-bg-white bds-hov-txt-yellow" href="">Request Demo</a>
+                </div>
+                <div class="bds-col">
+                  <div class="classNames bds-pad-all-sm">
+                    bds-btn bds-bg-yellow bds-txt-white <br>
+                    bds-hov-bg-white bds-hov-txt-yellow<br>
+                  </div>
+                  <a class="bds-btn bds-bg-white bds-txt-yellow bds-hov-bg-yellow bds-hov-txt-white" href="">Create Links</a>
+                </div>
+              </div>
+              <!--/custom buttons -->
+
+            </div>
+          </section>
           <!--/custom buttons -->
 
-        </div>
-      </section>
-      <!--/custom buttons -->
+
+          <!-- **********************************************
+                   utility
+          ********************************************** -->
+          <section class="Utility">
+            <h2 class="bds-marg-b-xxs"><a name="utility">Utility</a></h2>
+            <!-- general utilities -->
+            <div class="general-tilities bds-marg-y-sm">
+              <div class="bds-row">
+                <div class="bds-col-md-6">
+                  <u>Text align</u>: <br>
+                  css "text-align"
+                    <ul>
+                      <div class="bds-row">
+                        <div class="bds-col-md-5">
+                          <li>bds-txt-left</li>
+                          <li>bds-txt-right</li>
+                          <li>bds-txt-center</li>
+                          <li>bds-txt-justify</li>
+                        </div>
+                        <div class="bds-col-md-5">
+                          <li>bds-txt-lg-left</li>
+                          <li>bds-txt-lg-right</li>
+                          <li>bds-txt-lg-center</li>
+                          <li>bds-txt-lg-justify</li>
+                        </div>
+                      </div>
+                    </ul>
+                </div>
+                <div class="bds-col">
+                  <u>Positioning</u>: <br>
+                  css "position"
+                    <ul>
+                      <li>bds-relative</li>
+                      <li>bds-absolute</li>
+                      <li>bds-fixed</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- hiding and showing -->
+            <div class="hideShow-utility bds-marg-y-md">
+              <h4><a name="hideshow">Hide / Show</a></h4>
+              <div class="bds-row">
+                <div class="bds-col">
+                  <u>Hiding</u>: 
+                    <ul>
+                      <li>bds-hide</li>
+                      <li>bds-hide-at-s</li>
+                      <li>bds-hide-at-md</li>
+                      <li>bds-hide-at-lg</li>
+                      <li>bds-hide-at-xl</li>
+                    </ul>
+                </div>
+
+                <div class="bds-col">
+                  <u>Showing</u>: 
+                    <ul><br>
+                      <li>bds-show-at-s</li>
+                      <li>bds-show-at-md</li>
+                      <li>bds-show-at-lg</li>
+                      <li>bds-show-at-xl</li>
+                    </ul>
+                </div>
+              </div>
+              <img src="hide-show-chart.png">
+
+              <h6 class="bds-marg-y-xs">Examples</h6>
+                <div class="bds-b3"><i>reize screen or view mobile emulator to see examples</i></div>
+                <p>
+                  How do you show a message on mobile but hide on desktop?<br>
+                  <u>Solution</u>: class="bds-hide-at-lg"<br>
+                  <div class="bds-hide-at-lg bds-bg-purple-65 bds-marg-all-sm">This is hidden on the large breakpoint</div>
+                  <br>
+                  How do you hide a message on mobile, but show on desktop?<br>
+                  <u>Solution</u>: class="bds-hide bds-show-at-lg"<br>
+                  <div class="bds-hide bds-show-at-lg bds-bg-purple-65 bds-marg-all-sm">This is showing on the large breakpoint</div>
+                </p>
+            </div>
+          </section>
+          <!--/utility-->
 
 
-      <!-- **********************************************
-               utility
-      ********************************************** -->
-      <section class="Utility">
-        <h2 class="bds-marg-b-xxs"><a name="utility">Utility</a></h2>
-        <!-- <h4>Classes</h4> -->
+          <!-- **********************************************
+                   flexbox
+          ********************************************** -->
+          <section class="flexbox">
+            <h2 class="bds-marg-b-xxs"><a name="flexbox">Flexbox</a></h2>
+              <ul>
+                <li>bds-flex</li>
+              </ul>
 
-        <div class="general-tilities bds-marg-y-s">
-          <div class="bds-row">
-            <div class="bds-col">
-              <u>Text align</u>: <br>
-              css "text-align"
+              <div class="bds-marg-l-md">
+                <!-- flex centering-->
+                <h6>Centering</h6>
+                <ul>
+                  <li>bds-xy-center (horizontal & vertically center)</li>
+                  <li>bds-y-center (vertically center)</li>
+                </ul>
+                <div class="bds-marg-all-lg">
+                  <h6 class="bds-marg-y-xs">Examples</h6>
+                  <div class="bds-bg-green-65 bds-flex bds-y-center" style="height:200px">
+                    class="bds-flex bds-y-center"
+                  </div>
+                  <br>
+                  <div class="bds-bg-yellow-65 bds-flex bds-xy-center" style="height:200px">
+                    class="bds-flex bds-xy-center"
+                  </div>
+                </div>
+                <!--/flex centering-->
+
+                <!-- flex ordering -->
+                <h6 class="bds-marg-y-sm">Order</h6>
                 <ul>
                   <div class="bds-row">
                     <div class="bds-col">
-                      <li>bds-txt-left</li>
-                      <li>bds-txt-right</li>
-                      <li>bds-txt-center</li>
-                      <li>bds-txt-justify</li>
+                      <li>bds-order-1</li>
+                      <li>bds-order-2</li>
+                      <li>bds-order-3</li>
+                      <li>bds-order-4</li>
+                      <li>bds-order-5</li>
                     </div>
-                    <div class="bds-col">
-                      <li>bds-txt-lg-left</li>
-                      <li>bds-txt-lg-right</li>
-                      <li>bds-txt-lg-center</li>
-                      <li>bds-txt-lg-justify</li>
+                    <div class="bds-col bds-marg-l-sm">
+                      <li>bds-order-lg-1</li>
+                      <li>bds-order-lg-2</li>
+                      <li>bds-order-lg-3</li>
+                      <li>bds-order-lg-4</li>
+                      <li>bds-order-lg-5</li>
                     </div>
                   </div>
                 </ul>
-            </div>
-            <div class="bds-col">
-              <u>Positioning</u>: <br>
-              css "position"
-                <ul>
-                  <li>bds-relative</li>
-                  <li>bds-absolute</li>
-                  <li>bds-fixed</li>
-                </ul>
-            </div>
-          </div>
-        </div>
+
+                <!-- flex order example -->
+                <div class="bds-marg-all-lg">
+                  <h6 class="bds-marg-y-xs">Examples</h6>
+                  bds-order-* changes the order in which your content shows up. <br>
+                  If you take a look at the html, you'll notice that the green bds-container is declared BEFORE the orange bds-container, but when its rendered on the page, the green bds-container shows up AFTER the orange.
+
+                  <div class="bds-flex bds-marg-y-sm">
+                    <div class="bds-width-100 bds-order-2 bds-bg-green-65">
+                      class="bds-order-2"
+                    </div>
+                    <div class="bds-width-100 bds-order-1 bds-bg-yellow-65">
+                      class="bds-order-1"
+                    </div>
+                  </div>
+
+                  Here is an example where the order changes on desktop but not on mobile. Resize your screen or use an emulator to see the difference. <br>
+                  *note: <i>always</i> set up your content in mobile hierarchy, then use css to change desktop.
+                  <div class="bds-flex bds-marg-y-sm">
+                    <div class="bds-width-100 bds-order-lg-2 bds-bg-green-65">
+                      class="bds-order-lg-2"
+                    </div>
+                    <div class="bds-width-100 bds-order-lg-1 bds-bg-yellow-65">
+                      class="bds-order-lg-1"
+                    </div>
+                  </div>
+
+                </div>
+                <!--/flexorder example -->
 
 
-        <div class="hideShow-utility bds-marg-y-md">
-          <h4><a name="hideshow">Hide / Show</a></h4>
-          <div class="bds-row">
-            <div class="bds-col">
-              <u>Hiding</u>: 
-                <ul>
-                  <li>bds-hide</li>
-                  <li>bds-hide-at-s</li>
-                  <li>bds-hide-at-md</li>
-                  <li>bds-hide-at-lg</li>
-                  <li>bds-hide-at-xl</li>
-                </ul>
-            </div>
+                <!-- flex spacing-->
+                <h6 class="bds-marg-y-sm">Spacing</h6>
+                  <ul>
+                    <div class="bds-row">
+                      <div class="bds-col">
+                        <li>bds-space-around</li>
+                        <li>bds-space-between</li>
+                      </div>
+                    </div>
+                  </ul>
 
-            <div class="bds-col">
-              <u>Showing</u>: 
-                <ul><br>
-                  <li>bds-show-at-s</li>
-                  <li>bds-show-at-md</li>
-                  <li>bds-show-at-lg</li>
-                  <li>bds-show-at-xl</li>
-                </ul>
-            </div>
-          </div>
-          <img src="hide-show-chart.png">
+                  <!-- flex spacing example -->
+                  <div class="flexSpaceExample bds-marg-all-lg">
+                    <h6 class="bds-marg-y-xs">Example</h6>
+                    <div class="bds-bg-grey-45 bds-pad-y-sm">
+                      <div class="bds-flex bds-space-between">
+                        <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
+                        <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
+                        <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
+                      </div>
 
-          <h6 class="bds-marg-y-xs">Examples</h6>
-            <div class="bds-b3"><i>reize screen or view mobile emulator to see examples</i></div>
-            <p>
-              How do you show a message on mobile but hide on desktop?<br>
-              <u>Solution</u>: class="bds-hide-at-lg"<br>
-              <div class="bds-hide-at-lg bds-bg-purple-65 bds-marg-all-s">This is hidden on the large breakpoint</div>
-              <br>
-              How do you hide a message on mobile, but show on desktop?<br>
-              <u>Solution</u>: class="bds-hide bds-show-at-lg"<br>
-              <div class="bds-hide bds-show-at-lg bds-bg-purple-65 bds-marg-all-s">This is showing on the large breakpoint</div>
-            </p>
-        </div>
-      </section>
-      <!--/utility-->
+                      <div class="bds-flex bds-space-around bds-marg-t-sm">
+                        <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                        <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                        <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/flex spacing -->
 
-
-      <!-- **********************************************
-               flexbox
-      ********************************************** -->
-      <section class="Utility">
-        <h2 class="bds-marg-b-xxs"><a name="flexbox">Flexbox</a></h2>
-          <ul>
-            <li>bds-flex</li>
-          </ul>
-
-          <div class="bds-marg-l-md">
-            <!-- flex centering-->
-            <h6>Centering</h6>
-            <ul>
-              <li>bds-flex-xy-center (horizontal & vertically center)</li>
-              <li>bds-flex-y-center (vertically center)</li>
-            </ul>
-            <div class="bds-marg-all-lg">
-              <h6 class="bds-marg-y-xs">Examples</h6>
-              <div class="bds-bg-green-65 bds-flex bds-flex-y-center" style="height:200px">
-                class="bds-flex bds-flex-y-center"
               </div>
-              <br>
-              <div class="bds-bg-yellow-65 bds-flex bds-flex-xy-center" style="height:200px">
-                class="bds-flex bds-flex-xy-center"
-              </div>
-            </div>
-            <!--/flex centering-->
+          </section>
 
-            <!-- flex ordering -->
-            <h6 class="bds-marg-y-s">Order</h6>
-            <ul>
-              <div class="bds-row">
-                <div class="bds-col">
-                  <li>bds-order-1</li>
-                  <li>bds-order-2</li>
-                  <li>bds-order-3</li>
-                  <li>bds-order-4</li>
-                  <li>bds-order-5</li>
-                </div>
-                <div class="bds-col bds-marg-l-s">
-                  <li>bds-order-lg-1</li>
-                  <li>bds-order-lg-2</li>
-                  <li>bds-order-lg-3</li>
-                  <li>bds-order-lg-4</li>
-                  <li>bds-order-lg-5</li>
-                </div>
-              </div>
-            </ul>
-
-            <!-- flex order example -->
-            <div class="bds-marg-all-lg">
-              <h6 class="bds-marg-y-xs">Examples</h6>
-              bds-order-* changes the order in which your content shows up. <br>
-              If you take a look at the html, you'll notice that the green bds-container is declared BEFORE the orange bds-container, but when its rendered on the page, the green bds-container shows up AFTER the orange.
-
-              <div class="bds-flex bds-marg-y-s">
-                <div class="bds-width-100 bds-order-2 bds-bg-green-65">
-                  class="bds-order-2"
-                </div>
-                <div class="bds-width-100 bds-order-1 bds-bg-yellow-65">
-                  class="bds-order-1"
-                </div>
-              </div>
-
-              Here is an example where the order changes on desktop but not on mobile. Resize your screen or use an emulator to see the difference. <br>
-              *note: <i>always</i> set up your content in mobile hierarchy, then use css to change desktop.
-              <div class="bds-flex bds-marg-y-s">
-                <div class="bds-width-100 bds-order-lg-2 bds-bg-green-65">
-                  class="bds-order-lg-2"
-                </div>
-                <div class="bds-width-100 bds-order-lg-1 bds-bg-yellow-65">
-                  class="bds-order-lg-1"
-                </div>
-              </div>
-
-            </div>
-            <!--/flexorder example -->
-
-          </div>
-      </section>
-
+        </div><!--/bds-col-10-->
+      </div><!--/outer row -->
 
 
     </div><!-- /bds-container -->
