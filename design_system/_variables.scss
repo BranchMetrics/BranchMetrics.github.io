@@ -1,17 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
+/*breakpoints*/
 $xs-bkpt: 480px;
 $sm-bkpt: 768px;
 $md-bkpt: 992px;
 $lg-bkpt: 1200px;
 
+/*font family & weight */
 $font-family: "Open Sans", Helvetica, Arial;
-/*$font-weight-extra-light: 300;*/
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 $font-height: 1.9rem;
+
+/*font size*/
+$font-size-11: .6875rem;
+$font-size-12: .75rem; 
+$font-size-14: .875rem;
+$font-size-16: 1rem; 
+$font-size-18: 1.125rem;
+$font-size-20: 1.25rem; 
+$font-size-22: 1.37rem;
+$font-size-24: 1.5rem; 
+$font-size-34: 2.25rem; 
+$font-size-40: 2.5rem; 
+$font-size-44: 2.75rem; 
 
 /*colors*/
 $grey: #333E48;
@@ -20,7 +34,6 @@ $grey-65: #757C83;
 $grey-45: #9EA2A7;
 $grey-15: #e3e2e2;
 $grey-05: #f0f0f0;
-
 $blue: #0075C9;
 $blue-85: #0088D1;
 $blue-65: #4DA3DC;
@@ -41,21 +54,6 @@ $purple-85: #9862b9;
 $purple-65: #b388cb;
 $white: #fff;
 $black: #000;
-
-
-/*typography*/
-$font-size-11: .6875rem;
-$font-size-12: .75rem; 
-$font-size-14: .875rem;
-$font-size-16: 1rem; 
-$font-size-18: 1.125rem;
-$font-size-20: 1.25rem; 
-$font-size-22: 1.37rem;
-$font-size-24: 1.5rem; 
-$font-size-34: 2.25rem; 
-$font-size-40: 2.5rem; 
-$font-size-44: 2.75rem; 
-
 
 /*spacing*/
 $spacing-xxs: .5rem;

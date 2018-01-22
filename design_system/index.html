@@ -70,9 +70,6 @@
                 <p>
                   class="<span class="heading-prefix">bds-txt-regular</span>"
                 </p>
-                <p>
-                  ex: <span class="bds-txt-regular bds-b1"> class="bds-txt-regular bds-b3"</span>
-                </p>
               </div>
             </div>
             
@@ -80,11 +77,11 @@
             <div class="typography-swap-weight">
               <div class="typography-headings">
                 <h1 class="bds-txt-regular">bds-h1: Heading 1 ~ 44px</h1>
-                <h2 class="bds-txt-regular">bds-h2: Heading 2 ~ 40</h2>
-                <h3 class="bds-txt-regular">bds-h3: Heading 3 ~ 34</h3>
-                <h4 class="bds-txt-regular">bds-h4: Heading 4 ~ 24</h4>
-                <h5 class="bds-txt-regular">bds-h5: Heading 5 ~ 22</h5>
-                <h6 class="bds-txt-regular">bds-h6: Heading 6 ~ 20</h6>
+                <h2 class="bds-txt-regular">bds-h2: Heading 2 ~ 40px</h2>
+                <h3 class="bds-txt-regular">bds-h3: Heading 3 ~ 34px</h3>
+                <h4 class="bds-txt-regular">bds-h4: Heading 4 ~ 24px</h4>
+                <h5 class="bds-txt-regular">bds-h5: Heading 5 ~ 22px</h5>
+                <h6 class="bds-txt-regular">bds-h6: Heading 6 ~ 20px</h6>
               </div>
               <div class="typography-other">
                 <div class="bds-b1">bds-b1: body 1 ~ 18px</div>
@@ -94,6 +91,11 @@
                 <div class="bds-l1">bds-l1: legal ~ 11px</div>
               </div>
             </div>
+
+
+            <p class="bds-marg-t-md">
+              ex: <span class="bds-txt-regular bds-b1"> class="bds-txt-regular bds-b3"</span>
+            </p>
 
           </section>
           <!--/typography-->
@@ -107,7 +109,7 @@
             <h2 class="bds-marg-b-sm"><a name="colorPalette">Color Palette</a></h2>
             <h4>Prefixes</h4>
             <div class="bds-row">
-              <div class="bds-col">
+              <div class="bds-col bds-marg-x-sm">
                 <u>background</u>: 
                   <ul>
                     <li>bds-bg</li>
@@ -116,7 +118,7 @@
 
                   ex: bds-bg-grey
               </div>
-              <div class="bds-col">
+              <div class="bds-col bds-marg-x-sm">
                 <u>text color</u>: 
                   <ul>
                   <li>bds-txt</li>
@@ -125,7 +127,7 @@
 
                 ex: bds-txt-grey-85
               </div>
-              <div class="bds-col">
+              <div class="bds-col bds-marg-x-sm">
                 <u>border color</u>: 
                   <ul>
                   <li>bds-border</li><br>
@@ -296,7 +298,7 @@
             </div> -->
             <div class="bds-marg-all-md">
               <h4>Base buttons</h4>
-              <u>Prefix & Class:</u> 
+              <u>Prefix & Class:</u> append classes names to "<b>a href</b>" tag
               <ul>
                 <li>bds-btn</li>
               </ul>
@@ -320,7 +322,7 @@
 
               <!--custom buttons-->
               <h4 class="bds-marg-t-lg bds-marg-b-xxs">Custom Chipotle Style Buttons</h4>
-              Declare class="bds-btn" and then append your color and typography utility classes.
+              Declare class="bds-btn" and then append your color and typography utility classes. See examples below:
               <div class="bds-row bds-txt-center">
                 <div class="bds-col">
                   <div class="classNames bds-pad-all-sm">
@@ -387,6 +389,10 @@
             <!-- hiding and showing -->
             <div class="hideShow-utility bds-marg-y-md">
               <h4><a name="hideshow">Hide / Show</a></h4>
+              <div class="bds-marg-y-sm">
+                Hide/shows should be a WRAPPER (parent) classes to prevent conflicts with elements 
+              </div>
+
               <div class="bds-row">
                 <div class="bds-col">
                   <u>Hiding</u>: 
