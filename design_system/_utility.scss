@@ -72,7 +72,7 @@
 
 .bds-show-at-xs, .bds-show-at-s, .bds-show-at-md, .bds-show-at-lg, .bds-hide{ display:none; }
 
-@media screen and (min-width: $s-bkpt) {
+@media screen and (min-width: $sm-bkpt) {
   .bds-show-at-s{ display:block;}
   .bds-hide-at-s{ display:none;}
 }
