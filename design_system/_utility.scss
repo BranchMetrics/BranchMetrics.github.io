@@ -70,11 +70,11 @@
 }
 
 
-.bds-show-at-xs, .bds-show-at-s, .bds-show-at-md, .bds-show-at-lg, .bds-hide{ display:none; }
+.bds-show-at-xs, .bds-show-at-sm, .bds-show-at-md, .bds-show-at-lg, .bds-show-at-xl, .bds-hide{ display:none; }
 
 @media screen and (min-width: $sm-bkpt) {
-  .bds-show-at-s{ display:block;}
-  .bds-hide-at-s{ display:none;}
+  .bds-show-at-sm{ display:block;}
+  .bds-hide-at-sm{ display:none;}
 }
 @media screen and (min-width: $md-bkpt) {
   .bds-show-at-md{ display:block;}
@@ -96,8 +96,16 @@
     &-justify {text-align: justify;}
   }
 }
-
-
+@media screen and (min-width: $xl-bkpt) {
+  .bds-show-at-xl{ display:block;}
+  .bds-hide-at-xl{ display:none;}
+  .bds-txt-xl{
+    &-left {text-align: left;}
+    &-right {text-align: right;}
+    &-center {text-align: center;margin-left: auto;margin-right: auto;}
+    &-justify {text-align: justify;}
+  }
+}
 
 
 /*extra utilities*/

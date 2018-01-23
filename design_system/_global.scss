@@ -9,8 +9,7 @@ body {
   top: 0;
   font-size: 100%;
 }
-*, html, button, input, select, textarea,
-.bds-grid [class *= "bds-u"]{ font-family: $font-family; color: $grey; }
+*, html, button, input, select, textarea{ font-family: $font-family; color: $grey; }
 
 img{ max-width: 100%;}
 

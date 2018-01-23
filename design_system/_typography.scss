@@ -17,8 +17,6 @@ h6, .bds-h6 {font-size: $font-size-20; }
 	&-l1 {font-size: $font-size-11; } 
 }
 
-
-
 .bds-txt{
 	&-44 {font-size: $font-size-44; } 
 	&-40 {font-size: $font-size-40; } 
@@ -41,7 +39,7 @@ h6, .bds-h6 {font-size: $font-size-20; }
 }
 
 
-@media screen and (max-width: $sm-bkpt) {
+@media screen and (max-width: $md-bkpt) {
 	h1, h2, h3, h4, h5, h6{ margin:0; }
 	h1, .bds-h1 { font-size: $font-size-44 * .8;}
 	h2, .bds-h2 { font-size: $font-size-40 * .8; } 
