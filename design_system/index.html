@@ -19,6 +19,7 @@
 
       #spacing .spaces > div > div{ border:1px dashed #000; display: inline-block;}
 
+      #utilities .showHideChart > div{ height:50px; width: 100px; margin:5px;}
       nav .plusMinus::before{ content: '-' ; }
       nav .plusMinus.active::before{ content: '+'; }
       nav .showHide::before{ content: 'Hide' ; }
@@ -578,7 +579,7 @@
                   <u>Hiding</u>: 
                     <ul>
                       <li>bds-hide</li>
-                      <li>bds-hide-at-s</li>
+                      <li>bds-hide-at-sm</li>
                       <li>bds-hide-at-md</li>
                       <li>bds-hide-at-lg</li>
                       <li>bds-hide-at-xl</li>
@@ -588,7 +589,7 @@
                 <div class="bds-col">
                   <u>Showing</u>: 
                     <ul><br>
-                      <li>bds-show-at-s</li>
+                      <li>bds-show-at-sm</li>
                       <li>bds-show-at-md</li>
                       <li>bds-show-at-lg</li>
                       <li>bds-show-at-xl</li>
@@ -596,12 +597,65 @@
                 </div>
               </div>
               <img src="hide-show-chart.png">
+              <img src="hide-show-chart2.png">
+
+
+              <div class="bds-b3 bds-marg-t-xs"><i>re-size browser or use emulator to see how the hide shows work on different breakpoints</i></div>
+              <div class="showHideChart bds-txt-11 bds-flex">
+                <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-show-at-sm bds-bg-green bds-txt-white bds-pad-all-xxs">
+                    show-at-sm
+                  </div>
+                </div>
+                <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-show-at-md bds-bg-green bds-txt-white bds-pad-all-xxs">
+                    show-at-md
+                  </div>
+                </div>
+                <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-show-at-lg bds-bg-green bds-txt-white bds-pad-all-xxs">
+                    show-at-lg
+                  </div>
+                </div>
+                <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-show-at-xl bds-bg-green bds-txt-white bds-pad-all-xxs">
+                    show-at-xlg
+                  </div>
+                </div>
+              </div>
+              <div class="showHideChart bds-txt-11 bds-flex">
+                 <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-hide-at-sm bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                    bds-hide-at-sm
+                  </div>
+                </div>
+                <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-hide-at-md bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                    bds-hide-at-md
+                  </div>
+                </div>
+                <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-hide-at-lg bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                    bds-hide-at-lg
+                  </div>
+                </div>
+                <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                  <div class="bds-hide-at-xl bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                    bds-hide-at-xl
+                  </div>
+                </div>
+
+
+
+
+              </div>
+
 
 
               <!--/hiding and showing example -->
               <div class="example">
                 <h6 class="bds-marg-y-xs">Example:</h6>
-                <div class="bds-b3"><i>re-size screen or view mobile emulator to see examples</i></div>
+                <div class="bds-b3"><i>re-size browser or use emulator to see examples</i></div>
                 <div class="bds-marg-b-xs">
                   How do you show a message on mobile but hide on desktop?<br>
                   <u>Solution</u>: class="bds-hide-at-lg"<br><br>
@@ -670,6 +724,10 @@
 
                 <!-- flex ordering -->
                 <h6 class="bds-marg-y-sm">Order</h6>
+                - Flex order classes should be <b><i>children</i></b> of bds-flex. <br>
+                - These flex order classes impacts content on the larger breakpoint and larger. <br>
+                - These classes the order in which your content shows up, even if the markup setup in - HTML has it in a different order<br>
+                <i>Always</i> set up your content in mobile hierarchy, then use css and the order classes to change desktop.
                 <ul>
                   <div class="bds-row">
                     <div class="bds-col-sm-3">
@@ -679,42 +737,25 @@
                       <li>bds-order-4</li>
                       <li>bds-order-5</li>
                     </div>
-                    <div class="bds-col-sm-3">
-                      <li>bds-order-lg-1</li>
-                      <li>bds-order-lg-2</li>
-                      <li>bds-order-lg-3</li>
-                      <li>bds-order-lg-4</li>
-                      <li>bds-order-lg-5</li>
-                    </div>
                   </div>
                 </ul>
 
+                <div class="bds-marg-y-md bds bds-marg-x-xs">
+                  <div class="bds-b3"><i>re-size browser or use emulator to see examples</i></div>
+                  <div class="bds-row bds-flex bds-marg-y-xxs">
+                    <div class="bds-col-6 bds-order-2 bds-bg-red-65 bds-order-2">
+                      1st content
+                    </div>
+                    <div class="bds-col-6 bds-order-1 bds-bg-yellow-65 bds-order-1" >
+                      2nd content
+                    </div>
+                  </div>
+                </div>
+
                 <!-- flex order example -->
-                <div class="bds-marg-all-lg">
-                  <h6 class="bds-marg-y-xs">Examples</h6>
-                  bds-order-* changes the order in which your content shows up. <br>
-                  If you take a look at the html, you'll notice that the green bds-container is declared BEFORE the orange bds-container, but when its rendered on the page, the green bds-container shows up AFTER the orange.
-
-                  <div class="bds-flex bds-marg-y-sm">
-                    <div class="bds-width-100 bds-order-2 bds-bg-green-65">
-                      class="bds-order-2"
-                    </div>
-                    <div class="bds-width-100 bds-order-1 bds-bg-yellow-65">
-                      class="bds-order-1"
-                    </div>
-                  </div>
-
-                  Here is an example where the order changes on desktop but not on mobile. Resize your screen or use an emulator to see the difference. <br>
-                  *note: <i>always</i> set up your content in mobile hierarchy, then use css to change desktop.
-                  <div class="bds-flex bds-marg-y-sm">
-                    <div class="bds-width-100 bds-order-lg-2 bds-bg-green-65">
-                      class="bds-order-lg-2"
-                    </div>
-                    <div class="bds-width-100 bds-order-lg-1 bds-bg-yellow-65">
-                      class="bds-order-lg-1"
-                    </div>
-                  </div>
-
+                <div class="example">
+                  <h6 class="bds-marg-y-xs">Example</h6>
+                  <script src="https://gist.github.com/xianc/603d6ee47f9c7dd8943b2be11cdb66f3.js"></script>
                 </div>
                 <!--/flexorder example -->
 
@@ -731,23 +772,24 @@
                   </ul>
 
                   <!-- flex spacing example -->
-                  <div class="flexSpaceExample bds-marg-all-lg">
-                    <h6 class="bds-marg-y-xs">Example</h6>
-                    <div class="bds-bg-grey-45 bds-pad-y-sm">
-                      <div class="bds-flex bds-space-between">
-                        <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
-                        <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
-                        <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
-                      </div>
+                  <div class="bds-bg-grey-45 bds-pad-y-sm bds-marg-x-xs">
+                    <div class="bds-flex bds-space-between">
+                      <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
+                      <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
+                      <div class="bds-pad-all-xs bds-bg-yellow-65">bds-flex bds-space-between</div>
+                    </div>
 
-                      <div class="bds-flex bds-space-around bds-marg-t-sm">
-                        <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
-                        <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
-                        <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
-                      </div>
+                    <div class="bds-flex bds-space-around bds-marg-t-sm">
+                      <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                      <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                      <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
                     </div>
                   </div>
-                </div>
+                
+                  <div class="example">
+                    <h6 class="bds-marg-y-xs">Example</h6>
+                    <script src="https://gist.github.com/xianc/a5a7268c488a8eac6352df9b7c58ecce.js"></script>
+                  </div>
                 <!--/flex spacing -->
 
               </div>
