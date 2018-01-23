@@ -10,10 +10,10 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
 
   box-sizing: border-box;
   border-radius: 22px;
-  // margin: $spacing-xs $spacing-md;
   @include flexCenter;
   &:hover {
     transition: background-color 100ms linear, color 100ms linear;
+    transition: color 100ms linear, color 100ms linear;
   }
 }
 
@@ -25,7 +25,6 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
       background-color: $dark-blue;
     }
   }
-
   &-ghost{
     color:$white;
      border:1px solid $white;
@@ -35,7 +34,6 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
       background-color: $white;
     }
   }
-
   &-secondary{
     color:$white;
     background-color:$yellow;
@@ -43,6 +41,5 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
       background-color: $yellow-85;
     }
   }
-
 }
 

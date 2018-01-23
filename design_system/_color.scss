@@ -1,4 +1,3 @@
-
 /*text*/
 .bds-txt{
   &-grey{ color:$grey;}
@@ -59,10 +58,8 @@
   &-black{ background-color:$black; }
 }
 
-
 /*border color*/
-
-a[class^='bds-border'], a[class*=' bds-border']{
+[class^='bds-border'], [class*=' bds-border']{
   border: 1px;
   border-style:solid;
 }
@@ -97,10 +94,8 @@ a[class^='bds-border'], a[class*=' bds-border']{
 }
 
 
-
 /*hover background color*/
 .bds-hov{
-  /*hover bg color */
   &-bg{
     &-grey:hover{ background-color:$grey; }
     &-grey-85:hover{ background-color:$grey-85; }

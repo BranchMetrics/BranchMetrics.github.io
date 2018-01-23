@@ -1,5 +1,9 @@
 /*flex & positioning*/
 @mixin flexCenter { display: inline-flex !important; align-items: center; justify-content: center; }
+.bds-block{ display:block; }
+.bds-inline-block{display:inline-block;}
+.bds-float-left{ float:left; }
+.bds-float-right{ float:right; }
 
 .bds-flex{
     display:-webkit-box; 
@@ -66,7 +70,6 @@
   &-left {text-align: left;}
   &-right {text-align: right;}
   &-center {text-align: center;}
-  &-justify {text-align: justify;}
 }
 
 
@@ -82,8 +85,7 @@
   .bds-txt-md{
     &-left {text-align: left;}
     &-right {text-align: right;}
-    &-center {text-align: center;margin-left: auto;margin-right: auto;}
-    &-justify {text-align: justify;}
+    &-center {text-align: center;}
   }
 }
 @media screen and (min-width: $lg-bkpt) {
@@ -110,6 +112,6 @@
 
 /*extra utilities*/
 .bds-cursor-pointer{ cursor: pointer; }
-.bds-ps-tl-0{ top:0; left:0;}
+.bds-tl-0{ top:0; left:0;}
 .bds-height-100{ height:100%;}
 .bds-width-100{ width:100%;}

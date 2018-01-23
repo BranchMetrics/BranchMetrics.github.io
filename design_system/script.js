@@ -27,11 +27,15 @@ $(document).ready(function() {
 
   });
 
-  $('.showClassNames').click(function(){
-    var parentClass = '.'+$(this).parent().attr('class');
-    console.log(parentClass+' .classNames');
-    $(parentClass+' .plusMinus').toggleClass('active');
-    $(parentClass+' .classNames').toggle();
+  $('.exampleToggle').click(function(){
+    // var parentClass = '.'+$(this).parent().attr('class');
+    // console.log(parentClass+' .classNames');
+    // $(parentClass+' .plusMinus').toggleClass('active');
+    // $(parentClass+' .classNames').toggle();
+    // $('.classNames').toggle();
+    $('.plusMinus').toggleClass('active');
+    $('.showHide').toggleClass('active');
+    $('.example').toggle();
   });
   
 });

@@ -27,8 +27,11 @@
     .typography-swap-weight *{ margin: 10px 0; }
 
     .spacingStyles > .spaces > div > div{ border:1px dashed #000; display: inline-block;}
-    /*.plusMinus::before{ content: '+' ; }
-    .plusMinus.active::before{ content: '-'; }*/
+    .plusMinus::before{ content: '-' ; }
+    .plusMinus.active::before{ content: '+'; }
+    .showHide::before{ content: 'Hide' ; }
+    .showHide.active::before{ content: 'Show'; }
+    .example{ background:#fff; padding:30px; border: 1px solid #F1A9A0; margin-top:32px;}
     </style>
 
     <div class="bds-container">
@@ -47,7 +50,14 @@
               <li><a href="#utility">Utility</a></li>
               <li><a href="#flexbox">Flexbox</a></li>
             </ul>
+
+            <div class="bds-hide bds-show-at-md bds-marg-t-xl bds-marg-all-xs">
+              <div class="exampleToggle bds-cursor-pointer bds-hov-txt-bold">
+                <span class="showHide"></span> examples <span class="plusMinus"></span>
+              </div>
+            </div>
           </nav>
+
         </div> <!--/bds-col-3-->
 
 
@@ -93,9 +103,16 @@
             </div>
 
 
-            <p class="bds-marg-t-md">
-              ex: <span class="bds-txt-regular bds-b1"> class="bds-txt-regular bds-b3"</span>
-            </p>
+            <!-- example -->
+            <div class="example">
+              <h6 class="bds-marg-y-xs">Example:</h6>
+              <div class="bds-marg-b-xs">
+                <h5>Hello world</h5>
+                <div class="bds-h6">Hello world</div>
+                <span class="bds-txt-bold bds-b1">Hello world</span>
+              </div>
+              <script src="https://gist.github.com/xianc/4baa6045d1e3d805d502d209b505eb5b.js"></script>
+            </div>
 
           </section>
           <!--/typography-->
@@ -186,6 +203,19 @@
               </div>
             </div>
             <!--/color swatches-->
+
+
+            <!-- example -->
+            <div class="example bds-marg-t-md">
+              <h6 class="bds-marg-y-xs">Example:</h6>
+              <div class="bds-marg-b-xs">
+                <div class="bds-bg-dark-blue bds-txt-white">Hello world</div>
+                <div class="bds-bg-green-65 bds-hov-bg-yellow">Hello world</div>
+                <div class="bds-bg-white bds-border-red bds-hov-txt-red">Hello world</div>
+              </div>
+              <script src="https://gist.github.com/xianc/a2e9ad1cf7d1c593667ab8595502dcfa.js"></script>
+            </div>
+
           </section>
           <!--/color palette-->
 
@@ -225,36 +255,107 @@
               </div>
             </div>
 
-            <div class="spaces bds-flex bds-space-between bds-marg-t-md">
+            <div class="spaces bds-flex bds-space-between bds-marg-t-md bds-txt-center">
               <div>
                 *-xxs<br>
-                <div class="bds-space-xxs"> </div>
+                <div class="bds-space-xxs"> </div><br>
+                ~8px
               </div>
               <div>
                 *-xs<br>
-                <div class="bds-space-xs"> </div>
+                <div class="bds-space-xs"> </div><br>
+                ~16px
               </div>
               <div>
                 *-sm<br>
-                <div class="bds-space-sm"> </div>
+                <div class="bds-space-sm"> </div><br>
+                ~24px
               </div>
               <div>
                 *-md<br>
-                <div class="bds-space-md"> </div>
+                <div class="bds-space-md"> </div><br>
+                ~32px
               </div>
               <div>
                 *-lg<br>
-                <div class="bds-space-lg"> </div>
+                <div class="bds-space-lg"> </div><br>
+                ~48px
               </div>
               <div>
                 *-xl<br>
-                <div class="bds-space-xl"> </div>
+                <div class="bds-space-xl"> </div><br>
+                ~67px
               </div>
               <div>
                 *-xxl<br>
-                <div class="bds-space-xxl"> </div>
+                <div class="bds-space-xxl"> </div><br>
+                ~88px
               </div>
               <div></div>
+            </div>
+
+
+            <h6 class="bds-marg-y-xs">Spacing all around view: </h6>
+            <div class="bds-flex bds-space-between">
+              <div>
+                <div class="bds-bg-green-65 bds-inline-block">
+                  <div class="bds-marg-all-xxs bds-bg-white">
+                    *-all-xxs
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="bds-bg-green-65 bds-inline-block">
+                  <div class="bds-marg-all-xs bds-bg-white">
+                    *-all-xs
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="bds-bg-green-65 bds-inline-block">
+                  <div class="bds-marg-all-sm bds-bg-white">
+                    *-all-sm
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="bds-bg-green-65 bds-inline-block">
+                  <div class="bds-marg-all-md bds-bg-white">
+                    *-all-md
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="bds-bg-green-65 bds-inline-block">
+                  <div class="bds-marg-all-lg bds-bg-white">
+                    *-all-lg
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="bds-bg-green-65 bds-inline-block">
+                  <div class="bds-marg-all-xl bds-bg-white">
+                    *-all-xl
+                  </div>
+                </div>
+              </div>
+              <div></div>
+            </div>
+
+
+            <!-- example -->
+            <div class="example">
+              <h6 class="bds-marg-y-xs">Example:</h6>
+              <div class="bds-marg-b-xs">
+                <div class="bds-bg-yellow-65 bds-pad-y-md">Hello world</div>
+                <div class="bds-bg-purple-65 bds-pad-all-xxs">Hello world</div>
+                <div class="bds-bg-green bds-pad-l-xl">
+                  <div class="bds-bg-white bds-pad-b-md">
+                    Hello world
+                  </div>
+                </div>
+              </div>
+              <script src="https://gist.github.com/xianc/998a97c9c32c91b0ec7743a0e5b1589f.js"></script>
             </div>
 
           </section>
@@ -320,28 +421,46 @@
                 </div>
               </div>
 
+
               <!--custom buttons-->
               <h4 class="bds-marg-t-lg bds-marg-b-xxs">Custom Chipotle Style Buttons</h4>
               Declare class="bds-btn" and then append your color and typography utility classes. See examples below:
-              <div class="bds-row bds-txt-center">
-                <div class="bds-col">
+              <div class="bds-row bds-marg-b-sm">
+                <div class="bds-col bds-col-md-4">
                   <div class="classNames bds-pad-all-sm">
-                    bds-btn bds-bg-yellow bds-txt-white <br>
-                    bds-hov-bg-white bds-hov-txt-yellow<br>
+                    bds-btn <br>
+                    bds-bg-yellow <br>
+                    bds-txt-white <br>
+                    bds-hov-bg-white <br>
+                    bds-hov-txt-yellow
                   </div>
                   <a class="bds-btn bds-bg-yellow bds-txt-white bds-hov-bg-white bds-hov-txt-yellow" href="">Request Demo</a>
                 </div>
-                <div class="bds-col">
+                <div class="bds-col bds-col-md-4">
                   <div class="classNames bds-pad-all-sm">
-                    bds-btn bds-bg-yellow bds-txt-white <br>
-                    bds-hov-bg-white bds-hov-txt-yellow<br>
+                    bds-btn <br>
+                    bds-bg-yellow <br>
+                    bds-txt-white <br>
+                    bds-hov-bg-white <br>
+                    bds-hov-txt-yellow
                   </div>
                   <a class="bds-btn bds-bg-white bds-txt-yellow bds-hov-bg-yellow bds-hov-txt-white" href="">Create Links</a>
                 </div>
               </div>
-              <!--/custom buttons -->
-
             </div>
+
+
+            <!--/custom buttons -->
+            <div class="example">
+              <h6 class="bds-marg-y-xs">Example:</h6>
+              <div class="bds-marg-b-xs">
+                <a class="bds-btn-primary" href="">Button 1</a>
+                <a class="bds-btn bds-bg-black bds-txt-white bds-hov-bg-black bds-hov-txt-yellow" href="">Button 2</a>
+                <a class="bds-btn-ghost bds-bg-green-65 bds-border-green" href="">Button 3</a>
+              </div>
+              <script src="https://gist.github.com/xianc/ab987a2afcac90e81221da847bc4c433.js"></script>
+            </div>
+
           </section>
           <!--/custom buttons -->
 
@@ -363,13 +482,11 @@
                           <li>bds-txt-left</li>
                           <li>bds-txt-right</li>
                           <li>bds-txt-center</li>
-                          <li>bds-txt-justify</li>
                         </div>
                         <div class="bds-col-md-5">
                           <li>bds-txt-lg-left</li>
                           <li>bds-txt-lg-right</li>
                           <li>bds-txt-lg-center</li>
-                          <li>bds-txt-lg-justify</li>
                         </div>
                       </div>
                     </ul>
@@ -381,9 +498,26 @@
                       <li>bds-relative</li>
                       <li>bds-absolute</li>
                       <li>bds-fixed</li>
+                      <div>bds-tl-0 (top:0, left:0)</div>
                     </ul>
                 </div>
               </div>
+
+              <!--/general utility examples -->
+              <div class="example">
+                <h6 class="bds-marg-y-xs">Example:</h6>
+                <div class="bds-marg-b-xs">
+                  <div class="bds-bg-yellow-65 bds-txt-right">Hello world</div>
+                  <div class="bds-bg-purple-65 bds-relative bds-pad-all-xl">
+                    Hello World
+                    <div class="bds-absolute bds-tl-0 bds-bg-red bds-pad-all-xs">
+                      Hello I'm absolute
+                    </div>
+                  </div>
+                </div>
+                <script src="https://gist.github.com/xianc/b2602dc16d7f980eb4dd6b0d73e805ae.js"></script>
+              </div>
+
             </div>
 
             <!-- hiding and showing -->
@@ -418,7 +552,7 @@
               <img src="hide-show-chart.png">
 
               <h6 class="bds-marg-y-xs">Examples</h6>
-                <div class="bds-b3"><i>reize screen or view mobile emulator to see examples</i></div>
+                <div class="bds-b3"><i>re-size screen or view mobile emulator to see examples</i></div>
                 <p>
                   How do you show a message on mobile but hide on desktop?<br>
                   <u>Solution</u>: class="bds-hide-at-lg"<br>
