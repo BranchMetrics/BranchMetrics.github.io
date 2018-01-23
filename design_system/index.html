@@ -7,48 +7,49 @@
   </head>
   <body>
     <style>
-    .bds-container{ width:1280px; }
-    
-    @media (min-width: 992px){
-      nav{ position: fixed; margin-top:20px; width:13.5%;}
-      nav ul{  padding:0; }
-      nav ul li{ list-style: none; }
-      nav ul li a{ display:block; padding:10px 20px;}
-      nav ul li a:hover{ font-weight: bold; }
-    }
-    
-    section{ border-bottom:1px solid #000; padding: 50px 0;}
-    section:first-child{ padding-top: 0; }
+      .bds-container{ width:1280px; }
+      section{ border-bottom:1px solid #000; padding: 50px 0;}
+      section:first-child{ padding-top: 0; }
 
-    .swatch{ height:100px; width:200px; display:flex; align-items: center; justify-content: center;}
+      #colorPalette .swatch{ height:100px; width:200px; display:flex; align-items: center; justify-content: center;}
 
-    .typography-weights > span{ cursor: pointer; padding:10px; background-color:white; border:1px solid #ccc;}
-    .typography-weights > span:hover{ background-color:#eee; }
-    .typography-swap-weight *{ margin: 10px 0; }
+      #typography .typography-weights > span{ cursor: pointer; padding:10px; background-color:white; border:1px solid #ccc;}
+      #typography .typography-weights > span:hover{ background-color:#eee; }
+      #typography .typography-swap-weight *{ margin: 10px 0; }
 
-    .spacingStyles > .spaces > div > div{ border:1px dashed #000; display: inline-block;}
-    .plusMinus::before{ content: '-' ; }
-    .plusMinus.active::before{ content: '+'; }
-    .showHide::before{ content: 'Hide' ; }
-    .showHide.active::before{ content: 'Show'; }
-    .example{ background:#fff; padding:30px; border: 1px solid #F1A9A0; margin-top:32px;}
+      #spacing .spaces > div > div{ border:1px dashed #000; display: inline-block;}
+
+      nav .plusMinus::before{ content: '-' ; }
+      nav .plusMinus.active::before{ content: '+'; }
+      nav .showHide::before{ content: 'Hide' ; }
+      nav .showHide.active::before{ content: 'Show'; }
+
+      .example{ background:#fff; padding:30px; border: 1px solid #F1A9A0; margin-top:32px;}
+
+      @media (min-width: 992px){
+        nav{ position: fixed; margin-top:20px; width:13.5%;}
+        nav ul{  padding:0; }
+        nav ul li{ list-style: none; }
+        nav ul li a{ display:block; padding:10px 20px;}
+        nav ul li a:hover{ font-weight: bold; }
+      }
     </style>
 
     <div class="bds-container">
 
       <div class="bds-row">
         <!-- nav -->
-        <div class="bds-col-12 bds-col-md-2">
+        <div class="bds-col-12 bds-col-lg-2">
           <nav class="bds-marg-t-md">
             <h2 class="bds-txt-bold bds-marg-x-xs">BDS</h2>
             <ul>
-              <li><a href="#typography">Tyography</a></li>
-              <li><a href="#colorPalette">Color Palette</a></li>
-              <li><a href="#spacing">Spacing</a></li>
-              <li><a href="#breakpoints">Breakpoints</a></li>
-              <li><a href="#buttons">Buttons</a></li>
-              <li><a href="#utility">Utility</a></li>
-              <li><a href="#flexbox">Flexbox</a></li>
+              <li data-section="typography"><a href="#typography">Tyography</a></li>
+              <li data-section="colorPalette"><a href="#colorPalette">Color Palette</a></li>
+              <li data-section="spacing"><a href="#spacing">Spacing</a></li>
+              <li data-section="breakpoints"><a href="#breakpoints">Breakpoints</a></li>
+              <li data-section="buttons"><a href="#buttons">Buttons</a></li>
+              <li data-section="utilities"><a href="#utility">Utility</a></li>
+              <li data-section="flexbox"><a href="#flexbox">Flexbox</a></li>
             </ul>
 
             <div class="bds-hide bds-show-at-md bds-marg-t-xl bds-marg-all-xs">
@@ -62,12 +63,56 @@
 
 
         <!-- right column, main content -->
-        <div class="bds-col-12 bds-col-md-10 bds-bg-grey-05 bds-pad-all-md">
+        <div class="bds-col-12 bds-col-lg-10 bds-bg-grey-05 bds-pad-all-md">
           <!-- **********************************************
                     typography
           ********************************************** -->
-          <section class="typography">
+          <section id="typography">
             <h2 class="bds-marg-b-sm"><a name="typography">Typography</a></h2>
+
+            <h4>Tags & Classes: </h4>
+            <div class="bds-row bds-marg-t-xs bds-marg-b-md">
+              <div class="bds-col-12 bds-marg-x-sm">
+                <u>font-weight</u>: 
+                  <ul>
+                    <li>bds-txt-light</li>
+                    <li>bds-txt-regular</li>
+                    <li>bds-txt-semi-bold</li>
+                    <li>bds-txt-bold</li>
+                  </ul>
+              </div>
+              <div class="bds-col-12 bds-marg-x-sm">
+                <u>Font-sizes</u>: <br>
+                There is a maximum of 3 days to determine font sizing.<br>
+                - <b>Tags</b>: h1 to h6<br>
+                - <b>Classes representing tags</b>: bds-h1 to bds-h6, bds-b1 to bds-b4, and bds-l1<br>
+                - <b>Classes representing relative pixel size</b>: bds-txt-44 to bds-txt-11 (see increments below)
+                <!-- inner grid -->
+                <div class="bds-row">
+                  <div class="bds-col bds-marg-r-xs">
+                    <ul>
+                      <li>h1 / bds-h1 / bds-txt-44</li>
+                      <li>h2 / bds-h2 / bds-txt-40</li>
+                      <li>h3 / bds-h3 / bds-txt-34</li>
+                      <li>h4 / bds-h4 / bds-txt-24</li>
+                      <li>h5 / bds-h5 / bds-txt-22</li>
+                      <li>h6 / bds-h6 / bds-txt-40</li>
+                    </ul>
+                  </div>
+                  <div class="bds-col bds-marg-r-xs">
+                    <ul>
+                      <li>bds-b1 / bds-txt-18</li>
+                      <li>bds-b2 / bds-txt-16</li>
+                      <li>bds-b3 / bds-txt-14</li>
+                      <li>bds-b4 / bds-txt-12</li>
+                      <li>bds-l1 / bds-txt-11</li>
+                    </ul>
+                  </div>
+                </div><!--/ inner grid -->
+              </div>
+            </div>
+
+
 
             <!-- font weights -->
             <div class="typography-weights">
@@ -86,19 +131,19 @@
             <!-- font sizes -->
             <div class="typography-swap-weight">
               <div class="typography-headings">
-                <h1 class="bds-txt-regular">bds-h1: Heading 1 ~ 44px</h1>
-                <h2 class="bds-txt-regular">bds-h2: Heading 2 ~ 40px</h2>
-                <h3 class="bds-txt-regular">bds-h3: Heading 3 ~ 34px</h3>
-                <h4 class="bds-txt-regular">bds-h4: Heading 4 ~ 24px</h4>
-                <h5 class="bds-txt-regular">bds-h5: Heading 5 ~ 22px</h5>
-                <h6 class="bds-txt-regular">bds-h6: Heading 6 ~ 20px</h6>
+                <h1 class="bds-txt-regular">h1: Heading 1 ~ 44px</h1>
+                <h2 class="bds-txt-regular">h2: Heading 2 ~ 40px</h2>
+                <h3 class="bds-txt-regular">h3: Heading 3 ~ 34px</h3>
+                <h4 class="bds-txt-regular">h4: Heading 4 ~ 24px</h4>
+                <h5 class="bds-txt-regular">h5: Heading 5 ~ 22px</h5>
+                <h6 class="bds-txt-regular">h6: Heading 6 ~ 20px</h6>
               </div>
               <div class="typography-other">
-                <div class="bds-b1">bds-b1: body 1 ~ 18px</div>
-                <div class="bds-b2">bds-b2: body 2 ~ 16px</div>
-                <div class="bds-b3">bds-b3: body 3 ~ 14px</div>
-                <div class="bds-b4">bds-b4: body 4 ~ 12px</div>
-                <div class="bds-l1">bds-l1: legal ~ 11px</div>
+                <div class="bds-b1">b1: body 1 ~ 18px</div>
+                <div class="bds-b2">b2: body 2 ~ 16px</div>
+                <div class="bds-b3">b3: body 3 ~ 14px</div>
+                <div class="bds-b4">b4: body 4 ~ 12px</div>
+                <div class="bds-l1">l1: legal ~ 11px</div>
               </div>
             </div>
 
@@ -107,9 +152,10 @@
             <div class="example">
               <h6 class="bds-marg-y-xs">Example:</h6>
               <div class="bds-marg-b-xs">
-                <h5>Hello world</h5>
-                <div class="bds-h6">Hello world</div>
-                <span class="bds-txt-bold bds-b1">Hello world</span>
+                <h5>Hello world 1</h5>
+                <div class="bds-h4">Hello world 2</div>
+                <div class="bds-txt-bold bds-b1">Hello world 3</div>
+                <span class="bds-txt-light bds-txt-16">Hello world 4</span>
               </div>
               <script src="https://gist.github.com/xianc/4baa6045d1e3d805d502d209b505eb5b.js"></script>
             </div>
@@ -122,7 +168,7 @@
           <!-- **********************************************
                     color palette
           ********************************************** -->
-          <section class="colorPalette">
+          <section id="colorPalette">
             <h2 class="bds-marg-b-sm"><a name="colorPalette">Color Palette</a></h2>
             <h4>Prefixes</h4>
             <div class="bds-row">
@@ -223,7 +269,7 @@
           <!-- **********************************************
                     spacing styles
           ********************************************** -->
-          <section class="spacingStyles">
+          <section id="spacing">
             <h2 class="bds-marg-b-sm"><a name="spacing">Spacing</a></h2>
             <h4>Prefixes</h4>
             <div class="bds-row">
@@ -366,7 +412,7 @@
           <!-- **********************************************
                     breakpoints
           ********************************************** -->
-          <section class="breakpoints">
+          <section id="breakpoints">
             <h2 class="bds-marg-b-xxs"><a name="breakpoints">Breakpoints</a></h2>
             <div class="bds-row">
               <div class="bds-col bds-marg-r-sm">
@@ -392,7 +438,7 @@
           <!-- **********************************************
                     button styles
           ********************************************** -->
-          <section class="buttonStyles">
+          <section id="buttons">
             <h2 class="bds-marg-b-xxs"><a name="buttons">Buttons</a></h2>
             <!-- <div class="showClassNames bds-cursor-pointer">
               show classes <span class="plusMinus"></span>
@@ -468,7 +514,7 @@
           <!-- **********************************************
                    utility
           ********************************************** -->
-          <section class="Utility">
+          <section id="utilities">
             <h2 class="bds-marg-b-xxs"><a name="utility">Utility</a></h2>
             <!-- general utilities -->
             <div class="general-tilities bds-marg-y-sm">
@@ -492,7 +538,7 @@
                     </ul>
                 </div>
                 <div class="bds-col-6">
-                  <u>Positioning</u>: <br>
+                  <u>Positionin</u>: <br>
                   css "position"
                     <ul>
                       <li>bds-relative</li>
@@ -551,26 +597,46 @@
               </div>
               <img src="hide-show-chart.png">
 
-              <h6 class="bds-marg-y-xs">Examples</h6>
+
+              <!--/hiding and showing example -->
+              <div class="example">
+                <h6 class="bds-marg-y-xs">Example:</h6>
                 <div class="bds-b3"><i>re-size screen or view mobile emulator to see examples</i></div>
-                <p>
+                <div class="bds-marg-b-xs">
                   How do you show a message on mobile but hide on desktop?<br>
-                  <u>Solution</u>: class="bds-hide-at-lg"<br>
-                  <div class="bds-hide-at-lg bds-bg-purple-65 bds-marg-all-sm">This is hidden on the large breakpoint</div>
+                  <u>Solution</u>: class="bds-hide-at-lg"<br><br>
+                  <div class="bds-border-grey-65 bds-pad-all-xxs">
+                    <div class="bds-hide-at-lg bds-bg-red-65 bds-marg-all-sm">
+                      This is hidden on the large breakpoint
+                    </div>
+                  </div>
+
                   <br>
                   How do you hide a message on mobile, but show on desktop?<br>
-                  <u>Solution</u>: class="bds-hide bds-show-at-lg"<br>
-                  <div class="bds-hide bds-show-at-lg bds-bg-purple-65 bds-marg-all-sm">This is showing on the large breakpoint</div>
-                </p>
+                  <u>Solution</u>: class="bds-hide bds-show-at-lg"<br><br>
+                  <div class="bds-border-grey-65 bds-pad-all-xs">
+                    <div class="bds-hide bds-show-at-lg bds-bg-purple-65 bds-marg-all-sm">
+                      This is showing on the large breakpoint
+                    </div>
+                  </div>
+                </div>
+                <script src="https://gist.github.com/xianc/c450892c847fe13d2030ffea9bf13194.js"></script>
+              </div>
+
+
             </div>
           </section>
           <!--/utility-->
 
 
+
+
+
+
           <!-- **********************************************
                    flexbox
           ********************************************** -->
-          <section class="flexbox">
+          <section id="flexbox">
             <h2 class="bds-marg-b-xxs"><a name="flexbox">Flexbox</a></h2>
               <ul>
                 <li>bds-flex</li>
@@ -583,16 +649,23 @@
                   <li>bds-xy-center (horizontal & vertically center)</li>
                   <li>bds-y-center (vertically center)</li>
                 </ul>
-                <div class="bds-marg-all-lg">
-                  <h6 class="bds-marg-y-xs">Examples</h6>
-                  <div class="bds-bg-green-65 bds-flex bds-y-center" style="height:200px">
-                    class="bds-flex bds-y-center"
+                <div class="bds-row">
+                  <div class="bds-col-6 bds-bg-red-65 bds-flex bds-y-center" style="height:200px">
+                    bds-flex bds-y-center
                   </div>
-                  <br>
-                  <div class="bds-bg-yellow-65 bds-flex bds-xy-center" style="height:200px">
-                    class="bds-flex bds-xy-center"
+                  <div class="bds-col-6 bds-bg-purple-65 bds-flex bds-xy-center" style="height:200px">
+                    bds-flex bds-xy-center
                   </div>
                 </div>
+
+
+                <!-- flex center example-->
+                <div class="example">
+                  <h6 class="bds-marg-y-xs">Example</h6>
+                  <script src="https://gist.github.com/xianc/0cb1e9303beaa70608a41ec6e44eb109.js"></script>
+                  *note: inline style, height is only for example purposes. Please avoid inline styles in your markup.
+                </div>
+
                 <!--/flex centering-->
 
                 <!-- flex ordering -->
