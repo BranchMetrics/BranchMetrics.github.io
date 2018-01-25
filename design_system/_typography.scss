@@ -1,5 +1,5 @@
-a{text-decoration:none; font-weight:$font-weight-regular;}
-p { font-weight: $font-weight-regular; line-height: $font-height; margin:0;}
+a{text-decoration:none; font-weight:$font-weight-regular; color:#0075C9;}
+p {line-height:1.5em; margin:0;}
 
 /* headers & sub headers */
 h1, h2, h3, h4, h5, h6{ margin:0; font-weight: $font-weight-regular;}
@@ -38,6 +38,10 @@ h6, .bds-h6 {font-size: $font-size-20; }
   	&-regular { font-weight: $font-weight-regular; }
   	&-semi-bold { font-weight: $font-weight-semi-bold; }
   	&-bold { font-weight: $font-weight-bold; }
+
+  	/*font cases */
+  	&-upper { text-transform: uppercase; }
+  	&-lower { text-transform: lowercase; }
 }
 
 /* hover font weights */

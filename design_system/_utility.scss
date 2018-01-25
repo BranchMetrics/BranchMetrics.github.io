@@ -30,25 +30,25 @@
 }
 
 .bds{
-    &-order-1{order:1;}
-    &-order-2{order:2;}
-    &-order-3{order:3;}
-    &-order-4{order:4;}
-    &-order-5{order:5;}
+    // &-order-1{order:1;}
+    // &-order-2{order:2;}
+    // &-order-3{order:3;}
+    // &-order-4{order:4;}
+    // &-order-5{order:5;}
 
     @media screen and (min-width: $lg-bkpt) {
-      &-order-lg-1{order:1;}
-      &-order-lg-2{order:2;}
-      &-order-lg-3{order:3;}
-      &-order-lg-4{order:4;}
-      &-order-lg-5{order:5;}
+      &-order-1{order:1;}
+      &-order-2{order:2;}
+      &-order-3{order:3;}
+      &-order-4{order:4;}
+      &-order-5{order:5;}
     }
 }
 
 .clearfix{ clear: both;}
 
 /*positioning*/
-.bds-relative{ position:relative; }
+.relative, .bds-relative{ position:relative; }
 .bds-absolute{ position:absolute; }
 .bds-fixed{ position:fixed;}
 
@@ -81,21 +81,20 @@
 
 @media screen and (min-width: $sm-bkpt) {
   .bds-show-at-sm{ display:block;}
-  .bds-hide-at-sm{ display:none;}
+  .bds-hide-at-sm{ display: none;}
 }
 @media screen and (min-width: $md-bkpt) {
   .bds-show-at-md{ display:block;}
-  .bds-hide-at-md{ display:none;}
+  .bds-hide-at-md{ display: none;}
 }
 @media screen and (min-width: $lg-bkpt) {
   .bds-show-at-lg{ display:block;}
-  .bds-hide-at-lg{ display:none;}
+  .bds-hide-at-lg{ display: none;}
 }
 @media screen and (min-width: $xl-bkpt) {
   .bds-show-at-xl{ display:block;}
-  .bds-hide-at-xl{ display:none;}
+  .bds-hide-at-xl{ display: none;}
 }
-
 
 /*extra utilities*/
 .bds-cursor-pointer{ cursor: pointer; }
