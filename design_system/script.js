@@ -72,6 +72,7 @@ $(document).ready(function() {
     var in_view_breakpoints = Utils.isElementInView($('#breakpoints'), false);
     var in_view_buttons = Utils.isElementInView($('#buttons'), false);
     var in_view_utilities = Utils.isElementInView($('#utilities'), false);
+    var in_view_hideshow= Utils.isElementInView($('#hideshow'), false);
     var in_view_flexbox = Utils.isElementInView($('#flexbox'), false);
 
     if (in_view_typography==true){ boldNavItem('typography')}
@@ -80,6 +81,7 @@ $(document).ready(function() {
     if (in_view_breakpoints==true){ boldNavItem('breakpoints')}
     if (in_view_buttons==true){ boldNavItem('buttons')}
     if (in_view_utilities==true){ boldNavItem('utilities')}
+    if (in_view_hideshow==true){ boldNavItem('hideshow')}
     if (in_view_flexbox==true){ boldNavItem('flexbox')}
   }
 

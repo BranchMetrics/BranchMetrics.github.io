@@ -1,10 +1,11 @@
 /*flex & positioning*/
-@mixin flexCenter { display: inline-flex !important; align-items: center; justify-content: center; }
 .bds-block{ display:block; }
 .bds-inline-block{display:inline-block;}
-.bds-float-left{ float:left; }
-.bds-float-right{ float:right; }
+.bds-left{ float:left; }
+.bds-right{ float:right; }
 
+
+@mixin flexCenter { display: inline-flex !important; align-items: center; justify-content: center; }
 .bds-flex{
     display:-webkit-box; 
     display:-moz-box;
@@ -29,20 +30,16 @@
   &-space-around{ justify-content: space-around; }
 }
 
-.bds{
-    // &-order-1{order:1;}
-    // &-order-2{order:2;}
-    // &-order-3{order:3;}
-    // &-order-4{order:4;}
-    // &-order-5{order:5;}
 
-    @media screen and (min-width: $lg-bkpt) {
-      &-order-1{order:1;}
-      &-order-2{order:2;}
-      &-order-3{order:3;}
-      &-order-4{order:4;}
-      &-order-5{order:5;}
-    }
+ 
+@media screen and (min-width: $lg-bkpt) {
+  .bds{
+    &-order-1{order:1;}
+    &-order-2{order:2;}
+    &-order-3{order:3;}
+    &-order-4{order:4;}
+    &-order-5{order:5;}
+  }
 }
 
 .clearfix{ clear: both;}

@@ -19,7 +19,7 @@
 
       #spacing .spaces > div > div{ border:1px dashed #000; display: inline-block;}
 
-      #utilities .showHideChart > div{ height:50px; width: 100px; margin:5px;}
+      #hideshow .showHideChart > div{ height:50px; width: 100px; margin:5px;}
       nav .plusMinus::before{ content: '-' ; }
       nav .plusMinus.active::before{ content: '+'; }
       nav .showHide::before{ content: 'Hide' ; }
@@ -50,6 +50,7 @@
               <li data-section="breakpoints"><a href="#breakpoints">Breakpoints</a></li>
               <li data-section="buttons"><a href="#buttons">Buttons</a></li>
               <li data-section="utilities"><a href="#utility">Utility</a></li>
+              <li data-section="hideshow"><a href="#hideshow">Hide/Show</a></li>
               <li data-section="flexbox"><a href="#flexbox">Flexbox</a></li>
             </ul>
 
@@ -184,7 +185,7 @@
               </div>
               <div class="bds-col bds-marg-x-sm">
                 <u>text color</u>: 
-                  <ul>
+                <ul>
                   <li>bds-txt</li>
                   <li>bds-hov-txt</li>
                 </ul>
@@ -193,7 +194,7 @@
               </div>
               <div class="bds-col bds-marg-x-sm">
                 <u>border color</u>: 
-                  <ul>
+                <ul>
                   <li>bds-border</li><br>
                 </ul>
 
@@ -539,13 +540,53 @@
                     </ul>
                 </div>
                 <div class="bds-col-6">
-                  <u>Positionin</u>: <br>
+                  <u>Positioning</u>: <br>
                   css "position"
                     <ul>
-                      <li>bds-relative</li>
-                      <li>bds-absolute</li>
-                      <li>bds-fixed</li>
-                      <div>bds-tl-0 (top:0, left:0)</div>
+                      <div class="bds-row">
+                        <div class="bds-col-md-5">
+                          <li>bds-relative</li>
+                          <li>bds-absolute</li>
+                          <li>bds-fixed</li>
+                        </div>
+                        <div class="bds-col-md-5">
+                          <li>bds-tl-0 <br>
+                              <span class="bds-txt-12">(top:0, left:0)</span></li>
+                          <li>bds-marg-x-auto <br>
+                              <span class="bds-txt-12">(margin left & right: auto)</span></li>
+                        </div>
+                      </div>
+                    </ul>
+                </div>
+              </div><!-- /row -->
+
+              <div class="bds-row">
+                <div class="bds-col-6">
+                  <u>Display</u>: <br>
+                    <ul>
+                      <div class="bds-row">
+                        <div class="bds-col-md-5">
+                          <li>bds-block</li>
+                          <li>bds-inline-block</li>
+                        </div>
+                        <div class="bds-col-md-5">
+                          <li>bds-flex</li>
+                          <li>bds-inline-flex</li>
+                        </div>
+                      </div>
+                    </ul>
+                </div>
+                <div class="bds-col-6">
+                  <u>Floats</u>: <br>
+                    <ul>
+                      <div class="bds-row">
+                        <div class="bds-col-md-5">
+                          <li>bds-left</li>
+                          <li>bds-right</li>
+                        </div>
+                        <div class="bds-col-md-5">
+                          <li>clearfix</li>
+                      </div>
                     </ul>
                 </div>
               </div>
@@ -566,89 +607,87 @@
               </div>
 
             </div>
+          </section>
+          <!-- hiding and showing -->
+            
+          <section id="hideshow">
+            <h2 class="bds-marg-b-xxs"><a name="hideshow">Hide/Show</a></h2>
+            <div class="bds-marg-y-sm">
+              Hide/shows should be a WRAPPER (parent) classes to prevent conflicts with elements 
+            </div>
 
-            <!-- hiding and showing -->
-            <div class="hideShow-utility bds-marg-y-md">
-              <h4><a name="hideshow">Hide / Show</a></h4>
-              <div class="bds-marg-y-sm">
-                Hide/shows should be a WRAPPER (parent) classes to prevent conflicts with elements 
+            <div class="bds-row">
+              <div class="bds-col">
+                <u>Hiding</u>: 
+                  <ul>
+                    <li>bds-hide</li>
+                    <li>bds-hide-at-sm</li>
+                    <li>bds-hide-at-md</li>
+                    <li>bds-hide-at-lg</li>
+                    <li>bds-hide-at-xl</li>
+                  </ul>
               </div>
 
-              <div class="bds-row">
-                <div class="bds-col">
-                  <u>Hiding</u>: 
-                    <ul>
-                      <li>bds-hide</li>
-                      <li>bds-hide-at-sm</li>
-                      <li>bds-hide-at-md</li>
-                      <li>bds-hide-at-lg</li>
-                      <li>bds-hide-at-xl</li>
-                    </ul>
-                </div>
+              <div class="bds-col">
+                <u>Showing</u>: 
+                  <ul><br>
+                    <li>bds-show-at-sm</li>
+                    <li>bds-show-at-md</li>
+                    <li>bds-show-at-lg</li>
+                    <li>bds-show-at-xl</li>
+                  </ul>
+              </div>
+            </div>
+            <img src="hide-show-chart.png">
+            <img src="hide-show-chart2.png">
 
-                <div class="bds-col">
-                  <u>Showing</u>: 
-                    <ul><br>
-                      <li>bds-show-at-sm</li>
-                      <li>bds-show-at-md</li>
-                      <li>bds-show-at-lg</li>
-                      <li>bds-show-at-xl</li>
-                    </ul>
+
+            <div class="bds-b3 bds-marg-t-xs"><i>re-size browser or use emulator to see how the hide shows work on different breakpoints</i></div>
+            <div class="showHideChart bds-txt-11 bds-flex">
+              <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-show-at-sm bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  show-at-sm
                 </div>
               </div>
-              <img src="hide-show-chart.png">
-              <img src="hide-show-chart2.png">
-
-
-              <div class="bds-b3 bds-marg-t-xs"><i>re-size browser or use emulator to see how the hide shows work on different breakpoints</i></div>
-              <div class="showHideChart bds-txt-11 bds-flex">
-                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-show-at-sm bds-bg-green bds-txt-white bds-pad-all-xxs">
-                    show-at-sm
-                  </div>
-                </div>
-                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-show-at-md bds-bg-green bds-txt-white bds-pad-all-xxs">
-                    show-at-md
-                  </div>
-                </div>
-                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-show-at-lg bds-bg-green bds-txt-white bds-pad-all-xxs">
-                    show-at-lg
-                  </div>
-                </div>
-                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-show-at-xl bds-bg-green bds-txt-white bds-pad-all-xxs">
-                    show-at-xlg
-                  </div>
+              <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-show-at-md bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  show-at-md
                 </div>
               </div>
-              <div class="showHideChart bds-txt-11 bds-flex">
-                 <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-hide-at-sm bds-bg-yellow bds-txt-white bds-pad-all-xxs">
-                    bds-hide-at-sm
-                  </div>
+              <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-show-at-lg bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  show-at-lg
                 </div>
-                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-hide-at-md bds-bg-yellow bds-txt-white bds-pad-all-xxs">
-                    bds-hide-at-md
-                  </div>
-                </div>
-                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-hide-at-lg bds-bg-yellow bds-txt-white bds-pad-all-xxs">
-                    bds-hide-at-lg
-                  </div>
-                </div>
-                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                  <div class="bds-hide-at-xl bds-bg-yellow bds-txt-white bds-pad-all-xxs">
-                    bds-hide-at-xl
-                  </div>
-                </div>
-
-
-
-
               </div>
+              <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-show-at-xl bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  show-at-xlg
+                </div>
+              </div>
+            </div>
+            <div class="showHideChart bds-txt-11 bds-flex">
+               <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-hide-at-sm bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                  bds-hide-at-sm
+                </div>
+              </div>
+              <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-hide-at-md bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                  bds-hide-at-md
+                </div>
+              </div>
+              <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-hide-at-lg bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                  bds-hide-at-lg
+                </div>
+              </div>
+              <div class="bds-border-grey-65 bds-flex bds-xy-center">
+                <div class="bds-hide-at-xl bds-bg-yellow bds-txt-white bds-pad-all-xxs">
+                  bds-hide-at-xl
+                </div>
+              </div>
+            </div>
+
 
 
 
@@ -678,7 +717,6 @@
               </div>
 
 
-            </div>
           </section>
           <!--/utility-->
 
@@ -694,6 +732,7 @@
             <h2 class="bds-marg-b-xxs"><a name="flexbox">Flexbox</a></h2>
               <ul>
                 <li>bds-flex</li>
+                <li>bds-inline-flex</li>
               </ul>
 
               <div class="bds-marg-l-md">
@@ -724,10 +763,10 @@
 
                 <!-- flex ordering -->
                 <h6 class="bds-marg-y-sm">Order</h6>
-                - Flex order classes should be <b><i>children</i></b> of bds-flex. <br>
-                - These flex order classes impacts content on the larger breakpoint and larger. <br>
-                - These classes the order in which your content shows up, even if the markup setup in - HTML has it in a different order<br>
-                <i>Always</i> set up your content in mobile hierarchy, then use css and the order classes to change desktop.
+                - Flex order classes should be <b>children</b> of bds-flex. <br>
+                - These flex order classes <b>impacts content on the larger breakpoint and larger.</b> <br>
+                - These classes changes the order in which your content shows up, even if the markup setup in - HTML has it in a different order<br>
+                - <b>Always set up your content in mobile hierarchy</b>, then use css and the order classes to change desktop.
                 <ul>
                   <div class="bds-row">
                     <div class="bds-col-sm-3">
@@ -741,7 +780,7 @@
                 </ul>
 
                 <div class="bds-marg-y-md bds bds-marg-x-xs">
-                  <div class="bds-b3"><i>re-size browser or use emulator to see examples</i></div>
+                  <div class="bds-b3"><i>re-size browser or use emulator to see how the order changes</i></div>
                   <div class="bds-row bds-flex bds-marg-y-xxs">
                     <div class="bds-col-6 bds-order-2 bds-bg-red-65 bds-order-2">
                       1st content
