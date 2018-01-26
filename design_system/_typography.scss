@@ -1,4 +1,14 @@
-a{text-decoration:none; font-weight:$font-weight-regular;}
+a{
+	text-decoration:none; 
+	font-weight:$font-weight-regular;
+
+	/*normalizing remove the gray background color from active links in IE 10.*/
+	background-color: transparent; /* 1 */
+  	-webkit-text-decoration-skip: objects; /* 2 */
+}
+a:active, a:hover { outline: 0; }
+
+
 p {line-height:1.5em; margin:0;}
 
 /* headers & sub headers */

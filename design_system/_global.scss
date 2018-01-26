@@ -11,5 +11,27 @@ body {
 }
 *, html, button, input, select, textarea{ font-family: $font-family; }
 
-img{ max-width: 100%;}
+/* normalize, Add the correct display in IE 9-.*/
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
 
+img{ 
+	max-width: 100%;
+	border-style: none; /* normalize, remove border on imgs in IE10*/
+}
+
+svg:not(:root) {
+  overflow: hidden; /* normalize, Hide the overflow in IE.*/
+}
+
+hr {
+  box-sizing: content-box; /* nromalize. Add the correct box sizing in Firefox. */
+  height: 0; 
+  overflow: visible; /* normalize, show overflow in edfe & ie */
+}
