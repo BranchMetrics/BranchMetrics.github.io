@@ -359,11 +359,11 @@ a {
   /* 1 */
   -webkit-text-decoration-skip: objects;
   /* 2 */
-  -webkit-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  -moz-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  -o-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  -ms-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important; }
+  -webkit-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  -moz-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  -o-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  -ms-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear; }
 
 p {
   line-height: 1.5em;
@@ -922,11 +922,11 @@ a[class^='bds-btn'], a[class*=' bds-btn'] {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  -webkit-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  -moz-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  -o-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  -ms-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
-  transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important; }
+  -webkit-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  -moz-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  -o-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  -ms-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+  transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear; }
 
 .bds-btn-primary {
   color: #fff;
@@ -983,11 +983,11 @@ a[class^='bds-btn'], a[class*=' bds-btn'] {
   color: #00c884; }
 .bds-txt-green-65 {
   color: #5fd6a0; }
-.bds-txt-yellow {
+.bds-txt-orange {
   color: #ff9e16; }
-.bds-txt-yellow-85 {
+.bds-txt-orange-85 {
   color: #ffad45; }
-.bds-txt-yellow-65 {
+.bds-txt-orange-65 {
   color: #ffc072; }
 .bds-txt-purple {
   color: #8547ad; }
@@ -1037,11 +1037,11 @@ a[class^='bds-btn'], a[class*=' bds-btn'] {
   background-color: #00c884; }
 .bds-bg-green-65 {
   background-color: #5fd6a0; }
-.bds-bg-yellow {
+.bds-bg-orange {
   background-color: #ff9e16; }
-.bds-bg-yellow-85 {
+.bds-bg-orange-85 {
   background-color: #ffad45; }
-.bds-bg-yellow-65 {
+.bds-bg-orange-65 {
   background-color: #ffc072; }
 .bds-bg-purple {
   background-color: #8547ad; }
@@ -1095,11 +1095,11 @@ a[class^='bds-btn'], a[class*=' bds-btn'] {
   border-color: #00c884; }
 .bds-border-green-65 {
   border-color: #5fd6a0; }
-.bds-border-yellow {
+.bds-border-orange {
   border-color: #ff9e16; }
-.bds-border-yellow-85 {
+.bds-border-orange-85 {
   border-color: #ffad45; }
-.bds-border-yellow-65 {
+.bds-border-orange-65 {
   border-color: #ffc072; }
 .bds-border-purple {
   border-color: #8547ad; }
@@ -1151,11 +1151,11 @@ a[class^='bds-btn'], a[class*=' bds-btn'] {
     background-color: #00c884; }
   .bds-hov-bg-green-65:hover {
     background-color: #5fd6a0; }
-  .bds-hov-bg-yellow:hover {
+  .bds-hov-bg-orange:hover {
     background-color: #ff9e16; }
-  .bds-hov-bg-yellow-85:hover {
+  .bds-hov-bg-orange-85:hover {
     background-color: #ffad45; }
-  .bds-hov-bg-yellow-65:hover {
+  .bds-hov-bg-orange-65:hover {
     background-color: #ffc072; }
   .bds-hov-bg-purple:hover {
     background-color: #8547ad; }
@@ -1203,11 +1203,11 @@ a[class^='bds-btn'], a[class*=' bds-btn'] {
     color: #00c884; }
   .bds-hov-txt-green-65:hover {
     color: #5fd6a0; }
-  .bds-hov-txt-yellow:hover {
+  .bds-hov-txt-orange:hover {
     color: #ff9e16; }
-  .bds-hov-txt-yellow-85:hover {
+  .bds-hov-txt-orange-85:hover {
     color: #ffad45; }
-  .bds-hov-txt-yellow-65:hover {
+  .bds-hov-txt-orange-65:hover {
     color: #ffc072; }
   .bds-hov-txt-purple:hover {
     color: #8547ad; }

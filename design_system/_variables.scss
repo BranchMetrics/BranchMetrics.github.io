@@ -13,7 +13,7 @@ $font-weight-regular: 400;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 $font-height: 1.9rem;
-$link-transition:  background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+$link-transition:  background-color 160ms linear, color 160ms linear, border-color 160ms linear;
 
 /*font size*/
 $font-size-11: .6875rem;
@@ -47,9 +47,9 @@ $red-65: #ff988a;
 $green: #00bd70;
 $green-85: #00c884;
 $green-65: #5fd6a0;
-$yellow: #ff9e16;
-$yellow-85: #ffad45;
-$yellow-65: #ffc072;
+$orange: #ff9e16;
+$orange-85: #ffad45;
+$orange-65: #ffc072;
 $purple: #8547ad;
 $purple-85: #9862b9;
 $purple-65: #b388cb;

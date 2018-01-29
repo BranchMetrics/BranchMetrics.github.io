@@ -38,9 +38,9 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
   }
   &-secondary{
     color:$white;
-    background-color:$yellow;
+    background-color:$orange;
     &:hover{
-      background-color: $yellow-85;
+      background-color: $orange-85;
     }
   }
 }
