@@ -3,10 +3,13 @@
 .bds-inline-block{display:inline-block;}
 .bds-left{ float:left; }
 .bds-right{ float:right; }
+.clearfix{ clear: both;}
 
 .bds-v-top{ vertical-align: top;}
+.bds-v-bottom{ vertical-align: bottom;}
 
 
+/*flex*/
 @mixin flexCenter { display: inline-flex !important; align-items: center; justify-content: center; }
 .bds-flex{
     display:-webkit-box; 
@@ -24,15 +27,14 @@
     display:inline-flex;
     flex-wrap:wrap;
 }
-
 .bds{
   &-xy-center{align-items: center; justify-content: center; }
   &-y-center{align-items: center; }
+  &-y-stretch{align-items: stretch; }
+
   &-space-between{ justify-content: space-between; }
   &-space-around{ justify-content: space-around; }
 }
-
-
  
 @media screen and (min-width: $lg-bkpt) {
   .bds{
@@ -44,12 +46,11 @@
   }
 }
 
-.clearfix{ clear: both;}
-
 /*positioning*/
 .relative, .bds-relative{ position:relative; }
-.bds-absolute{ position:absolute; }
+.absolute, .bds-absolute{ position:absolute; }
 .bds-fixed{ position:fixed;}
+.bds-tl-0{ top:0; left:0;}
 
 
 /*z-index*/
@@ -64,14 +65,7 @@
   &-100 {z-index:100;}
 }
 
-/* text align */
-.bds-txt{
-  &-left {text-align: left;}
-  &-right {text-align: right;}
-  &-center {text-align: center;}
-}
-
-
+/*show hide */
 .bds-show-at-sm, 
 .bds-show-at-md, 
 .bds-show-at-lg, 
@@ -97,6 +91,5 @@
 
 /*extra utilities*/
 .bds-cursor-pointer{ cursor: pointer; }
-.bds-tl-0{ top:0; left:0;}
 .bds-height-100{ height:100%;}
 .bds-width-100{ width:100%;}

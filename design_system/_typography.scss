@@ -55,6 +55,15 @@ h6, .bds-h6 {font-size: $font-size-20; }
   	/*font cases */
   	&-upper { text-transform: uppercase; }
   	&-lower { text-transform: lowercase; }
+
+  	/*align*/
+	&-left {text-align: left;}
+	&-right {text-align: right;}
+	&-center {text-align: center;}
+
+	/*wrap*/
+	&-wrap {white-space: normal;}
+	&-nowrap {white-space: nowrap;}
 }
 
 /* hover font weights */
@@ -77,6 +86,7 @@ h6, .bds-h6 {font-size: $font-size-20; }
     &-left {text-align: left;}
     &-right {text-align: right;}
     &-center {text-align: center;}
+
   }
 }
 
