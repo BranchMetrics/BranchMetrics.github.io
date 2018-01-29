@@ -11,10 +11,12 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
   box-sizing: border-box;
   border-radius: 22px;
   @include flexCenter;
-  &:hover {
-    transition: background-color 100ms linear, color 100ms linear;
-    transition: color 100ms linear, color 100ms linear;
-  }
+  
+  -webkit-transition: $link-transition;
+  -moz-transition: $link-transition;
+  -o-transition: $link-transition;
+  -ms-transition: $link-transition;
+  transition: $link-transition;
 }
 
 .bds-btn{

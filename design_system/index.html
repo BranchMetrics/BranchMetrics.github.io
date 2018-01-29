@@ -11,6 +11,11 @@
       section{ border-bottom:1px solid #000; padding: 50px 0;}
       section:first-child{ padding-top: 0; }
 
+      nav ul{  padding:0; }
+      nav ul li{ list-style: none; }
+      nav ul li a{ color:#000; display:block; padding:10px 20px;}
+      nav ul li a:hover{ font-weight: bold; }
+
       #colorPalette .swatch{ height:100px; width:200px; display:flex; align-items: center; justify-content: center;}
 
       #typography .typography-weights > span{ cursor: pointer; padding:10px; background-color:white; border:1px solid #ccc;}
@@ -29,11 +34,9 @@
 
       @media (min-width: 992px){
         nav{ position: fixed; margin-top:20px; width:13.5%;}
-        nav ul{  padding:0; }
-        nav ul li{ list-style: none; }
-        nav ul li a{ color:#000; display:block; padding:10px 20px;}
-        nav ul li a:hover{ font-weight: bold; }
       }
+        
+      
     </style>
 
     <div class="bds-container">
@@ -445,6 +448,8 @@
             <!-- <div class="showClassNames bds-cursor-pointer">
               show classes <span class="plusMinus"></span>
             </div> -->
+
+            <a href="/" class="bds-txt-black bds-hov-txt-yellow">a link</a>
             <div class="bds-marg-all-md">
               <h4>Base buttons</h4>
               <u>Prefix & Class:</u> append classes names to "<b>a href</b>" tag
@@ -661,7 +666,7 @@
               </div>
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
                 <div class="bds-show-at-xl bds-bg-green bds-txt-white bds-pad-all-xxs">
-                  show-at-xlg
+                  show-at-xl
                 </div>
               </div>
             </div>

@@ -358,10 +358,12 @@ a {
   background-color: transparent;
   /* 1 */
   -webkit-text-decoration-skip: objects;
-  /* 2 */ }
-
-a:active, a:hover {
-  outline: 0; }
+  /* 2 */
+  -webkit-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  -moz-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  -o-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  -ms-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important; }
 
 p {
   line-height: 1.5em;
@@ -783,6 +785,9 @@ h6, .bds-h6 {
 .bds-right {
   float: right; }
 
+.bds-v-top {
+  vertical-align: top; }
+
 .bds-flex {
   display: -webkit-box;
   display: -moz-box;
@@ -916,10 +921,12 @@ a[class^='bds-btn'], a[class*=' bds-btn'] {
   border-radius: 22px;
   display: inline-flex !important;
   align-items: center;
-  justify-content: center; }
-  a[class^='bds-btn']:hover, a[class*=' bds-btn']:hover {
-    transition: background-color 100ms linear, color 100ms linear;
-    transition: color 100ms linear, color 100ms linear; }
+  justify-content: center;
+  -webkit-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  -moz-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  -o-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  -ms-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important;
+  transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear !important; }
 
 .bds-btn-primary {
   color: #fff;

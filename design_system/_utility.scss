@@ -4,6 +4,8 @@
 .bds-left{ float:left; }
 .bds-right{ float:right; }
 
+.bds-v-top{ vertical-align: top;}
+
 
 @mixin flexCenter { display: inline-flex !important; align-items: center; justify-content: center; }
 .bds-flex{
