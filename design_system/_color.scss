@@ -154,3 +154,36 @@
     &-black:hover{ color:$black; }
   }
 }
+
+
+@media (min-width:992px){
+    /*bg color*/
+  .bds-bg-lg{
+    &-grey{ background-color:$grey; }
+    &-grey-85{ background-color:$grey-85; }
+    &-grey-65{ background-color:$grey-65; }
+    &-grey-45{ background-color:$grey-45; }
+    &-grey-15{ background-color:$grey-15; }
+    &-grey-05{ background-color:$grey-05; }
+    &-blue{ background-color:$blue; }
+    &-blue-85{ background-color:$blue-85; }
+    &-blue-65{ background-color:$blue-65; }
+    &-blue-45{ background-color:$blue-45; }
+    &-dark-blue{ background-color:$dark-blue; }
+    &-dark-blue-85{ background-color:$dark-blue-85; }
+    &-red{ background-color:$red; }
+    &-red-85{ background-color:$red-85; }
+    &-red-65{ background-color:$red-65; }
+    &-green{ background-color:$green; }
+    &-green-85{ background-color:$green-85; }
+    &-green-65{ background-color:$green-65; }
+    &-orange{ background-color:$orange; }
+    &-orange-85{ background-color:$orange-85; }
+    &-orange-65{ background-color:$orange-65; }
+    &-purple{ background-color:$purple; }
+    &-purple-85{ background-color:$purple-85; }
+    &-purple-65{ background-color:$purple-65; }
+    &-white{ background-color:$white; }
+    &-black{ background-color:$black; }
+  }
+}

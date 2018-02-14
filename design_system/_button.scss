@@ -24,7 +24,16 @@ a[class^='bds-btn'], a[class*=' bds-btn']{
     color:$white;
     background-color: $blue;
     &:hover{
+      color:$white;
       background-color: $dark-blue;
+    }
+  }
+  &-primary-iv{
+    color:$blue;
+    background-color: $white;
+    &:hover{
+      color:$white;
+      background-color: $blue;
     }
   }
   &-ghost{

@@ -51,6 +51,12 @@
 .absolute, .bds-absolute{ position:absolute; }
 .bds-fixed{ position:fixed;}
 .bds-tl-0{ top:0; left:0;}
+.bds-x-center{ 
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
 
 
 /*z-index*/
@@ -83,6 +89,13 @@
 @media screen and (min-width: $lg-bkpt) {
   .bds-show-at-lg{ display:block;}
   .bds-hide-at-lg{ display: none;}
+  .bds-absolute-at-lg{ position:absolute; }
+  .bds-x-center-at-lg{ 
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
 }
 @media screen and (min-width: $xl-bkpt) {
   .bds-show-at-xl{ display:block;}
@@ -93,3 +106,10 @@
 .bds-cursor-pointer{ cursor: pointer; }
 .bds-height-100{ height:100%;}
 .bds-width-100{ width:100%;}
+
+
+hr {
+  height:2px;
+  border:0;
+  overflow: visible; /* 2 */
+}
