@@ -1,0 +1,6 @@
+.bds-icon{ max-width:65px; }
+.bds-icon-sm{ max-height: 30px;}
+.bds-skew{
+    transform: skew(-6deg) rotate(-6deg);
+}
+.bds-unskew > div{ transform: skew(6deg) rotate(6deg); }

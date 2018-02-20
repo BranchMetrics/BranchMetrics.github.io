@@ -1,16 +1,9 @@
 
 .bds-container {
-  width:1200px;
-  max-width: 100%;
+  width: 100%;
+  max-width:1200px;
   margin-right: auto;
   margin-left: auto;
-}
-
-.bds-row:before,
-.bds-row:after,
-.bds-row > div:before,
-.bds-row > div:after {
-   content: normal;
 }
 
 .bds-col, .bds-col-1, .bds-col-2, .bds-col-3, .bds-col-4, .bds-col-5, .bds-col-6, .bds-col-7, .bds-col-8, .bds-col-9, .bds-col-10, .bds-col-11, .bds-col-12, .bds-col-xs-1, .bds-col-sm-1, .bds-col-md-1, .bds-col-lg-1, .bds-col-xs-2, .bds-col-sm-2, .bds-col-md-2, .bds-col-lg-2, .bds-col-xs-3, .bds-col-sm-3, .bds-col-md-3, .bds-col-lg-3, .bds-col-xs-4, .bds-col-sm-4, .bds-col-md-4, .bds-col-lg-4, .bds-col-xs-5, .bds-col-sm-5, .bds-col-md-5, .bds-col-lg-5, .bds-col-xs-6, .bds-col-sm-6, .bds-col-md-6, .bds-col-lg-6, .bds-col-xs-7, .bds-col-sm-7, .bds-col-md-7, .bds-col-lg-7, .bds-col-xs-8, .bds-col-sm-8, .bds-col-md-8, .bds-col-lg-8, .bds-col-xs-9, .bds-col-sm-9, .bds-col-md-9, .bds-col-lg-9, .bds-col-xs-10, .bds-col-sm-10, .bds-col-md-10, .bds-col-lg-10, .bds-col-xs-11, .bds-col-sm-11, .bds-col-md-11, .bds-col-lg-11, .bds-col-xs-12, .bds-col-sm-12, .bds-col-md-12, .bds-col-lg-12 {
@@ -322,4 +315,17 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+
+/*flex issue fix on safari*/
+.bds-row.bds-flex:before,
+.bds-row.bds-flex:after,
+.bds-row.bds-flex > div:before,
+.bds-row.bds-flex > div:after,
+.bds-row.bds-inline-flex:before,
+.bds-row.bds-inline-flex:after,
+.bds-row.bds-inline-flex > div:before,
+.bds-row.bds-inline-flex > div:after{
+   content: normal;
 }
