@@ -1,56 +1,80 @@
+// buttons
+[class^='bds-btn'],
+[class*=' bds-btn'] {
+  @include flex-center;
 
-/*buttons*/
-a[class^='bds-btn'], a[class*=' bds-btn']{
-  font-weight: $font-weight-regular;
+  border-radius: 22px;
+  box-sizing: border-box;
+
   font-size: $font-size-14;
+  font-weight: $font-weight-regular;
   text-decoration: none;
-  height:40px;
-  width:180px;
+
+  height: 40px;
+  width: 180px;
   padding: 6px 6px 8px 6px;
 
-  box-sizing: border-box;
-  border-radius: 22px;
-  @include flexCenter;
-  
-  -webkit-transition: $link-transition;
-  -moz-transition: $link-transition;
-  -o-transition: $link-transition;
-  -ms-transition: $link-transition;
   transition: $link-transition;
 }
 
-.bds-btn{
-  &-primary{
-    color:$white;
+.bds-btn {
+  &:focus {
+    outline: 0;
+  }
+
+  &-primary {
+    color: $white;
     background-color: $blue;
-    &:hover{
-      color:$white;
+
+    &:hover {
+      color: $white;
       background-color: $dark-blue;
     }
+
+    &:focus {
+      outline: 0;
+    }
   }
-  &-primary-iv{
-    color:$blue;
+
+  &-primary-iv {
+    color: $blue;
     background-color: $white;
-    &:hover{
-      color:$white;
+
+    &:hover {
+      color: $white;
       background-color: $blue;
     }
-  }
-  &-ghost{
-    color:$white;
-     border:1px solid $white;
-    background-color: transparent;
-    &:hover{
-      color:$black;
-      background-color: $white;
+
+    &:focus {
+      outline: 0;
     }
   }
-  &-secondary{
-    color:$white;
-    background-color:$orange;
-    &:hover{
+
+  &-ghost {
+    color: $white;
+    border: 1px solid $white;
+    background-color: transparent;
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &-secondary {
+    color: $white;
+    background-color: $orange;
+
+    &:hover {
       background-color: $orange-85;
+    }
+
+    &:focus {
+      outline: 0;
     }
   }
 }
-

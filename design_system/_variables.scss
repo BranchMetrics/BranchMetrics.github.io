@@ -1,34 +1,34 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
-/*breakpoints*/
+// breakpoints
 $sm-bkpt: 480px;
 $md-bkpt: 768px;
 $lg-bkpt: 992px;
 $xl-bkpt: 1200px;
 
-/*font family & weight */
+// font family & weight
 $font-family: "Open Sans", Helvetica, Arial;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 $font-height: 1.9rem;
-$link-transition:  background-color 160ms linear, color 160ms linear, border-color 160ms linear;
+$link-transition: background-color 160ms linear, color 160ms linear, border-color 160ms linear;
 
-/*font size*/
+// font size
 $font-size-11: .6875rem;
-$font-size-12: .75rem; 
+$font-size-12: .75rem;
 $font-size-14: .875rem;
-$font-size-16: 1rem; 
+$font-size-16: 1rem;
 $font-size-18: 1.125rem;
-$font-size-20: 1.25rem; 
+$font-size-20: 1.25rem;
 $font-size-22: 1.37rem;
-$font-size-24: 1.5rem; 
-$font-size-34: 2.25rem; 
-$font-size-40: 2.5rem; 
-$font-size-44: 2.75rem; 
+$font-size-24: 1.5rem;
+$font-size-34: 2.25rem;
+$font-size-40: 2.5rem;
+$font-size-44: 2.75rem;
 
-/*colors*/
+// colors
 $grey: #333E48;
 $grey-85: #4E5760;
 $grey-65: #757C83;
@@ -56,7 +56,7 @@ $purple-65: #b388cb;
 $white: #fff;
 $black: #000;
 
-/*spacing*/
+// spacing
 $spacing-xxs: .5rem;
 $spacing-xs: 1rem;
 $spacing-s: 1.5rem;
