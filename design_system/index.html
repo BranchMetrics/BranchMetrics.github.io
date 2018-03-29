@@ -392,6 +392,13 @@
                   </div>
                 </div>
               </div>
+              <div>
+                <div class="bds-bg-green-65 bds-inline-block">
+                  <div class="bds-marg-all-xxl bds-bg-white">
+                    *-all-xxl
+                  </div>
+                </div>
+              </div>
               <div></div>
             </div>
 
@@ -674,9 +681,9 @@
           <!-- hiding and showing -->
             
           <section id="hideshow">
-            <h2 class="bds-marg-b-xxs"><a name="hideshow">Hide/Show</a></h2>
+            <h2 class="bds-marg-b-xxs"><a name="hideshow">Hiding</a></h2>
             <div class="bds-marg-y-sm">
-              Hide/shows should be a WRAPPER (parent) classes to prevent conflicts with elements 
+              To avoid any conflicts, hide classes should be wrappers (aka a parent element)
             </div>
 
             <div class="bds-row">
@@ -684,30 +691,44 @@
                 <u>Hiding</u>: 
                   <ul>
                     <li>bds-hide</li>
-                    <li>bds-hide-sm</li>
-                    <li>bds-hide-md</li>
-                    <li>bds-hide-lg</li>
-                    <li>bds-hide-xl</li>
-                  </ul>
+                    <li>bds-hide-sm-up</li>
+                    <li>bds-hide-md-up</li>
+                    <li>bds-hide-lg-up</li>
+                    <li>bds-hide-xl-up</li>
+                </ul>
+              </div>
+              <div class="bds-col"><br><br>
+                <ul>
+                  <li>bds-hide-sm-down</li>
+                  <li>bds-hide-md-down</li>
+                  <li>bds-hide-lg-down</li>
+                  <li>bds-hide-xl-down</li>
+                </ul>
               </div>
 
               <div class="bds-col">
-                <u>Showing</u>: 
+                <u>Display Options</u>: 
                   <ul>
+                    <li>bds-block</li>
                     <li>bds-block-sm</li>
                     <li>bds-block-md</li>
                     <li>bds-block-lg</li>
                     <li>bds-block-xl</li>
-                    <li>bds-inline-block-sm</li>
-                    <li>bds-inline-block-md</li>
-                    <li>bds-inline-block-lg</li>
-                    <li>bds-inline-block-xl</li>
                   </ul>
+              </div>
+              <div class="bds-col"><br>
+                <ul>
+                    <li>bds-inline-block</li>
+                  <li>bds-inline-block-sm</li>
+                  <li>bds-inline-block-md</li>
+                  <li>bds-inline-block-lg</li>
+                  <li>bds-inline-block-xl</li>
+                </ul>
               </div>
             </div>
             <img src="hide-show-chart.png"><br>
             <img src="hide-show-chart2.png">
-
+<!-- 
 
             <div class="bds-b3 bds-marg-t-xs"><i>re-size browser or use emulator to see how the hide shows work on different breakpoints</i></div>
             <div class="showHideChart bds-txt-11 bds-flex">
@@ -754,7 +775,7 @@
                 </div>
               </div>
             </div>
-
+ -->
 
 
 
@@ -776,6 +797,12 @@
                   <u>Solution</u>: class="bds-hide bds-block-lg"<br><br>
                   <div class="bds-border-grey-65 bds-pad-all-xs">
                     <div class="bds-hide bds-block-lg bds-bg-purple-65 bds-marg-all-sm">
+                      This is showing on the large breakpoint
+                    </div>
+                  </div><br>
+                  <u>Solution2</u>: class="bds-hide-lg-down"<br>
+                  <div class="bds-border-grey-65 bds-pad-all-xs">
+                    <div class="bds-hide-lg-down bds-bg-purple-65 bds-marg-all-sm">
                       This is showing on the large breakpoint
                     </div>
                   </div>

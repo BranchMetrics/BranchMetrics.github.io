@@ -1662,7 +1662,7 @@ h6,
   .bds-show-at-sm {
     display: block; }
 
-  .bds-hide-at-sm {
+  .bds-hide-at-sm, .bds-hide-sm-up {
     display: none; }
 
   .bds-block-sm {
@@ -1677,7 +1677,7 @@ h6,
   .bds-show-at-md {
     display: block; }
 
-  .bds-hide-at-md {
+  .bds-hide-at-md, .bds-hide-md-up {
     display: none; }
 
   .bds-block-md {
@@ -1692,7 +1692,7 @@ h6,
   .bds-show-at-lg {
     display: block; }
 
-  .bds-hide-at-lg {
+  .bds-hide-at-lg, .bds-hide-lg-up {
     display: none; }
 
   .bds-absolute-at-lg {
@@ -1714,7 +1714,7 @@ h6,
   .bds-show-at-xl {
     display: block; }
 
-  .bds-hide-at-xl {
+  .bds-hide-at-xl, .bds-hide-xl-up {
     display: none; }
 
   .bds-block-xl {
@@ -1725,6 +1725,27 @@ h6,
 
   .bds-hide-xl {
     display: none !important; } }
+@media screen and (min-width: 1200px) {
+  .bds-show-at-xl {
+    display: block; }
+
+  .bds-hide-at-xl {
+    display: none; }
+
+  .bds-hide-xl-up {
+    display: none; } }
+@media screen and (max-width: 480px) {
+  .bds-hide-sm-down {
+    display: none; } }
+@media screen and (max-width: 768px) {
+  .bds-hide-md-down {
+    display: none; } }
+@media screen and (max-width: 992px) {
+  .bds-hide-lg-down {
+    display: none; } }
+@media screen and (max-width: 1200px) {
+  .bds-hide-xl-down {
+    display: none; } }
 .bds-cursor-pointer {
   cursor: pointer; }
 
