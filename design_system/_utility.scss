@@ -79,11 +79,19 @@
 @media screen and (min-width: $sm-bkpt)  {
   .bds-show-at-sm { display: block; }
   .bds-hide-at-sm { display: none; }
+
+  .bds-block-sm { display: block !important; }
+  .bds-inline-block-sm { display: inline-block !important; }
+  .bds-hide-sm{ display: none !important; }
 }
 
 @media screen and (min-width: $md-bkpt)  {
   .bds-show-at-md { display: block; }
   .bds-hide-at-md { display: none; }
+
+  .bds-block-md { display: block !important; }
+  .bds-inline-block-md { display: inline-block !important; }
+  .bds-hide-md{ display: none !important; }
 }
 
 @media screen and (min-width: $lg-bkpt)  {
@@ -94,12 +102,23 @@
     left: 50%;
     transform: translateX(-50%);
   }
+
+
+  .bds-block-lg { display: block !important; }
+  .bds-inline-block-lg { display: inline-block !important; }
+  .bds-hide-lg{ display: none !important; }
 }
 
 @media screen and (min-width: $xl-bkpt)  {
   .bds-show-at-xl { display: block; }
   .bds-hide-at-xl { display: none; }
+
+  .bds-block-xl { display: block !important; }
+  .bds-inline-block-xl { display: inline-block !important; }
+  .bds-hide-xl{ display: none !important; }
 }
+
+
 
 // extra utilities
 .bds-cursor-pointer { cursor: pointer; }

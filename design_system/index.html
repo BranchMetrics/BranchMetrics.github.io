@@ -182,6 +182,7 @@
                 <u>background</u>: 
                   <ul>
                     <li>bds-bg</li>
+                    <li>bds-bg-lg</li>
                     <li>bds-hov-bg</li>
                   </ul>
 
@@ -652,20 +653,24 @@
                 <u>Hiding</u>: 
                   <ul>
                     <li>bds-hide</li>
-                    <li>bds-hide-at-sm</li>
-                    <li>bds-hide-at-md</li>
-                    <li>bds-hide-at-lg</li>
-                    <li>bds-hide-at-xl</li>
+                    <li>bds-hide-sm</li>
+                    <li>bds-hide-md</li>
+                    <li>bds-hide-lg</li>
+                    <li>bds-hide-xl</li>
                   </ul>
               </div>
 
               <div class="bds-col">
                 <u>Showing</u>: 
-                  <ul><br>
-                    <li>bds-show-at-sm</li>
-                    <li>bds-show-at-md</li>
-                    <li>bds-show-at-lg</li>
-                    <li>bds-show-at-xl</li>
+                  <ul>
+                    <li>bds-block-sm</li>
+                    <li>bds-block-md</li>
+                    <li>bds-block-lg</li>
+                    <li>bds-block-xl</li>
+                    <li>bds-inline-block-sm</li>
+                    <li>bds-inline-block-md</li>
+                    <li>bds-inline-block-lg</li>
+                    <li>bds-inline-block-xl</li>
                   </ul>
               </div>
             </div>
@@ -676,45 +681,45 @@
             <div class="bds-b3 bds-marg-t-xs"><i>re-size browser or use emulator to see how the hide shows work on different breakpoints</i></div>
             <div class="showHideChart bds-txt-11 bds-flex">
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-show-at-sm bds-bg-green bds-txt-white bds-pad-all-xxs">
-                  show-at-sm
+                <div class="bds-hide bds-block-sm bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  bds-hide<br>bds-block-sm
                 </div>
               </div>
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-show-at-md bds-bg-green bds-txt-white bds-pad-all-xxs">
-                  show-at-md
+                <div class="bds-hide bds-block-md bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  bds-hide<br>bds-block-md 
                 </div>
               </div>
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-show-at-lg bds-bg-green bds-txt-white bds-pad-all-xxs">
-                  show-at-lg
+                <div class="bds-hide bds-block-lg bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  bds-hide<br>bds-block-lg
                 </div>
               </div>
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-show-at-xl bds-bg-green bds-txt-white bds-pad-all-xxs">
-                  show-at-xl
+                <div class="bds-hide bds-block-xl bds-bg-green bds-txt-white bds-pad-all-xxs">
+                  bds-hide<br>bds-block-xl
                 </div>
               </div>
             </div>
             <div class="showHideChart bds-txt-11 bds-flex">
                <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-hide-at-sm bds-bg-orange bds-txt-white bds-pad-all-xxs">
-                  bds-hide-at-sm
+                <div class="bds-hide-sm bds-bg-orange bds-txt-white bds-pad-all-xxs">
+                  bds-hide-sm
                 </div>
               </div>
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-hide-at-md bds-bg-orange bds-txt-white bds-pad-all-xxs">
-                  bds-hide-at-md
+                <div class="bds-hide-md bds-bg-orange bds-txt-white bds-pad-all-xxs">
+                  bds-hide-md
                 </div>
               </div>
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-hide-at-lg bds-bg-orange bds-txt-white bds-pad-all-xxs">
-                  bds-hide-at-lg
+                <div class="bds-hide-lg bds-bg-orange bds-txt-white bds-pad-all-xxs">
+                  bds-hide-lg
                 </div>
               </div>
               <div class="bds-border-grey-65 bds-flex bds-xy-center">
-                <div class="bds-hide-at-xl bds-bg-orange bds-txt-white bds-pad-all-xxs">
-                  bds-hide-at-xl
+                <div class="bds-hide-xl bds-bg-orange bds-txt-white bds-pad-all-xxs">
+                  bds-hide-xl
                 </div>
               </div>
             </div>
@@ -728,18 +733,18 @@
                 <div class="bds-b3"><i>re-size browser or use emulator to see examples</i></div>
                 <div class="bds-marg-b-xs">
                   How do you show a message on mobile but hide on desktop?<br>
-                  <u>Solution</u>: class="bds-hide-at-lg"<br><br>
+                  <u>Solution</u>: class="bds-hide-lg"<br><br>
                   <div class="bds-border-grey-65 bds-pad-all-xxs">
-                    <div class="bds-hide-at-lg bds-bg-red-65 bds-marg-all-sm">
+                    <div class="bds-hide-lg bds-bg-red-65 bds-marg-all-sm">
                       This is hidden on the large breakpoint
                     </div>
                   </div>
 
                   <br>
                   How do you hide a message on mobile, but show on desktop?<br>
-                  <u>Solution</u>: class="bds-hide bds-show-at-lg"<br><br>
+                  <u>Solution</u>: class="bds-hide bds-block-lg"<br><br>
                   <div class="bds-border-grey-65 bds-pad-all-xs">
-                    <div class="bds-hide bds-show-at-lg bds-bg-purple-65 bds-marg-all-sm">
+                    <div class="bds-hide bds-block-lg bds-bg-purple-65 bds-marg-all-sm">
                       This is showing on the large breakpoint
                     </div>
                   </div>
