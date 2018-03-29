@@ -1630,6 +1630,8 @@ h6,
   left: 50%;
   transform: translateX(-50%); }
 
+.bds-z-index-n1 {
+  z-index: -1; }
 .bds-z-index-0 {
   z-index: 0; }
 .bds-z-index-1 {
@@ -1646,6 +1648,8 @@ h6,
   z-index: 10; }
 .bds-z-index-100 {
   z-index: 100; }
+.bds-z-index-500 {
+  z-index: 500; }
 
 .bds-show-at-sm,
 .bds-show-at-md,
@@ -1781,9 +1785,15 @@ hr {
   color: #fff;
   background-color: #ff9e16; }
   .bds-btn-secondary:hover {
+    color: #fff;
     background-color: #ffad45; }
   .bds-btn-secondary:focus {
     outline: 0; }
+
+.bds-btn-auto {
+  width: auto !important;
+  height: auto !important;
+  padding: 6px 12px 8px 12px !important; }
 
 .bds-txt-grey {
   color: #333E48; }

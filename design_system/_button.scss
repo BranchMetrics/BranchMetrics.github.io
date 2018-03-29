@@ -70,6 +70,7 @@
     background-color: $orange;
 
     &:hover {
+      color: $white;
       background-color: $orange-85;
     }
 
@@ -77,4 +78,10 @@
       outline: 0;
     }
   }
+}
+
+.bds-btn-auto{
+  width: auto !important;
+  height: auto !important;
+  padding: 6px 12px 8px 12px !important;
 }
