@@ -74,6 +74,7 @@ $(document).ready(function() {
     var in_view_utilities = Utils.isElementInView($('#utilities'), false);
     var in_view_hideshow= Utils.isElementInView($('#hideshow'), false);
     var in_view_flexbox = Utils.isElementInView($('#flexbox'), false);
+    var in_view_pageStructure = Utils.isElementInView($('#pageStructure'), false);
 
     if (in_view_typography==true){ boldNavItem('typography')}
     if (in_view_colorPalette==true){ boldNavItem('colorPalette')}
@@ -83,6 +84,7 @@ $(document).ready(function() {
     if (in_view_utilities==true){ boldNavItem('utilities')}
     if (in_view_hideshow==true){ boldNavItem('hideshow')}
     if (in_view_flexbox==true){ boldNavItem('flexbox')}
+    if (in_view_pageStructure==true){ boldNavItem('pageStructure')}
   }
 
   document.addEventListener('scroll', function (event) {
