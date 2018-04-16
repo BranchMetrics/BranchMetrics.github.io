@@ -22,6 +22,12 @@
     outline: 0;
   }
 
+  &-auto {
+    width: auto !important;
+    height: auto !important;
+    padding: 6px 12px 8px 12px !important;
+  }
+
   &-primary {
     color: $white;
     background-color: $blue;
@@ -37,6 +43,20 @@
   }
 
   &-primary-iv {
+    color: $blue;
+    background-color: $white;
+
+    &:hover {
+      color: $white;
+      background-color: $blue;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &-i-primary {
     color: $blue;
     background-color: $white;
 
@@ -78,10 +98,48 @@
       outline: 0;
     }
   }
-}
 
-.bds-btn-auto {
-  width: auto !important;
-  height: auto !important;
-  padding: 6px 12px 8px 12px !important;
+
+  &-i-secondary {
+    color: $orange;
+    background-color: $white;
+
+    &:hover {
+      color: $white;
+      background-color: $orange;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &-tertiary {
+    color: $white;
+    background-color: $green;
+
+    &:hover {
+      color: $white;
+      background-color: $green-85;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+
+  &-i-tertiary {
+    color: $green;
+    background-color: $white;
+
+    &:hover {
+      color: $white;
+      background-color: $green;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
 }

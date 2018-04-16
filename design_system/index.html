@@ -5,969 +5,1822 @@
   <title>Branch Design System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <style>
+    /* header */
+    header .title { 
+      display: inline-block; 
+      color: #000;
+    }
+    header .hamburger{
+      float: left;
+      display: none;
+      color: #000;
+    }
+    header .hamburger div {
+      width: 22px;
+      height: 4px;
+      margin: 4px .25em;
+      background: #000;
+    }
+    /*navigation */
+    header nav ul { padding: 0; }
+    header nav ul li { list-style: none; }
+    header nav ul li a {
+        color: #000;
+        display: block;
+        padding: 10px 20px;
+    }
+    header nav ul li a:hover { font-weight: bold; }
+
+    section { border-bottom: 20px solid #fff; }
+
+    /*table*/
+    .use-chart table {  border-collapse: collapse; }
+    .use-chart table, 
+    .use-chart th, 
+    .use-chart td {
+      border: 1px solid #757C83;
+      padding: 5px 8px;
+    }
+
+    .example {
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #F1A9A0;
+      margin-top: 32px;
+    }
+
+    #spacing .spaces > div > div {
+      border: 1px dashed #000;
+      display: inline-block;
+    }
+
+
+    /*mob*/
+    @media (max-width: 991px) {
+      header { 
+        border-bottom: 1px solid #e3e2e2; 
+        padding: 10px 0px 8px 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1000;
+      }
+      header a.hamburger{
+        display: block;
+        margin: 0px 10px;
+      }
+      header nav{
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        top: 67px;
+        z-index: 0;
+        background: #fff;
+      }
+      header nav.active{
+        opacity: 1;
+        z-index: 1000;
+      }
+      header nav ul{
+        width: 100%;
+        text-align: center;
+        margin: 0;
+      }
+      header nav ul li a{
+        display: block;
+        padding: 14px;
+        border-bottom: 1px solid #eeeded;
+        color: #50355a;
+      }
+    }
+
+    /*large*/
+    @media (min-width: 992px) {
+      header {
+        position: fixed;
+        width: 250px;
+      }
+      .content-wrap{
+        width: 100%;
+        padding-left: 250px;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
-    <style>
-        .bds-container {
-            width: 1280px;
-        }
-        
-        section {
-            border-bottom: 1px solid #000;
-            padding: 50px 0;
-        }
-        
-        section:first-child {
-            padding-top: 0;
-        }
-        
-        nav ul {
-            padding: 0;
-        }
-        
-        nav ul li {
-            list-style: none;
-        }
-        
-        nav ul li a {
-            color: #000;
-            display: block;
-            padding: 10px 20px;
-        }
-        
-        nav ul li a:hover {
-            font-weight: bold;
-        }
-        
-        #colorPalette .swatch {
-            height: 100px;
-            width: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        #typography .typography-weights > span {
-            cursor: pointer;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid #ccc;
-        }
-        
-        #typography .typography-weights > span:hover {
-            background-color: #eee;
-        }
-        
-        #typography .typography-swap-weight * {
-            margin: 10px 0;
-        }
-        
-        #spacing .spaces > div > div {
-            border: 1px dashed #000;
-            display: inline-block;
-        }
-        
-        #hideshow .showHideChart > div {
-            height: 50px;
-            width: 100px;
-            margin: 5px;
-        }
-        
-        nav .plusMinus::before {
-            content: '-';
-        }
-        
-        nav .plusMinus.active::before {
-            content: '+';
-        }
-        
-        nav .showHide::before {
-            content: 'Hide';
-        }
-        
-        nav .showHide.active::before {
-            content: 'Show';
-        }
-        
-        .example {
-            background: #fff;
-            padding: 30px;
-            border: 1px solid #F1A9A0;
-            margin-top: 32px;
-        }
-        
-        @media (min-width: 992px) {
-            nav {
-                position: fixed;
-                margin-top: 20px;
-                width: 13.5%;
-            }
-        }
-    </style>
 
-    <div class="bds-container">
+<div class="bds-wrap  bds-txt-grey">
 
-        <div class="bds-row">
-            <!-- nav -->
-            <div class="bds-col-12 bds-col-lg-2">
-                <nav class="bds-marg-t-md">
-                    <h2 class="bds-txt-bold bds-marg-x-xs">BDS</h2>
-                    <ul>
-                        <li data-section="typography"><a href="#typography">Tyography</a></li>
-                        <li data-section="colorPalette"><a href="#colorPalette">Color Palette</a></li>
-                        <li data-section="spacing"><a href="#spacing">Spacing</a></li>
-                        <li data-section="breakpoints"><a href="#breakpoints">Breakpoints</a></li>
-                        <li data-section="buttons"><a href="#buttons">Buttons</a></li>
-                        <li data-section="utilities"><a href="#utility">Utility</a></li>
-                        <li data-section="hideshow"><a href="#hideshow">Hide/Show</a></li>
-                        <li data-section="flexbox"><a href="#flexbox">Flexbox</a></li>
-                        <li data-section="pageStructure"><a href="#pageStructure">Page Structure</a></li>
-                    </ul>
+  <!-- navigation / table of content -->
+  <header class="table-of-contents bds-pad-lg-sm bds-flex bds-y-center">
+    <a href="#" class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </a>
+    <h1 class="title bds-txt-bold bds-marg-lg-x-xs">BDS</h1>
+    <nav>
+      <ul>
+          <li data-section="colorPalette"><a href="#colorPalette">Color Palette</a></li>
+          <li data-section="typography"><a href="#typography">Tyography</a></li>
+          <li data-section="spacing"><a href="#spacing">Spacing</a></li>
+          <li data-section="buttons"><a href="#buttons">Buttons</a></li>
+          <li data-section="hideshow"><a href="#hideshow">Hide/Show</a></li>
+          <li data-section="utilities"><a href="#utilities">Utility</a></li>
+          <li data-section="flexbox"><a href="#flexbox">Flexbox</a></li>
+          <li data-section="pageStructure"><a href="#pageStructure">Page Structure</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!--/ navigation / table of content -->
 
-                    <div class="bds-hide bds-show-at-md bds-marg-t-xl bds-marg-all-xs">
-                        <div class="exampleToggle bds-cursor-pointer bds-hov-txt-bold">
-                            <span class="showHide"></span> examples <span class="plusMinus"></span>
-                        </div>
-                    </div>
-                </nav>
+  <div class="content-wrap">
+    <div class="bds-bg-grey-05">
+      <!-- **********************************************
+          color palette
+      ********************************************** -->
+      <section id="colorPalette" class="bds-container bds-pad-y-md">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="colorPalette">Color Palette</h2>
 
+        <!-- color swatches -->
+        <div class="swatch bds-txt-center">
+          <!-- greys -->
+          <div class="bds-row bds-marg-t-xs">
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-black bds-txt-white">
+              *-black<br>
+              #000000
             </div>
-            <!--/bds-col-3-->
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-grey bds-txt-white">
+              *-grey<br> 
+              #333E48
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-grey-85 bds-txt-white">
+              *-grey-85<br> 
+              #4E5760
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-grey-65 bds-txt-white">
+              *-grey-65<br> 
+              #757C83
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-grey-45 bds-txt-white">
+              *-grey-45<br> 
+              #9EA2A7
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-grey-15 bds-txt-white">
+              *-grey-15<br> 
+              #e3e2e2
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-grey-05 bds-txt-white">
+              *-grey-05<br> 
+              #f0f0f0
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-white bds-txt-black">
+              *-white<br>
+              #ffffff
+            </div>
+          </div>
 
-            <!-- right column, main content -->
-            <div class="bds-col-12 bds-col-lg-10 bds-bg-grey-05 bds-pad-all-md">
-                <hr>
-                <!-- **********************************************
-                    typography
-                ********************************************** -->
-                <section id="typography">
-                    <h2 class="bds-marg-b-sm"><a name="typography">Typography</a></h2>
+          <!-- blues -->
+          <div class="bds-row bds-marg-t-xs">
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-dark-blue bds-txt-white">
+              *-dark-blue<br> 
+              #004876
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-dark-blue-85 bds-txt-white">   
+              *-dark-blue-85
+              <br> #356189
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-blue bds-txt-white">
+              *-blue<br> 
+              #0075C9
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-blue-85 bds-txt-white">
+              *-blue-85<br> 
+              #0088D1
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-blue-65 bds-txt-white">
+              *-blue-65<br> 
+              #4DA3DC
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-blue-45 bds-txt-white">
+              *-blue-45<br> 
+              #8DBEE7
+            </div>
+          </div>
 
-                    <h4>Tags & Classes: </h4>
-                    <div class="bds-row bds-marg-t-xs bds-marg-b-md">
-                        <div class="bds-col-12 bds-marg-x-sm">
-                            <u>font-weight</u>:
-                            <ul>
-                                <li>bds-txt-light</li>
-                                <li>bds-txt-regular</li>
-                                <li>bds-txt-semi-bold</li>
-                                <li>bds-txt-bold</li>
-                            </ul>
-                        </div>
-                        <div class="bds-col-12 bds-marg-x-sm">
-                            <u>Font-sizes</u>:
-                            <br> There is a maximum of 3 ways to determine font sizing.
-                            <br> - <b>Tags</b>: h1 to h6
-                            <br> - <b>Class represention of tags</b>: bds-h1 to bds-h6, bds-b1 to bds-b4, and bds-l1
-                            <br> - <b>Class represention of relative pixel size</b>: bds-txt-44 to bds-txt-11 (see increments below)
-                            <!-- inner grid -->
-                            <div class="bds-row">
-                                <div class="bds-col bds-marg-r-xs">
-                                    <ul>
-                                        <li>h1 / bds-h1 / bds-txt-44</li>
-                                        <li>h2 / bds-h2 / bds-txt-40</li>
-                                        <li>h3 / bds-h3 / bds-txt-34</li>
-                                        <li>h4 / bds-h4 / bds-txt-24</li>
-                                        <li>h5 / bds-h5 / bds-txt-22</li>
-                                        <li>h6 / bds-h6 / bds-txt-20</li>
-                                    </ul>
-                                </div>
-                                <div class="bds-col bds-marg-r-xs">
-                                    <ul>
-                                        <li>bds-b1 / bds-txt-18</li>
-                                        <li>bds-b2 / bds-txt-16</li>
-                                        <li>bds-b3 / bds-txt-14</li>
-                                        <li>bds-b4 / bds-txt-12</li>
-                                        <li>bds-l1 / bds-txt-11</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--/ inner grid -->
-                        </div>
+          <!-- purple -->
+          <div class="bds-row bds-marg-t-xs">
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-purple bds-txt-white">
+              *-purple<br>
+              #8547ad
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-purple-85 bds-txt-white">
+              *-purple-85<br>
+              #9862b9
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-purple-65 bds-txt-white">
+              *-purple-65<br>
+              #b388cb
+            </div>
+          </div>
+
+          <!-- reds -->
+          <div class="bds-row bds-marg-t-xs">
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-red bds-txt-white">
+              *-red<br> 
+              #F42534
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-red-85 bds-txt-white">
+              *-red-85<br> 
+              #FC564F
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-red-65 bds-txt-white">
+              *-red-65<br> 
+              #ff988a
+            </div>
+          </div>
+
+          <!-- orange -->
+          <div class="bds-row bds-marg-t-xs">
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-orange bds-txt-white">
+              *-orange<br> 
+              #ff9e16
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-orange-85 bds-txt-white">
+              *-orange-85<br> 
+              #ffad45
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-orange-65 bds-txt-white">
+              *-orange-65<br> 
+              #ffc072
+            </div>
+          </div>
+
+          <!-- greens -->
+          <div class="bds-row bds-marg-t-xs">
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-green bds-txt-white">
+              *-green<br> 
+              #00bd70
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-green-85 bds-txt-white">
+              *-green-85<br> 
+              #00c884
+            </div>
+            <div class="bds-col-6 bds-col-lg-3 bds-pad-sm bds-bg-green-65 bds-txt-white">
+              *-green-65<br> 
+              #5fd6a0
+            </div>
+          </div>
+
+        </div>
+        <!--/color swatches-->
+
+
+         
+        <!-- use chart -->
+        <div class="use-chart">
+          <!-- background color -->
+          <div class="bds-marg-t-lg">
+            <h4>Background color</h4>
+              <table class="bds-marg-t-xs">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th>Function</th>
+                    <th>Preview</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>bds-bg</td>
+                    <td>sets background color</td>
+                    <td>
+                      <div class="bds-bg-green">bds-bg-green</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>bds-bg-lg</td>
+                    <td>
+                      changes the large breakpoint background color
+                    </td>
+                    <td>
+                      <div class="bds-bg-lg-purple">bds-bg-lg-purple</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>bds-hov-bg</td>
+                    <td>
+                      changes the background color when hovered
+                    </td>
+                    <td>
+                      <div class="bds-hov-bg-orange">bds-hov-bg-orange</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- text color -->
+            <div class="bds-marg-t-lg">
+              <h4>Text color</h4>
+              <table class="bds-marg-t-xs">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th>Function</th>
+                    <th>Preview</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>bds-txt</td>
+                    <td>
+                      sets the text color
+                    </td>
+                    <td>
+                      <div class="bds-txt-blue">bds-txt-blue</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>bds-hov-txt</td>
+                    <td>
+                      changes the text color when hovered
+                    </td>
+                    <td>
+                      <div class="bds-hov-txt-red">bds-hov-txt-red</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- border color -->
+            <div class="bds-marg-t-lg">
+              <h4>Border color</h4>
+              <table class="bds-marg-t-xs">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th>Function</th>
+                    <th>Preview</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>bds-border</td>
+                    <td>
+                      sets a colored 1px border
+                    </td>
+                    <td>
+                      <div class="bds-border-green">bds-border-green</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div><!--/end use chart -->
+
+          <!-- example -->
+          <div class="example bds-marg-t-lg">
+              <h4 class="bds-marg-y-xs">Examples:</h4>
+              <div class="bds-marg-b-xs">
+                  <div class="bds-bg-dark-blue bds-txt-white">Hello world</div>
+                  <div class="bds-bg-green-65 bds-hov-bg-orange">Hello world</div>
+                  <div class="bds-bg-white bds-border-red bds-hov-txt-red">Hello world</div>
+              </div>
+              <script src="https://gist.github.com/xianc/a2e9ad1cf7d1c593667ab8595502dcfa.js"></script>
+          </div>
+
+      </section>
+      <!--/color palette-->
+
+
+
+     <!-- **********************************************
+                typography
+     ********************************************** -->
+     <section id="typography" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="typography">Typography</h2>
+
+        <div class="use-chart typography-swap-weight">
+          <h4>Font size</h4>
+          <p class="bds-marg-t-xs">
+            There are a max of 3 ways to set font size:<br> 
+            1. <b>Tags</b>: h1 to h6<br> 
+            2. <b>Class represention of tags</b>: bds-h1 to bds-h6, bds-b1 to bds-b4, and bds-l1<br> 
+            3. <b>Class represention of relative pixel size</b>: bds-txt-44 to bds-txt-11 (see chart below)
+          </p>
+          <table class="bds-marg-t-xs">
+            <thead>
+              <tr>
+                <th>
+                  Class<br>
+                  <span class="bds-l1 bds-txt-light">Use one of the following:</span>
+                </th>
+                <th>Pixels Approx</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  h1<br>
+                  bds-h1<br>
+                  bds-txt-44
+                </td>
+                <td>44px</td>
+                <td class="swap-weight">
+                  <h1>Heading h1</h1>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  h2<br>
+                  bds-h2<br>
+                  bds-txt-40
+                </td>
+                <td>40px</td>
+                <td class="swap-weight">
+                  <h2>Heading h2</h2>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  h3<br>
+                  bds-h3<br>
+                  bds-txt-34
+                </td>
+                <td>34px</td>
+                <td class="swap-weight">
+                  <h3>Heading h3</h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  h4<br>
+                  bds-h4<br>
+                  bds-txt-24
+                </td>
+                <td>24px</td>
+                <td class="swap-weight">
+                  <h4>Heading h4</h4>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  h5<br>
+                  bds-h5<br>
+                  bds-txt-22
+                </td>
+                <td>22px</td>
+                <td class="swap-weight">
+                  <h5>Heading h5</h5>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  h6<br>
+                  bds-h6<br>
+                  bds-txt-20
+                </td>
+                <td>20px</td>
+                <td class="swap-weight">
+                  <h6>Heading h6</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-b1<br>
+                  bds-txt-18
+                </td>
+                <td>18px</td>
+                <td class="swap-weight">
+                  <h6 class="bds-b1">Body b1</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-b2<br>
+                  bds-txt-16
+                </td>
+                <td>16px</td>
+                <td class="swap-weight">
+                  <h6 class="bds-b2">Body b2</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-b3<br>
+                  bds-txt-14
+                </td>
+                <td>14px</td>
+                <td class="swap-weight">
+                  <h6 class="bds-b3">Body b3</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-b4<br>
+                  bds-txt-12
+                </td>
+                <td>12px</td>
+                <td class="swap-weight">
+                  <h6 class="bds-b4">Body b4</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-l1<br>
+                  bds-txt-11
+                </td>
+                <td>11px</td>
+                <td class="swap-weight">
+                  <h6 class="bds-b4">Legal l1</h6>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="use-chart typography-weight bds-marg-t-lg">
+          <h4>Font weight</h4>
+          <table class="bds-marg-t-xs">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Weight</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  bds-txt-light
+                </td>
+                <td>Light</td>
+                <td>
+                  <h4 class="bds-txt-light">bds-txt-light</h4>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-txt-regular
+                </td>
+                <td>Regular</td>
+                <td>
+                  <h4 class="bds-txt-regular">bds-txt-regular</h4>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-txt-semi-bold
+                </td>
+                <td>Semi Bold</td>
+                <td>
+                  <h4 class="bds-txt-semi-bold">bds-txt-semi-bold</h4>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  bds-txt-bold
+                </td>
+                <td>Bold</td>
+                <td>
+                  <h4 class="bds-txt-bold">bds-txt-bold</h4>
+                </td>
+              </tr>
+              <!-- <tr>
+                <td>
+                  bds-txt-lg-[VALUE]
+                </td>
+                <td>
+                  <h4 class="bds-txt-lg-bold">bds-txt-lg-bold</h4>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+        <!--/txt weight chart -->
+
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Text align</h4>
+          <table class="bds-marg-t-xs">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Function</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-txt-left</td>
+                <td>Left align text</td>
+                <td class="bds-txt-left">
+                  left
+                </td>
+              </tr>
+              <tr>
+                <td>bds-txt-right</td>
+                <td>Right align text</td>
+                <td class="bds-txt-right">
+                  right
+                </td>
+              </tr>
+              <tr>
+                <td>bds-txt-center</td>
+                <td>Center text</td>
+                <td class="bds-txt-center">
+                  center
+                </td>
+              </tr>
+              <tr>
+                <td>bds-txt-md-[VALUE]</td>
+                <td>Set text alignment on medium breakpoint</td>
+                <td class="bds-txt-md-center">
+                  bds-txt-md-center
+                </td>
+              </tr>
+              <tr>
+                <td>bds-txt-lg-[VALUE]</td>
+                <td>Set text alignment on large breakpoint</td>
+                <td class="bds-txt-lg-center">
+                  bds-txt-lg-center
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--/ text align chart -->
+
+        <!-- example -->
+        <div class="example bds-marg-t-lg">
+          <h4 class="bds-marg-y-xs">Examples:</h4>
+            <div class="bds-marg-b-xs">
+                <h5>Hello world 1</h5>
+                <div class="bds-h4">Hello world 2</div>
+                <div class="bds-txt-bold bds-b1">Hello world 3</div>
+                <span class="bds-txt-light bds-txt-16">Hello world 4</span>
+            </div>
+            <script src="https://gist.github.com/xianc/4baa6045d1e3d805d502d209b505eb5b.js"></script>
+        </div>
+      </section>
+
+
+      <!-- **********************************************
+                Spacing
+     ********************************************** -->
+      <section id="spacing" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="spacing">Spacing</h2>
+
+
+         <div class="spaces bds-flex bds-space-between bds-marg-t-md bds-txt-center">
+            <div>
+                *-xxs
+                <br>
+                <div class="bds-space-xxs"> </div>
+                <br> ~8px
+            </div>
+            <div>
+                *-xs
+                <br>
+                <div class="bds-space-xs"> </div>
+                <br> ~16px
+            </div>
+            <div>
+                *-sm
+                <br>
+                <div class="bds-space-sm"> </div>
+                <br> ~24px
+            </div>
+            <div>
+                *-md
+                <br>
+                <div class="bds-space-md"> </div>
+                <br> ~32px
+            </div>
+            <div>
+                *-lg
+                <br>
+                <div class="bds-space-lg"> </div>
+                <br> ~48px
+            </div>
+            <div>
+                *-xl
+                <br>
+                <div class="bds-space-xl"> </div>
+                <br> ~67px
+            </div>
+            <div>
+                *-xxl
+                <br>
+                <div class="bds-space-xxl"> </div>
+                <br> ~88px
+            </div>
+            <div></div>
+        </div>
+
+
+
+        <!-- margin -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Margin</h4>
+          <table class="bds-marg-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-marg-all</td>
+                <td>Adds margin to all sides</td>
+                <td>
+                  <div class="bds-marg-all-xs bds-bg-green">
+                    bds-marg-all-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-marg-t</td>
+                <td>Adds margin to the top</td>
+                <td>
+                  <div class="bds-marg-t-xs bds-bg-green">
+                    bds-marg-t-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-marg-b</td>
+                <td>Adds margin to the bottom</td>
+                <td>
+                  <div class="bds-marg-b-xs bds-bg-green">
+                    bds-marg-b-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-marg-l</td>
+                <td>Adds margin to the left</td>
+                <td>
+                  <div class="bds-marg-l-xs bds-bg-green">
+                    bds-marg-l-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-marg-r</td>
+                <td>Adds margin to the right</td>
+                <td>
+                  <div class="bds-marg-r-xs bds-bg-green">
+                    bds-marg-r-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-marg-y</td>
+                <td>Adds margin to the top and bottom</td>
+                <td>
+                  <div class="bds-marg-y-xs bds-bg-green">
+                    bds-marg-y-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-marg-x</td>
+                <td>Adds margin to the left and right</td>
+                <td>
+                  <div class="bds-marg-x-xs bds-bg-green">
+                    bds-marg-x-xs
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>bds-marg-lg-[VALUE]</td>
+                <td>Adds margin to the large breakpoint only</td>
+                <td>
+                  <div class="bds-marg-lg-x-xs bds-bg-green">
+                    bds-marg-lg-x-xs
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!--/margin-->
+
+        <!-- padding -->
+        <!-- margin -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Padding</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-pad-all</td>
+                <td>Adds padding to all sides</td>
+                <td>
+                  <div class="bds-pad-all-xs bds-bg-green">
+                    bds-pad-all-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-pad-t</td>
+                <td>Adds padding to the top</td>
+                <td>
+                  <div class="bds-pad-t-xs bds-bg-green">
+                    bds-pad-t-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-pad-b</td>
+                <td>Adds padding to the bottom</td>
+                <td>
+                  <div class="bds-pad-b-xs bds-bg-green">
+                    bds-pad-b-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-pad-l</td>
+                <td>Adds padding to the left</td>
+                <td>
+                  <div class="bds-pad-l-xs bds-bg-green">
+                    bds-pad-l-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-pad-r</td>
+                <td>Adds padding to the right</td>
+                <td>
+                  <div class="bds-pad-r-xs bds-bg-green">
+                    bds-pad-r-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-pad-y</td>
+                <td>Adds padding to the top and bottom</td>
+                <td>
+                  <div class="bds-pad-y-xs bds-bg-green">
+                    bds-pad-y-xs
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-pad-x</td>
+                <td>Adds padding to the left and right</td>
+                <td>
+                  <div class="bds-pad-x-xs bds-bg-green">
+                    bds-pad-x-xs
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>bds-pad-lg-[VALUE]</td>
+                <td>Adds padding to the large breakpoint only</td>
+                <td>
+                  <div class="bds-pad-lg-x-xs bds-bg-green">
+                    bds-pad-lg-x-xs
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!--/padding-->
+
+
+        <!-- example -->
+        <div class="example">
+            <h6 class="bds-marg-y-xs">Example:</h6>
+            <div class="bds-marg-b-xs">
+                <div class="bds-bg-orange-65 bds-pad-y-md">Hello world</div>
+                <div class="bds-bg-purple-65 bds-pad-all-xxs">Hello world</div>
+                <div class="bds-bg-green bds-pad-l-xl">
+                    <div class="bds-bg-white bds-pad-b-md">
+                        Hello world
                     </div>
+                </div>
+            </div>
+            <script src="https://gist.github.com/xianc/998a97c9c32c91b0ec7743a0e5b1589f.js"></script>
+        </div>
 
-                    <!-- font weights -->
-                    <div class="typography-weights">
-                        <span class="bds-txt-light">light</span>
-                        <span class="bds-txt-regular">regular</span>
-                        <span class="bds-txt-semi-bold">semi-bold</span>
-                        <span class="bds-txt-bold">bold</span>
+      </section>
 
-                        <div class="typography-weight-class bds-marg-t-sm">
-                            <p>
-                                class="<span class="heading-prefix">bds-txt-regular</span>"
-                            </p>
-                        </div>
+
+
+      <!-- **********************************************
+                Buttons
+     ********************************************** -->
+      <section id="buttons" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="buttons">Buttons</h2>
+        <!-- base buttons -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Base Buttons</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th class="bds-hide-sm-down">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-btn-primary</td>
+                <td>Primary button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-primary">bds-btn-primary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-secondary</td>
+                <td>Secondary button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-secondary">bds-btn-secondary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-tertiary</td>
+                <td>Tertiary button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-tertiary">bds-btn-tertiary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-ghost</td>
+                <td>Ghost button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-ghost">bds-btn-ghost</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-i-primary</td>
+                <td>Inversed Primary Button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-i-primary">bds-btn-i-primary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-i-secondary</td>
+                <td>Inversed Secondary Button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-i-secondary">bds-btn-i-secondary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-i-tertiary</td>
+                <td>Inversed Tertiary Button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-i-tertiary">bds-btn-i-tertiary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn</td>
+                <td>Base button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn">bds-btn</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--/base buttons-->
+
+
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Customizations</h4>
+          <p class="bds-pad-b-xxs">
+            Custom buttons can be created by appending color and typography utility classes to bds-btn
+          </p>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Example Classes</th>
+                <th class="bds-hide-sm-down">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-btn [VALUE]</td>
+                <td>
+                  bds-btn <br>
+                  bds-bg-orange <br>
+                  bds-txt-white <br>
+                  bds-hov-bg-white <br>
+                  bds-hov-txt-orange<br>
+                </td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn bds-bg-orange bds-txt-white bds-hov-bg-white bds-hov-txt-orange">Custom Button</a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!--/custom buttons -->
+        <div class="example">
+            <h6 class="bds-marg-y-xs">Example:</h6>
+            <div class="bds-marg-b-xs">
+                <a class="bds-btn-primary" href="">Button 1</a>
+                <a class="bds-btn bds-bg-black bds-txt-white bds-hov-bg-black bds-hov-txt-orange" href="">Button 2</a>
+                <a class="bds-btn-ghost bds-bg-green-65 bds-border-green" href="">Button 3</a>
+            </div>
+            <script src="https://gist.github.com/xianc/ab987a2afcac90e81221da847bc4c433.js"></script>
+        </div>
+
+
+
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Natural Width/Height</h4>
+          <p class="bds-pad-b-xs">Sets the button size to its natural width & height</p>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th class="bds-hide-md-down">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-btn-auto [BASE BUTTONS]</td>
+                <td>
+                  Append base classes for this styling
+                </td>
+                <td class="bds-hide-md-down">
+                  <a href="#" class="bds-btn-auto bds-btn-primary">bds-btn-auto bds-btn-primary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-auto [VALUES]</td>
+                <td>
+                  Append color and typography utility classes
+                </td>
+                <td class="bds-hide-md-down">
+                  <a href="#" class="bds-btn-auto bds-bg-grey-15">bds-btn-auto bds-bg-grey-15</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+
+
+      <!-- **********************************************
+                Hide/Show
+     ********************************************** -->
+      <section id="hideshow" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="hideshow">Hide Show</h2>
+
+        <div class="bds-hide-lg-up">
+          <img src="hide-show-chart.png">
+          <br>
+          <img src="hide-show-chart2.png">
+        </div>
+
+        <div class="use-chart text-align bds-marg-t-lg bds-hide-md-down">
+          <h4>Hide</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th><= sm</th>
+                <th>sm - md</th>
+                <th>md - lg</th>
+                <th>lg - xl</th>
+                <th>>= xl</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-hide</td>
+                <td> 
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <div class="bds-hide bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-sm-up</td>
+                <td>
+                  visible
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <div class="bds-hide-sm-up bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-md-up</td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <div class="bds-hide-md-up bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-lg-up</td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <div class="bds-hide-lg-up bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-xl-up</td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                </td>
+                <td>
+                  <div class="bds-hide-xl-up bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-sm-down</td>
+                <td>
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  <div class="bds-hide-sm-down bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-md-down</td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  <div class="bds-hide-md-down bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-lg-down</td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  <div class="bds-hide-lg-down bds-bg-green">visible</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-hide-xl-down</td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  visible
+                </td>
+                <td>
+                  <div class="bds-hide-xl-down bds-bg-green">visible</div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="use-chart text-align bds-marg-t-lg bds-hide-md-down">
+          <h4>Display</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-block</td>
+                <td>
+                  Set display to block
+                </td>
+                <td>
+                  <a href="#" class="bds-block bds-bg-green">bds-block</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-block-[sm/md/lg/xl]</td>
+                <td>
+                  Set display to block at >= [sm/md/lg/xl] bkpt
+                </td>
+                <td>
+                  <a href="#" class="bds-block-sm bds-bg-green">bds-block-sm</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-inline-block</td>
+                <td>
+                  Set display to inline-block
+                </td>
+                <td>
+                  <a href="#" class="bds-inline-block bds-bg-green">bds-inline-block</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-inline-block-[sm/md/lg/xl]</td>
+                <td>
+                  Set display to inline-block at >= [sm/md/lg/xl] bkpt
+                </td>
+                <td>
+                  <a href="#" class="bds-inline-block-sm bds-bg-green">bds-inline-block-sm</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!--/hiding and showing example -->
+        <div class="example">
+            <h6 class="bds-marg-y-xs">Example:</h6>
+            <div class="bds-b3"><i>re-size browser or use emulator to see examples</i></div>
+            <div class="bds-marg-b-xs">
+                How do you show a message on mobile but hide on desktop?
+                <br>
+                <u>Solution</u>: class="bds-hide-lg"
+                <br>
+                <br>
+                <div class="bds-border-grey-65 bds-pad-all-xxs">
+                    <div class="bds-hide-lg bds-bg-red-65 bds-marg-all-sm">
+                        This is hidden on the large breakpoint
                     </div>
+                </div>
 
-                    <!-- font sizes -->
-                    <div class="typography-swap-weight">
-                        <div class="typography-headings">
-                            <h1 class="bds-txt-regular">h1: Heading 1 ~ 44px</h1>
-                            <h2 class="bds-txt-regular">h2: Heading 2 ~ 40px</h2>
-                            <h3 class="bds-txt-regular">h3: Heading 3 ~ 34px</h3>
-                            <h4 class="bds-txt-regular">h4: Heading 4 ~ 24px</h4>
-                            <h5 class="bds-txt-regular">h5: Heading 5 ~ 22px</h5>
-                            <h6 class="bds-txt-regular">h6: Heading 6 ~ 20px</h6>
-                        </div>
-                        <div class="typography-other">
-                            <div class="bds-b1">b1: body 1 ~ 18px</div>
-                            <div class="bds-b2">b2: body 2 ~ 16px</div>
-                            <div class="bds-b3">b3: body 3 ~ 14px</div>
-                            <div class="bds-b4">b4: body 4 ~ 12px</div>
-                            <div class="bds-l1">l1: legal ~ 11px</div>
-                        </div>
+                <br> How do you hide a message on mobile, but show on desktop?
+                <br>
+                <u>Solution</u>: class="bds-hide bds-block-lg"
+                <br>
+                <br>
+                <div class="bds-border-grey-65 bds-pad-all-xs">
+                    <div class="bds-hide bds-block-lg bds-bg-purple-65 bds-marg-all-sm">
+                        This is showing on the large breakpoint
                     </div>
-
-                    <!-- example -->
-                    <div class="example">
-                        <h6 class="bds-marg-y-xs">Example:</h6>
-                        <div class="bds-marg-b-xs">
-                            <h5>Hello world 1</h5>
-                            <div class="bds-h4">Hello world 2</div>
-                            <div class="bds-txt-bold bds-b1">Hello world 3</div>
-                            <span class="bds-txt-light bds-txt-16">Hello world 4</span>
-                        </div>
-                        <script src="https://gist.github.com/xianc/4baa6045d1e3d805d502d209b505eb5b.js"></script>
+                </div>
+                <br>
+                <u>Solution2</u>: class="bds-hide-lg-down"
+                <br>
+                <div class="bds-border-grey-65 bds-pad-all-xs">
+                    <div class="bds-hide-lg-down bds-bg-purple-65 bds-marg-all-sm">
+                        This is showing on the large breakpoint
                     </div>
+                </div>
+            </div>
+            <script src="https://gist.github.com/xianc/c450892c847fe13d2030ffea9bf13194.js"></script>
+        </div>
 
-                </section>
-                <!--/typography-->
+      </section>
 
-                <!-- **********************************************
-                    color palette
-                ********************************************** -->
-                <section id="colorPalette">
-                    <h2 class="bds-marg-b-sm"><a name="colorPalette">Color Palette</a></h2>
-                    <h4>Prefixes</h4>
-                    <div class="bds-row">
-                        <div class="bds-col bds-marg-x-sm">
-                            <u>background</u>:
-                            <ul>
-                                <li>bds-bg</li>
-                                <li>bds-bg-lg</li>
-                                <li>bds-hov-bg</li>
-                            </ul>
 
-                            ex: bds-bg-grey
-                        </div>
-                        <div class="bds-col bds-marg-x-sm">
-                            <u>text color</u>:
-                            <ul>
-                                <li>bds-txt</li>
-                                <li>bds-hov-txt</li>
-                            </ul>
+      <!-- **********************************************
+                Utility Classes
+     ********************************************** -->
+      <section id="utilities" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="utilities">Utilities</h2>
 
-                            ex: bds-txt-grey-85
-                        </div>
-                        <div class="bds-col bds-marg-x-sm">
-                            <u>border color</u>:
-                            <ul>
-                                <li>bds-border</li>
-                                <br>
-                            </ul>
+        <!-- text align -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Text Alignment</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-txt-left</td>
+                <td>
+                  Text align left
+                </td>
+                <td>
+                  <div class="bds-txt-left">bds-txt-left</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-txt-right</td>
+                <td>
+                  Text align right
+                </td>
+                <td>
+                  <div class="bds-txt-right">bds-txt-left</div>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-txt-lg-[left/right/center]</td>
+                <td>
+                  Set text align for >= lg breakpoint
+                </td>
+                <td>
+                  <div class="bds-txt-lg-center">bds-txt-lg-center</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-                            ex: bds-border-dark-blue
-                        </div>
+        <!-- positioning -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Positioning</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>relative,<br>bds-relative</td>
+                <td>
+                  position relative
+                </td>
+              </tr>
+              <tr>
+                <td>bds-fixed</td>
+                <td>
+                  position fixed
+                </td>
+              </tr>
+              <tr>
+                <td>absolute,<br></nt>bds-absolute</td>
+                <td>
+                  position absolute
+                </td>
+              </tr>
+              <tr>
+                <td>bds-tl-0</td>
+                <td>
+                  top: 0<br>
+                  left: 0
+                </td>
+              </tr>
+              <tr>
+                <td>bds-marg-x-auto</td>
+                <td>
+                  margin-left: auto<br>
+                  margin-right: auto
+                </td>
+              </tr>
+              <tr>
+                <td>bds-x-center</td>
+                <td>
+                  left: 50%<br>
+                  transform: translateX(-50%)
+                </td>
+              </tr>
+              <tr>
+                <td>bds-width-100</td>
+                <td>
+                  width: 100%
+                </td>
+              </tr>
+                <td>bds-height-100</td>
+                <td>
+                  height: 100%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- floats -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Floats</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-left</td>
+                <td>
+                  float left
+                </td>
+              </tr>
+              <tr>
+                <td>bds-right</td>
+                <td>
+                  float right
+                </td>
+              </tr>
+              <tr>
+                <td>clearfix</td>
+                <td>
+                  clear all floats
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+         <!-- z-index -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>z-index</h4>
+          <table class="bds-pad-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-z-index-0</td>
+                <td>
+                  z-index: 0
+                </td>
+              </tr>
+              <tr>
+                <td>bds-z-index-[1-5]</td>
+                <td>
+                  z-index: 1<br>
+                  ...<br>
+                  z-index: 5
+                </td>
+              </tr>
+              <tr>
+                <td>bds-z-index-10</td>
+                <td>
+                  z-index: 10
+                </td>
+              </tr>
+              <tr>
+                <td>bds-z-index-100</td>
+                <td>
+                  z-index: 100
+                </td>
+              </tr>
+              <tr>
+                <td>bds-z-index-500</td>
+                <td>
+                  z-index: 500
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+
+       <!-- **********************************************
+                Flexbox
+     ********************************************** -->
+      <section id="flexbox" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="flexbox">Flexbox</h2>
+        <p>To use flexbox, you <strong>must</strong> wrap the container with a flex display </p>
+        
+        <!-- flex display -->
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Flex Display</h4>
+          <table class="bds-marg-t-xxs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-flex</td>
+                <td>
+                  Makes flex available. Container is displayed like a block. 
+                </td>
+              </tr>
+              <tr>
+                <td>bds-inline-flex</td>
+                <td>
+                  Makes flex available. Container is displayed like a inline-block. 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+          <div class="use-chart text-align bds-marg-t-lg">
+              <h4>Flex Centering</h4>
+              <table class="bds-marg-t-xxs">
+                <thead>
+                  <tr>
+                    <th>Prefixes</th>
+                    <th>Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>bds-xy-center</td>
+                    <td>
+                      Vertically and horizontally centered
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>bds-y-center</td>
+                    <td>
+                      Vetically centered
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+
+          <div class="bds-row bds-marg-t-md">
+            <div class="bds-col-6 bds-bg-red-65 bds-flex bds-y-center" style="height:200px">
+                bds-flex bds-y-center
+            </div>
+            <div class="bds-col-6 bds-bg-purple-65 bds-flex bds-xy-center" style="height:200px">
+                bds-flex bds-xy-center
+            </div>
+          </div>
+
+          <!-- flex center example-->
+          <div class="example">
+              <h6 class="bds-marg-y-xs">Example</h6>
+              <script src="https://gist.github.com/xianc/0cb1e9303beaa70608a41ec6e44eb109.js"></script>
+              *note: inline style, height is only for example purposes. Please avoid inline styles in your markup.
+          </div>
+
+
+
+          <div class="use-chart text-align bds-marg-t-lg">
+              <h4>Flex Order</h4>
+              <p class="bds-pad-b-md">
+                - Flex order classes should be <b>children</b> of bds-flex.<br> 
+                - These flex order classes <b>impacts content on the larger breakpoint and larger.</b><br> 
+                - These classes changes the order in which your content shows up, even if the markup setup in - HTML has it in a different order<br> 
+                - <b>Always set up your content in mobile hierarchy</b>, then use css and the order classes to change desktop.
+              </p>
+
+              <table class="bds-marg-t-xxs">
+                <thead>
+                  <tr>
+                    <th>Prefixes</th>
+                    <th>Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>bds-order-1</td>
+                    <td>
+                      Sets the content to display first on the large breakpoint
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>bds-order-[2-5]</td>
+                    <td>
+                      Sets the content to displa [2nd - 5th] on the large breakpoint
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <div class="bds-marg-y-md bds bds-marg-t-xs">
+                <div class="bds-b3"><i>re-size browser or use emulator to see how the order changes</i></div>
+                <div class="bds-row bds-flex bds-marg-y-xxs">
+                    <div class="bds-col-6 bds-order-2 bds-bg-red-65 bds-order-2">
+                        1st content
                     </div>
-
-                    <!-- color swatches -->
-                    <div class="bds-row bds-txt-center bds-marg-t-md">
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-grey bds-txt-white">*-grey
-                                <br> #333E48</div>
-                            <div class="swatch bds-bg-grey-85 bds-txt-white">*-grey-85
-                                <br> #4E5760</div>
-                            <div class="swatch bds-bg-grey-65 bds-txt-white">*-grey-65
-                                <br> #757C83</div>
-                            <div class="swatch bds-bg-grey-45 bds-txt-white">*-grey-45
-                                <br> #9EA2A7</div>
-                            <div class="swatch bds-bg-grey-15 bds-txt-white">*-grey-15
-                                <br> #e3e2e2</div>
-                            <div class="swatch bds-bg-grey-05 bds-txt-white">*-grey-05
-                                <br> #f0f0f0</div>
-                        </div>
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-blue bds-txt-white">*-blue
-                                <br> #0075C9</div>
-                            <div class="swatch bds-bg-blue-85 bds-txt-white">*-blue-85
-                                <br> #0088D1</div>
-                            <div class="swatch bds-bg-blue-65 bds-txt-white">*-blue-65
-                                <br> #4DA3DC</div>
-                            <div class="swatch bds-bg-blue-45 bds-txt-white">*-blue-45
-                                <br> #8DBEE7</div>
-                        </div>
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-dark-blue bds-txt-white">*-dark-blue
-                                <br> #004876</div>
-                            <div class="swatch bds-bg-dark-blue-85 bds-txt-white">*-dark-blue-85
-                                <br> #356189</div>
-                        </div>
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-white bds-txt-black">*-white
-                                <br>#ffffff</div>
-                            <div class="swatch bds-bg-black bds-txt-white">*-black
-                                <br>#000000</div>
-                        </div>
+                    <div class="bds-col-6 bds-order-1 bds-bg-orange-65 bds-order-1">
+                        2nd content
                     </div>
-
-                    <div class="bds-row bds-txt-center">
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-red bds-txt-white">*-red
-                                <br> #F42534</div>
-                            <div class="swatch bds-bg-red-85 bds-txt-white">*-red-85
-                                <br> #FC564F</div>
-                            <div class="swatch bds-bg-red-65 bds-txt-white">*-red-65
-                                <br> #ff988a</div>
-                        </div>
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-green bds-txt-white">*-green
-                                <br> #00bd70</div>
-                            <div class="swatch bds-bg-green-85 bds-txt-white">*-green-85
-                                <br> #00c884</div>
-                            <div class="swatch bds-bg-green-65 bds-txt-white">*-green-65
-                                <br> #5fd6a0</div>
-                        </div>
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-orange bds-txt-white">*-orange
-                                <br> #ff9e16</div>
-                            <div class="swatch bds-bg-orange-85 bds-txt-white">*-orange-85
-                                <br> #ffad45</div>
-                            <div class="swatch bds-bg-orange-65 bds-txt-white">*-orange-65
-                                <br> #ffc072</div>
-                        </div>
-                        <div class="bds-col bds-marg-b-sm">
-                            <div class="swatch bds-bg-purple bds-txt-white">*-purple
-                                <br>#8547ad</div>
-                            <div class="swatch bds-bg-purple-85 bds-txt-white">*-purple-85
-                                <br>#9862b9</div>
-                            <div class="swatch bds-bg-purple-65 bds-txt-white">*-purple-65
-                                <br>#b388cb</div>
-                        </div>
-                    </div>
-                    <!--/color swatches-->
-
-                    <!-- example -->
-                    <div class="example bds-marg-t-md">
-                        <h6 class="bds-marg-y-xs">Example:</h6>
-                        <div class="bds-marg-b-xs">
-                            <div class="bds-bg-dark-blue bds-txt-white">Hello world</div>
-                            <div class="bds-bg-green-65 bds-hov-bg-orange">Hello world</div>
-                            <div class="bds-bg-white bds-border-red bds-hov-txt-red">Hello world</div>
-                        </div>
-                        <script src="https://gist.github.com/xianc/a2e9ad1cf7d1c593667ab8595502dcfa.js"></script>
-                    </div>
-
-                </section>
-                <!--/color palette-->
-
-                <!-- **********************************************
-                    spacing styles
-                ********************************************** -->
-                <section id="spacing">
-                    <h2 class="bds-marg-b-sm"><a name="spacing">Spacing</a></h2>
-                    <h4>Prefixes</h4>
-                    <div class="bds-row">
-                        <div class="bds-col">
-                            <u>margin</u>:
-                            <ul>
-                                <li>bds-marg-all</li>
-                                <li>bds-marg-t</li>
-                                <li>bds-marg-b</li>
-                                <li>bds-marg-l</li>
-                                <li>bds-marg-r</li>
-                                <li>bds-marg-x (left and right)</li>
-                                <li>bds-marg-y (top and bottom)</li>
-                            </ul>
-                            ex: bds-marg-x-xs
-                        </div>
-                        <div class="bds-col">
-                            <u>padding</u>:
-                            <ul>
-                                <li>bds-pad-all</li>
-                                <li>bds-pad-t</li>
-                                <li>bds-pad-b</li>
-                                <li>bds-pad-l</li>
-                                <li>bds-pad-r</li>
-                                <li>bds-pad-x (left and right)</li>
-                                <li>bds-pad-y (top and bottom)</li>
-                            </ul>
-                            ex: bds-pad-all-s
-                        </div>
-                    </div>
-
-                    <div class="spaces bds-flex bds-space-between bds-marg-t-md bds-txt-center">
-                        <div>
-                            *-xxs
-                            <br>
-                            <div class="bds-space-xxs"> </div>
-                            <br> ~8px
-                        </div>
-                        <div>
-                            *-xs
-                            <br>
-                            <div class="bds-space-xs"> </div>
-                            <br> ~16px
-                        </div>
-                        <div>
-                            *-sm
-                            <br>
-                            <div class="bds-space-sm"> </div>
-                            <br> ~24px
-                        </div>
-                        <div>
-                            *-md
-                            <br>
-                            <div class="bds-space-md"> </div>
-                            <br> ~32px
-                        </div>
-                        <div>
-                            *-lg
-                            <br>
-                            <div class="bds-space-lg"> </div>
-                            <br> ~48px
-                        </div>
-                        <div>
-                            *-xl
-                            <br>
-                            <div class="bds-space-xl"> </div>
-                            <br> ~67px
-                        </div>
-                        <div>
-                            *-xxl
-                            <br>
-                            <div class="bds-space-xxl"> </div>
-                            <br> ~88px
-                        </div>
-                        <div></div>
-                    </div>
-
-                    <h6 class="bds-marg-y-xs">Spacing all around view: </h6>
-                    <div class="bds-flex bds-space-between">
-                        <div>
-                            <div class="bds-bg-green-65 bds-inline-block">
-                                <div class="bds-marg-all-xxs bds-bg-white">
-                                    *-all-xxs
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="bds-bg-green-65 bds-inline-block">
-                                <div class="bds-marg-all-xs bds-bg-white">
-                                    *-all-xs
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="bds-bg-green-65 bds-inline-block">
-                                <div class="bds-marg-all-sm bds-bg-white">
-                                    *-all-sm
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="bds-bg-green-65 bds-inline-block">
-                                <div class="bds-marg-all-md bds-bg-white">
-                                    *-all-md
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="bds-bg-green-65 bds-inline-block">
-                                <div class="bds-marg-all-lg bds-bg-white">
-                                    *-all-lg
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="bds-bg-green-65 bds-inline-block">
-                                <div class="bds-marg-all-xl bds-bg-white">
-                                    *-all-xl
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="bds-bg-green-65 bds-inline-block">
-                                <div class="bds-marg-all-xxl bds-bg-white">
-                                    *-all-xxl
-                                </div>
-                            </div>
-                        </div>
-                        <div></div>
-                    </div>
-
-                    <!-- example -->
-                    <div class="example">
-                        <h6 class="bds-marg-y-xs">Example:</h6>
-                        <div class="bds-marg-b-xs">
-                            <div class="bds-bg-orange-65 bds-pad-y-md">Hello world</div>
-                            <div class="bds-bg-purple-65 bds-pad-all-xxs">Hello world</div>
-                            <div class="bds-bg-green bds-pad-l-xl">
-                                <div class="bds-bg-white bds-pad-b-md">
-                                    Hello world
-                                </div>
-                            </div>
-                        </div>
-                        <script src="https://gist.github.com/xianc/998a97c9c32c91b0ec7743a0e5b1589f.js"></script>
-                    </div>
-
-                </section>
-                <!--/spacing-->
-
-                <!-- **********************************************
-                    breakpoints
-                ********************************************** -->
-                <section id="breakpoints">
-                    <h2 class="bds-marg-b-xxs"><a name="breakpoints">Breakpoints</a></h2>
-                    <div class="bds-row">
-                        <div class="bds-col bds-marg-r-sm">
-                            xs
-                            <br> sm
-                            <br> md
-                            <br> lg
-                            <br> xl
-                        </div>
-                        <div class="bds-col">
-                            up to 479px
-                            <br> 480px - 767px
-                            <br> 768px - 991px
-                            <br> 992px - 1199px
-                            <br> 1200px and larger
-                        </div>
-                    </div>
-                </section>
-                <!--/breakpoints-->
-
-                <!-- **********************************************
-                    button styles
-                ********************************************** -->
-                <section id="buttons">
-                    <h2 class="bds-marg-b-xxs"><a name="buttons">Buttons</a></h2>
-
-                    <div class="bds-marg-all-md">
-                        <h4>Base buttons</h4>
-                        <u>Prefix & Class:</u> add classes names to "<b>a href</b>" tag
-                        <ul>
-                            <li>bds-btn</li>
-                        </ul>
-                        ex: bds-btn-primary
-                        <br> ex. bds-btn .bts-bg-white
-
-                        <div class="bds-row bds-txt-center">
-                            <div class="bds-col bds-pad-all-sm">
-                                <div class="classNames bds-marg-b-xxs">*-primary</div>
-                                <a class="bds-btn-primary" href="">Primary</a>
-                            </div>
-                            <div class="bds-col bds-pad-all-sm">
-                                <div class="classNames bds-marg-b-xxs">*-ghost</div>
-                                <a class="bds-btn-ghost" href="">Ghost</a>
-                            </div>
-                            <div class="bds-col bds-pad-all-sm">
-                                <div class="classNames bds-marg-b-xxs">*-secondary</div>
-                                <a class="bds-btn-secondary" href="">Tertiary</a>
-                            </div>
-                        </div>
-
-                        <h4 class="bds-marg-t-lg bds-marg-b-xxs">Natural Width/Height</h4> Append class class="bds-btn-auto"
-                        <br> ex: bds-btn-primary bds-btn-auto
-                        <br>
-                        <br>
-                        <a class="bds-btn-primary bds-btn-auto" href="">Primary Button Natural Size</a>
-
-                        <!--custom buttons-->
-                        <h4 class="bds-marg-t-lg bds-marg-b-xxs">Custom Chipotle Style Buttons</h4> Declare class="bds-btn" and then append your color and typography utility classes. See examples below:
-                        <div class="bds-row bds-marg-b-sm">
-                            <div class="bds-col bds-col-md-4">
-                                <div class="classNames bds-pad-all-sm">
-                                    bds-btn
-                                    <br> bds-bg-orange
-                                    <br> bds-txt-white
-                                    <br> bds-hov-bg-white
-                                    <br> bds-hov-txt-orange
-                                </div>
-                                <a class="bds-btn bds-bg-orange bds-txt-white bds-hov-bg-white bds-hov-txt-orange" href="">Request Demo</a>
-                            </div>
-                            <div class="bds-col bds-col-md-4">
-                                <div class="classNames bds-pad-all-sm">
-                                    bds-btn
-                                    <br> bds-bg-orange
-                                    <br> bds-txt-white
-                                    <br> bds-hov-bg-white
-                                    <br> bds-hov-txt-orange
-                                </div>
-                                <a class="bds-btn bds-bg-white bds-txt-orange bds-hov-bg-orange bds-hov-txt-white" href="">Create Links</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--/custom buttons -->
-                    <div class="example">
-                        <h6 class="bds-marg-y-xs">Example:</h6>
-                        <div class="bds-marg-b-xs">
-                            <a class="bds-btn-primary" href="">Button 1</a>
-                            <a class="bds-btn bds-bg-black bds-txt-white bds-hov-bg-black bds-hov-txt-orange" href="">Button 2</a>
-                            <a class="bds-btn-ghost bds-bg-green-65 bds-border-green" href="">Button 3</a>
-                        </div>
-                        <script src="https://gist.github.com/xianc/ab987a2afcac90e81221da847bc4c433.js"></script>
-                    </div>
-
-                </section>
-                <!--/custom buttons -->
-
-                <!-- **********************************************
-                   utility
-                ********************************************** -->
-                <section id="utilities">
-                    <h2 class="bds-marg-b-xxs"><a name="utility">Utility</a></h2>
-                    <!-- general utilities -->
-                    <div class="general-tilities bds-marg-y-sm">
-                        <div class="bds-row">
-                            <div class="bds-col-6">
-                                <u>Text align</u>:
-                                    <div class="bds-row">
-                                        <div class="bds-col-md-5">
-                                          <ul>
-                                            <li>bds-txt-left</li>
-                                            <li>bds-txt-right</li>
-                                            <li>bds-txt-center</li>
-                                          </ul>
-                                        </div>
-                                        <div class="bds-col-md-5">
-                                          <ul>
-                                            <li>bds-txt-lg-left</li>
-                                            <li>bds-txt-lg-right</li>
-                                            <li>bds-txt-lg-center</li>
-                                          </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="bds-col-6">
-                                <u>Display</u>:
-                                <br>
-                                    <div class="bds-row">
-                                        <div class="bds-col-md-5">
-                                          <ul>
-                                            <li>bds-block</li>
-                                            <li>bds-inline-block</li>
-                                            <li>bds-flex</li>
-                                            <li>bds-inline-flex</li>
-                                          </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <!-- /row -->
-
-                        <div class="bds-row">
-                            <div class="bds-col-6">
-                                <u>Positioning</u>:
-                                    <div class="bds-row">
-                                        <div class="bds-col-md-5">
-                                          <ul>
-                                            <li>bds-relative</li>
-                                            <li>bds-absolute</li>
-                                            <li>bds-fixed</li>
-                                          </ul>
-                                        </div>
-                                        <div class="bds-col-md-5">
-                                          <ul>
-                                            <li>bds-tl-0
-                                                <br>
-                                                <span class="bds-txt-12">top:0<br>left:0</span>
-                                            </li>
-                                            <li>bds-marg-x-auto
-                                                <br>
-                                                <span class="bds-txt-12">margin-left:<br>margin-right: auto</span>
-                                            </li>
-                                            <li>bds-x-center
-                                                <br>
-                                                <span class="bds-txt-12">left: 50%<br>
-                                                transform: translateX(-50%)</span>
-                                            </li>
-                                            <li>bds-width-100
-                                                <br>
-                                                <span class="bds-txt-12">height: 100%</span>
-                                            </li>
-                                            <li>bds-height-100
-                                                <br>
-                                                <span class="bds-txt-12">height: 100%</span>
-                                            </li>
-                                          </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="bds-col-6">
-                                <u>Floats</u>:
-                                <br>
-                                  <div class="bds-row">
-                                    <div class="bds-col-md-5">
-                                      <ul>
-                                        <li>bds-left</li>
-                                        <li>bds-right</li>
-                                      </ul>
-                                    </div>
-                                    <div class="bds-col-md-5">
-                                      <ul>
-                                        <li>clearfix</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="bds-col-6">
-                                <u>z-index</u>:
-                                <br>
-                                    <div class="bds-row">
-                                        <div class="bds-col-12">
-                                          <ul>
-                                            <li>bds-z-index-n1 (-1)</li>
-                                            <li>bds-z-index-0</li>
-                                            <li>bds-z-index-1</li>
-                                            <li>...</li>
-                                            <li>bds-z-index-5</li>
-                                            <li>bds-z-index-10</li>
-                                            <li>bds-z-index-100</li>
-                                            <li>bds-z-index-500</li>
-                                          </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-
-
-                            <!--/general utility examples -->
-                            <div class="example">
-                                <h6 class="bds-marg-y-xs">Example:</h6>
-                                <div class="bds-marg-b-xs">
-                                    <div class="bds-bg-orange-65 bds-txt-right">Hello world</div>
-                                    <div class="bds-bg-purple-65 bds-relative bds-pad-all-xl">
-                                        Hello World
-                                        <div class="bds-absolute bds-tl-0 bds-bg-red bds-pad-all-xs">
-                                            Hello I'm absolute
-                                        </div>
-                                    </div>
-                                </div>
-                                <script src="https://gist.github.com/xianc/b2602dc16d7f980eb4dd6b0d73e805ae.js"></script>
-                            </div>
- 
-                    </div>
-                </section>
-                <!-- hiding and showing -->
-
-                <section id="hideshow">
-                    <h2 class="bds-marg-b-xxs"><a name="hideshow">Hiding</a></h2>
-                    <div class="bds-marg-y-sm">
-                        To avoid any conflicts, hide classes should be wrappers (aka a parent element)
-                    </div>
-
-                    <div class="bds-row">
-                        <div class="bds-col">
-                            <u>Hiding</u>:
-                            <ul>
-                                <li>bds-hide</li>
-                                <li>bds-hide-sm-up</li>
-                                <li>bds-hide-md-up</li>
-                                <li>bds-hide-lg-up</li>
-                                <li>bds-hide-xl-up</li>
-                            </ul>
-                        </div>
-                        <div class="bds-col">
-                            <br>
-                            <br>
-                            <ul>
-                                <li>bds-hide-sm-down</li>
-                                <li>bds-hide-md-down</li>
-                                <li>bds-hide-lg-down</li>
-                                <li>bds-hide-xl-down</li>
-                            </ul>
-                        </div>
-
-                        <div class="bds-col">
-                            <u>Display Options</u>:
-                            <ul>
-                                <li>bds-block</li>
-                                <li>bds-block-sm</li>
-                                <li>bds-block-md</li>
-                                <li>bds-block-lg</li>
-                                <li>bds-block-xl</li>
-                            </ul>
-                        </div>
-                        <div class="bds-col">
-                            <br>
-                            <ul>
-                                <li>bds-inline-block</li>
-                                <li>bds-inline-block-sm</li>
-                                <li>bds-inline-block-md</li>
-                                <li>bds-inline-block-lg</li>
-                                <li>bds-inline-block-xl</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <img src="hide-show-chart.png">
-                    <br>
-                    <img src="hide-show-chart2.png">
-
-                    <!--/hiding and showing example -->
-                    <div class="example">
-                        <h6 class="bds-marg-y-xs">Example:</h6>
-                        <div class="bds-b3"><i>re-size browser or use emulator to see examples</i></div>
-                        <div class="bds-marg-b-xs">
-                            How do you show a message on mobile but hide on desktop?
-                            <br>
-                            <u>Solution</u>: class="bds-hide-lg"
-                            <br>
-                            <br>
-                            <div class="bds-border-grey-65 bds-pad-all-xxs">
-                                <div class="bds-hide-lg bds-bg-red-65 bds-marg-all-sm">
-                                    This is hidden on the large breakpoint
-                                </div>
-                            </div>
-
-                            <br> How do you hide a message on mobile, but show on desktop?
-                            <br>
-                            <u>Solution</u>: class="bds-hide bds-block-lg"
-                            <br>
-                            <br>
-                            <div class="bds-border-grey-65 bds-pad-all-xs">
-                                <div class="bds-hide bds-block-lg bds-bg-purple-65 bds-marg-all-sm">
-                                    This is showing on the large breakpoint
-                                </div>
-                            </div>
-                            <br>
-                            <u>Solution2</u>: class="bds-hide-lg-down"
-                            <br>
-                            <div class="bds-border-grey-65 bds-pad-all-xs">
-                                <div class="bds-hide-lg-down bds-bg-purple-65 bds-marg-all-sm">
-                                    This is showing on the large breakpoint
-                                </div>
-                            </div>
-                        </div>
-                        <script src="https://gist.github.com/xianc/c450892c847fe13d2030ffea9bf13194.js"></script>
-                    </div>
-
-                </section>
-                <!--/utility-->
-
-                <!-- **********************************************
-                   flexbox
-                ********************************************** -->
-                <section id="flexbox">
-                    <h2 class="bds-marg-b-xxs"><a name="flexbox">Flexbox</a></h2>
-                    <ul>
-                        <li>bds-flex</li>
-                        <li>bds-inline-flex</li>
-                    </ul>
-
-                    <div class="bds-marg-l-md">
-                        <!-- flex centering-->
-                        <h6>Centering</h6>
-                        <ul>
-                            <li>bds-xy-center (horizontal & vertically center)</li>
-                            <li>bds-y-center (vertically center)</li>
-                        </ul>
-                        <div class="bds-row">
-                            <div class="bds-col-6 bds-bg-red-65 bds-flex bds-y-center" style="height:200px">
-                                bds-flex bds-y-center
-                            </div>
-                            <div class="bds-col-6 bds-bg-purple-65 bds-flex bds-xy-center" style="height:200px">
-                                bds-flex bds-xy-center
-                            </div>
-                        </div>
-
-                        <!-- flex center example-->
-                        <div class="example">
-                            <h6 class="bds-marg-y-xs">Example</h6>
-                            <script src="https://gist.github.com/xianc/0cb1e9303beaa70608a41ec6e44eb109.js"></script>
-                            *note: inline style, height is only for example purposes. Please avoid inline styles in your markup.
-                        </div>
-
-                        <!--/flex centering-->
-
-                        <!-- flex ordering -->
-                        <h6 class="bds-marg-y-sm">Order</h6> - Flex order classes should be <b>children</b> of bds-flex.
-                        <br> - These flex order classes <b>impacts content on the larger breakpoint and larger.</b>
-                        <br> - These classes changes the order in which your content shows up, even if the markup setup in - HTML has it in a different order
-                        <br> - <b>Always set up your content in mobile hierarchy</b>, then use css and the order classes to change desktop.
-                        
-                            <div class="bds-row">
-                                <div class="bds-col-sm-3">
-                                  <ul>
-                                    <li>bds-order-1</li>
-                                    <li>bds-order-2</li>
-                                    <li>bds-order-3</li>
-                                    <li>bds-order-4</li>
-                                    <li>bds-order-5</li>
-                                  </ul>
-                                </div>
-                            </div>
-
-                        <div class="bds-marg-y-md bds bds-marg-x-xs">
-                            <div class="bds-b3"><i>re-size browser or use emulator to see how the order changes</i></div>
-                            <div class="bds-row bds-flex bds-marg-y-xxs">
-                                <div class="bds-col-6 bds-order-2 bds-bg-red-65 bds-order-2">
-                                    1st content
-                                </div>
-                                <div class="bds-col-6 bds-order-1 bds-bg-orange-65 bds-order-1">
-                                    2nd content
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- flex order example -->
-                        <div class="example">
-                            <h6 class="bds-marg-y-xs">Example</h6>
-                            <script src="https://gist.github.com/xianc/603d6ee47f9c7dd8943b2be11cdb66f3.js"></script>
-                        </div>
-                        <!--/flexorder example -->
-
-                        <!-- flex spacing-->
-                        <h6 class="bds-marg-y-sm">Spacing</h6>
-                            <div class="bds-row">
-                                <div class="bds-col">
-                                  <ul>
-                                    <li>bds-space-around</li>
-                                    <li>bds-space-between</li>
-                                  </ul>
-                                </div>
-                            </div>
-                        <!-- flex spacing example -->
-                        <div class="bds-bg-grey-45 bds-pad-y-sm bds-marg-x-xs">
-                            <div class="bds-flex bds-space-between">
-                                <div class="bds-pad-all-xs bds-bg-orange-65">bds-flex bds-space-between</div>
-                                <div class="bds-pad-all-xs bds-bg-orange-65">bds-flex bds-space-between</div>
-                                <div class="bds-pad-all-xs bds-bg-orange-65">bds-flex bds-space-between</div>
-                            </div>
-
-                            <div class="bds-flex bds-space-around bds-marg-t-sm">
-                                <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
-                                <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
-                                <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
-                            </div>
-                        </div>
-
-                        <div class="example">
-                            <h6 class="bds-marg-y-xs">Example</h6>
-                            <script src="https://gist.github.com/xianc/a5a7268c488a8eac6352df9b7c58ecce.js"></script>
-                        </div>
-                        <!--/flex spacing -->
-
-                    </div>
-                </section>
+                </div>
+            </div>
 
 
 
-                <section id="pageStructure">
-                    <h2 class="bds-marg-b-xxs"><a name="pageStructure">Page Structure</a></h2>
-                    <div class="bds-pad-t-sm">
-                       <img src="page-structure.png"/>
-                    </div>
-                </section>
+            <div class="use-chart text-align bds-marg-t-lg">
+              <h4>Flex Spacing</h4>
+              <table class="bds-marg-t-xxs">
+                <thead>
+                  <tr>
+                    <th>Prefixes</th>
+                    <th>Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>bds-space-between</td>
+                    <td>
+                      Sets even spacing between elements
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>bds-space-around</td>
+                    <td>
+                      Sets even spacing around elements 
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-        </div><!--/bds-col-10-->
-    </div><!--/outer row -->
-  </div><!-- /bds-container -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="script.js"></script>
+
+            <!-- flex spacing example -->
+            <div class="bds-bg-grey-45 bds-pad-y-sm bds-marg-t-xs">
+                <div class="bds-flex bds-space-between">
+                    <div class="bds-pad-all-xs bds-bg-orange-65">bds-flex bds-space-between</div>
+                    <div class="bds-pad-all-xs bds-bg-orange-65">bds-flex bds-space-between</div>
+                    <div class="bds-pad-all-xs bds-bg-orange-65">bds-flex bds-space-between</div>
+                </div>
+
+                <div class="bds-flex bds-space-around bds-marg-t-sm">
+                    <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                    <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                    <div class="bds-pad-all-xs bds-bg-green-65">bds-flex bds-space-around</div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h6 class="bds-marg-y-xs">Example</h6>
+                <script src="https://gist.github.com/xianc/a5a7268c488a8eac6352df9b7c58ecce.js"></script>
+            </div>
+            <!--/flex spacing -->
+
+
+      </section>
+
+
+       <section id="pageStructure" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="pageStructure">Page Structure</h2>
+          <div class="bds-pad-t-sm">
+             <img src="page-structure.png"/>
+          </div>
+
+          <div class="use-chart text-align bds-marg-t-lg">
+              <h4>Breakpoints</h4>
+              <table class="bds-marg-t-xxs">
+                <thead>
+                  <tr>
+                    <th>Breakpoint</th>
+                    <th>Pixel Size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>xs</td>
+                    <td>
+                      up to 479px
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>s</td>
+                    <td>
+                      480px - 767px
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>md</td>
+                    <td>
+                      768px - 991px
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>lg</td>
+                    <td>
+                      992px - 1199px
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>xl</td>
+                    <td>
+                      1200px and larger
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+        </section>
+
+
+
+    </div><!--/content wrap -->
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="script.js"></script>
+
 </body>
-
 </html>
