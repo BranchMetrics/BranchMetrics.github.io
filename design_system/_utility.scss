@@ -9,7 +9,7 @@
 .bds-v-bottom { vertical-align: bottom; }
 
 
-// fle
+// flexbox
 @mixin flex-center { display: inline-flex !important; align-items: center; justify-content: center; }
 
 .bds-flex {
@@ -22,9 +22,11 @@
   flex-wrap: wrap;
 }
 
-.bds {
-  &-xy-center { align-items: center; justify-content: center; }
-  &-y-center { align-items: center; }
+.bds-flex.bds, 
+.bds-inline-flex.bds, 
+.bds-flex{
+  &-xy-center { top: auto; left: auto; transform: none; align-items: center; justify-content: center; }
+  &-y-center { top: auto; transform: none; align-items: center; }
   &-y-stretch { align-items: stretch; }
 
   &-space-between { justify-content: space-between; }
@@ -55,7 +57,15 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
+.bds-y-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bds-xy-center {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
 
 // z-inde
 .bds-z-index {
