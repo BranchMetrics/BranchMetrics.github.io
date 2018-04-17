@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="65px" height="65px" viewBox="0 0 65 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_solutions</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ic_solutions" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Page-1" transform="translate(8.000000, 5.427091)">
+            <polygon id="Stroke-1" stroke="#8B41AF" stroke-width="2.22298994" points="22.9271242 0.341648992 29.189534 6.61021884 14.2145744 21.5882585 20.0850543 27.4610483 25.9555341 21.5905685 33.1650439 28.8016183 42.2702937 19.6971385 48.5319336 25.9595484 48.5319336 0.341648992"></polygon>
+            <polygon id="Fill-3" points="24.8716821 37.1113811 28.892622 33.0904412 24.8716821 29.0702713 20.8515122 33.0904412"></polygon>
+            <polygon id="Stroke-4" stroke="#323E48" stroke-width="2.22298994" points="24.8716821 37.1113811 28.892622 33.0904412 24.8716821 29.0702713 20.8515122 33.0904412"></polygon>
+            <polygon id="Fill-5" points="10.3431685 33.5426622 14.2901884 29.5956423 10.3431685 25.6486224 6.39614859 29.5956423"></polygon>
+            <polygon id="Stroke-6" stroke="#323E48" stroke-width="2.22298994" points="10.3431685 33.5426622 14.2901884 29.5956423 10.3431685 25.6486224 6.39614859 29.5956423"></polygon>
+            <polygon id="Fill-7" points="17.3062783 44.7181339 21.2532982 40.771114 17.3062783 36.8240941 13.3592584 40.771114"></polygon>
+            <polygon id="Stroke-8" stroke="#323E48" stroke-width="2.22298994" points="17.3062783 44.7181339 21.2532982 40.771114 17.3062783 36.8240941 13.3592584 40.771114"></polygon>
+            <polygon id="Fill-12" points="4.25616465 44.0120439 8.16314455 40.105064 4.25616465 36.1988541 0.349954744 40.105064"></polygon>
+            <polygon id="Stroke-13" stroke="#323E48" stroke-width="2.22298994" points="4.25616465 44.0120439 8.16314455 40.105064 4.25616465 36.1988541 0.349954744 40.105064"></polygon>
+            <path d="M37.5748338,36.0691861 L27.0597141,46.5835358" id="Stroke-17" stroke="#BCC0C4" stroke-width="2.22298994"></path>
+            <path d="M24.4171511,49.2260988 L22.9302812,50.7137387" id="Stroke-18" stroke="#BCC0C4" stroke-width="2.22298994"></path>
+            <g id="Group-23" transform="translate(16.179999, 51.648057)" stroke="#BCC0C4" stroke-width="2.22298994">
+                <path d="M5.08269287,0.732500982 L3.59582291,2.22014095" id="Stroke-19"></path>
+                <path d="M1.92823395,3.8869599 L0.441363989,5.37459987" id="Stroke-21"></path>
+            </g>
+            <path d="M10.8263435,12.5067247 L0.311223745,23.0210744" id="Stroke-24" stroke="#BCC0C4" stroke-width="2.22298994"></path>
+        </g>
+    </g>
+</svg>
