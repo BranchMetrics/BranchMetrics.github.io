@@ -22,9 +22,9 @@
   flex-wrap: wrap;
 }
 
-.bds-flex.bds, 
-.bds-inline-flex.bds, 
-.bds-flex{
+.bds-flex.bds,
+.bds-inline-flex.bds,
+.bds-flex {
   &-xy-center { top: auto; left: auto; transform: none; align-items: center; justify-content: center; }
   &-y-center { top: auto; transform: none; align-items: center; }
   &-y-stretch { align-items: stretch; }
@@ -57,10 +57,12 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
 .bds-y-center {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .bds-xy-center {
   top: 50%;
   left: 50%;
