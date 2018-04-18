@@ -1102,9 +1102,9 @@
         <h2 class="bds-marg-b-sm bds-txt-bold" name="hideshow">Hide Show</h2>
 
         <div class="bds-hide-lg-up">
-          <img src="hide-show-chart.png">
-          <br>
           <img src="hide-show-chart2.png">
+          <br>
+          <img src="hide-show-chart.png">
         </div>
 
         <div class="use-chart text-align bds-marg-t-lg bds-hide-md-down">
@@ -1484,6 +1484,21 @@
                 </td>
               </tr>
               <tr>
+                <td>bds-y-center</td>
+                <td>
+                  top: 50%;<br>
+                  transform: translateY(-50%);
+                </td>
+              </tr
+              <tr>
+                <td>bds-xy-center</td>
+                <td>
+                  top: 50%;<br>
+                  left: 50%;<br>
+                  transform: translateX(-50%) translateY(-50%);
+                </td>
+              </tr
+              <tr>
                 <td>bds-width-100</td>
                 <td>
                   width: 100%
@@ -1763,53 +1778,56 @@
 
        <section id="pageStructure" class="bds-container bds-pad-y-lg">
         <h2 class="bds-marg-b-sm bds-txt-bold" name="pageStructure">Page Structure</h2>
-          <div class="bds-pad-t-sm">
-             <img src="page-structure.png"/>
+
+          <div class="use-chart text-align">
+            <h4>Breakpoints</h4>
+            <table class="bds-marg-t-xxs">
+              <thead>
+                <tr>
+                  <th>Breakpoint</th>
+                  <th>Pixel Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>xs</td>
+                  <td>
+                    up to 479px
+                  </td>
+                </tr>
+                <tr>
+                  <td>s</td>
+                  <td>
+                    480px - 767px
+                  </td>
+                </tr>
+                <tr>
+                  <td>md</td>
+                  <td>
+                    768px - 991px
+                  </td>
+                </tr>
+                <tr>
+                  <td>lg</td>
+                  <td>
+                    992px - 1199px
+                  </td>
+                </tr>
+                <tr>
+                  <td>xl</td>
+                  <td>
+                    1200px and larger
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          <div class="use-chart text-align bds-marg-t-lg">
-              <h4>Breakpoints</h4>
-              <table class="bds-marg-t-xxs">
-                <thead>
-                  <tr>
-                    <th>Breakpoint</th>
-                    <th>Pixel Size</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>xs</td>
-                    <td>
-                      up to 479px
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>s</td>
-                    <td>
-                      480px - 767px
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>md</td>
-                    <td>
-                      768px - 991px
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>lg</td>
-                    <td>
-                      992px - 1199px
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>xl</td>
-                    <td>
-                      1200px and larger
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="bds-pad-t-sm bds-marg-t-lg">
+              <h4>Hierarchy</h4>
+             <img class="bds-marg-t-sm" src="page-structure.png"/>
+          </div>
+
 
         </section>
 
