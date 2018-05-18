@@ -44,7 +44,7 @@ i.fa.fa-question-circle {
 .panel-body { order: 2; padding: 25px; }
 .panel-heading { padding: 10px 25px;  }
 .panel>.list-group { order: 1; }
-.list-group-item { border: 0 !important; padding: 18px 25px; }
+.list-group-item { border: 0 !important; padding: 5px 25px; }
 
 
 .panel-primary>.panel-heading {
