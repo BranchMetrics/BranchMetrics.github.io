@@ -19,13 +19,14 @@ body{color:#111212}.content-question a,.content-answer a{color:#206783;font-weig
 
 
 
-.panel{ box-shadow: none; border: 0; background: #f0f0f0; font-family: "Open Sans", Helvetica, Arial; text-align: center; }
+.panel{ box-shadow: none; border: 0; background: #f0f0f0; font-family: "Open Sans", Helvetica, Arial; }
 
 #question_area .list-group-item { background: #0075C9; }
 
-#question_area .answers{ margin: 25px 0; }
+.answers{ margin: 25px 0; text-align: center; }
 
-i.fa.fa-chevron-right{
+i.fa.fa-chevron-right,
+i.fa.fa-question-circle {
   display: none;
 }
 .btn-zingtree{
@@ -40,5 +41,11 @@ i.fa.fa-chevron-right{
   color: #0075C9 !important;
   margin: 15px;
 }
+.panel-body { order: 2; }
+.panel>.list-group { order: 1; }
 
 
+.panel-primary>.panel-heading {
+    background-color: #356189;
+    border-color: #356189;
+}
