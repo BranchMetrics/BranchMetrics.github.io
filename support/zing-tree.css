@@ -23,7 +23,7 @@ body{color:#111212}.content-question a,.content-answer a{color:#206783;font-weig
 
 #question_area .list-group-item { background: #0075C9; }
 
-.answers{ margin: 25px 0; text-align: center; }
+#qa-area .answers{ margin: 25px 0; text-align: center; }
 
 i.fa.fa-chevron-right,
 i.fa.fa-question-circle {
@@ -43,6 +43,7 @@ i.fa.fa-question-circle {
 }
 .panel-body { order: 2; }
 .panel>.list-group { order: 1; }
+.list-group-item { border: 0; }
 
 
 .panel-primary>.panel-heading {
