@@ -41,9 +41,10 @@ i.fa.fa-question-circle {
   color: #0075C9 !important;
   margin: 15px;
 }
-.panel-body { order: 2; }
+.panel-body { order: 2; padding: 25px; }
+.panel-heading { padding: 10px 25px;  }
 .panel>.list-group { order: 1; }
-.list-group-item { border: 0; }
+.list-group-item { border: 0 !important; padding: 18px 25px; }
 
 
 .panel-primary>.panel-heading {
