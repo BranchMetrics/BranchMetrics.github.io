@@ -1,0 +1,21 @@
+.panel{ box-shadow: none; border: 0; background: #f0f0f0; font-family: "Open Sans", Helvetica, Arial; text-align: center; }
+
+#question_area .list-group-item { background: #0075C9; }
+
+#question_area .answers{ margin: 25px 0; }
+
+i.fa.fa-chevron-right{
+  display: none;
+}
+.btn-zingtree{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px !important;
+  width: 100px;
+  height: auto;
+  padding: 6px 12px 8px 12px !important;
+  background: #fff;
+  color: #0075C9 !important;
+  margin: 15px;
+}
