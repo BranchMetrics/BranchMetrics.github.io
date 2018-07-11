@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Marketo Link Encode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../design_system/style.css" />
+  <style>
+    #text-to-encode {
+      width: 100%;
+      height: 40px;
+      padding:20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bds-container bds-marg-t-xxl">
+    <input id="text-to-encode" type="text" placeholder="hello world" onkeyup="encode()"/>
+    <div class="bds-marg-t-lg">
+      <p class="bds-txt-bold bds-pad-b-xxs">encoded:</p>
+      <div class="encoded-text bds-pad-md bds-bg-grey-05">hello+world</div>
+    </div>
+  </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+
+  function encode() {
+    var input = document.getElementById("text-to-encode").value
+    var encodedValue = encodeURIComponent(input).replace(/'/g,"%27").replace(/"/g,"%22").replace(/%20/g, "+")
+    $('.encoded-text').html(encodedValue)
+  }
+
+  function decode(encoded) {
+    return decodeURIComponent(encoded.replace(/\+/g,  " "))
+  }
+
+</script>
+</html>

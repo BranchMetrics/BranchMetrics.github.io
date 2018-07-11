@@ -110,6 +110,146 @@
       }
     }
 
+
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v38/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.md-typeset{ margin: 10px; }
+
+.md-clipboard:before, .md-icon, .md-nav__button, .md-nav__link:after, .md-nav__title:before, .md-search-result__article--document:before, .md-source-file:before, .md-typeset .admonition>.admonition-title:before, .md-typeset .admonition>summary:before, .md-typeset .critic.comment:before, .md-typeset .footnote-backref, .md-typeset .task-list-control .task-list-indicator:before, .md-typeset details>.admonition-title:before, .md-typeset details>summary:before, .md-typeset summary:after{
+  font-family: Material Icons;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
+    speak: none;
+    word-wrap: normal;
+    direction: ltr;
+}
+
+.md-typeset .admonition, .md-typeset details {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+    position: relative;
+    margin: 1.5625em 0;
+    padding: 0 1.2rem;
+    border-left: .4rem solid #448aff;
+    border-radius: .2rem;
+    font-size: 1.28rem;
+    overflow: auto;
+}
+
+.md-typeset .admonition>.admonition-title:before, .md-typeset .admonition>summary:before, .md-typeset details>.admonition-title:before, .md-typeset details>summary:before {
+    position: absolute;
+    left: 1.2rem;
+    color: #448aff;
+    font-size: 2rem;
+    content: "\e90f";
+}
+
+.md-typeset .admonition>.admonition-title,
+.md-typeset .admonition>summary,
+.md-typeset details>.admonition-title,
+.md-typeset details>summary {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 4rem;
+  border-bottom: .1rem solid rgba(68,138,255,.1);
+  background-color: rgba(68,138,255,.1);
+  font-weight: 700;
+}
+
+.md-typeset .admonition>:last-child, .md-typeset details>:last-child {
+    margin-bottom: 1.2rem;
+}
+
+
+
+/* orange -- warning */
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+    border-left-color: #ff9100;
+}
+.md-typeset .admonition.warning>.admonition-title,
+.md-typeset .admonition.warning>summary, 
+.md-typeset details.warning>.admonition-title,
+.md-typeset details.warning>summary {
+  background-color: rgba(255,145,0,.1);
+}
+.md-typeset .admonition.warning>.admonition-title:before,
+.md-typeset .admonition.warning>summary:before,
+.md-typeset details.warning>.admonition-title:before,
+.md-typeset details.warning>summary:before {
+    color: #ff9100;
+    content: "\E002";
+}
+
+
+
+/* green -- note */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+    border-left-color: #00bfa5;
+}
+.md-typeset .admonition.note>.admonition-title,
+.md-typeset .admonition.note>summary,
+.md-typeset details.note>.admonition-title,
+.md-typeset details.note>summary {
+    background-color: rgba(0,191,165,.1);
+}
+.md-typeset .admonition.note>.admonition-title:before,
+.md-typeset .admonition.note>summary:before,
+.md-typeset details.note>.admonition-title:before,
+.md-typeset details.note>summary:before {
+    color: #00bfa5;
+    content: "\e06f";
+}
+
+
+/* not allowed -- not-allowed */
+.md-typeset .admonition.not-allowed,
+.md-typeset details.not-allowed {
+    border-left-color: #f3293b;
+}
+.md-typeset .admonition.not-allowed>.admonition-title,
+.md-typeset .admonition.not-allowed>summary, 
+.md-typeset details.not-allowed>.admonition-title,
+.md-typeset details.not-allowed>summary {
+    background-color: #ffeeeb;
+}
+.md-typeset .admonition.not-allowed>.admonition-title:before,
+.md-typeset .admonition.not-allowed>summary:before,
+.md-typeset details.not-allowed>.admonition-title:before,
+.md-typeset details.not-allowed>summary:before {
+    color: #f3293b;
+    content: "\e5cd";
+}
+
+
+
+
   </style>
 </head>
 
@@ -141,7 +281,38 @@
   <!--/ navigation / table of content -->
 
   <div class="content-wrap">
+
     <div class="bds-bg-grey-05">
+
+
+    <div class="md-typeset">
+      <div class="admonition protip">
+        <p class="admonition-title">We now support deep linking to Desktop apps such Spotify and Slack using URI schemes</p>
+        <p>This feature is still in the early stages of development; there is no Desktop SDK yet, so we will not be able to attribute or pass any data through an install.</p>
+      </div>
+
+
+      <div class="admonition warning">
+        <p class="admonition-title">Inconsistent Universal links behavior on iOS 11.2+</p>
+        <p>After updating a device to iOS 11.2+, we found that the app's AASA file is no longer downloaded reliably onto your user’s device after an app install. As a result, clicking on Universal Links will no longer open the app consistently. You can set <a href="../../../pages/links/integrate/#forced-redirections">forced uri redirect mode</a> on your Branch links to open the app with URI schemes. View details of the issue on the <a href="http://www.openradar.me/radar?id=4999496467480576">Apple Bug report</a>.</p>
+      </div>
+
+
+
+      <div class="admonition note">
+        <p class="admonition-title">Testing deferred deep linking</p>
+        <p>Deferred deep linking is simply deep linking into an app that is not yet installed. Once the app is installed, the context is preserved and the user's first app-open will have the deep link data from the original Branch link. To test this, uninstall the app from your device, click the Branch link, and manually launch the app from Xcode. You should be routed to the correct content within your app.</p>
+      </div>
+
+      <div class="admonition not-allowed">
+        <p class="admonition-title">We now support deep linking to Desktop apps such Spotify and Slack using URI schemes</p>
+        <p>This feature is still in the early stages of development; there is no Desktop SDK yet, so we will not be able to attribute or pass any data through an install.</p>
+      </div>
+
+
+    </div>
+
+
       <!-- **********************************************
           color palette
       ********************************************** -->
