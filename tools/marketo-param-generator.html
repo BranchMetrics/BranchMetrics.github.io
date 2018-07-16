@@ -22,7 +22,8 @@
     <input id="text-to-encode" type="text" placeholder="hello world" onkeyup="encode()"/>
     <div class="bds-marg-t-lg">
       <p class="bds-txt-bold bds-pad-b-xxs">encoded:</p>
-      <div class="encoded-text bds-pad-md bds-bg-grey-05">hello+world</div>
+      <div class="encoded-text bds-pad-md bds-bg-grey-05">hello+world</div><br>
+      <div class="encoded-text2 bds-pad-md bds-bg-grey-05">hello%20world</div>
     </div>
   </div>
 
@@ -34,8 +35,10 @@
 
   function encode() {
     var input = document.getElementById("text-to-encode").value
-    var encodedValue = encodeURIComponent(input).replace(/'/g,"%27").replace(/"/g,"%22").replace(/%20/g, "+")
+    var encodedValue = encodeURIComponent(input).replace(/'/g,"%27").replace(/"/g,"%22")
+    var encodedValue2 = encodeURIComponent(input).replace(/'/g,"%27").replace(/"/g,"%22").replace(/%20/g, "+")
     $('.encoded-text').html(encodedValue)
+    $('.encoded-text2').html(encodedValue2)
   }
 
   function decode(encoded) {
