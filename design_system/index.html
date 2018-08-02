@@ -269,8 +269,8 @@
       <ul>
           <li data-section="colorPalette"><a href="#colorPalette">Color Palette</a></li>
           <li data-section="typography"><a href="#typography">Tyography</a></li>
-          <li data-section="spacing"><a href="#spacing">Spacing</a></li>
           <li data-section="buttons"><a href="#buttons">Buttons</a></li>
+          <li data-section="spacing"><a href="#spacing">Spacing</a></li>
           <li data-section="hideshow"><a href="#hideshow">Hide/Show</a></li>
           <li data-section="utilities"><a href="#utilities">Utility</a></li>
           <li data-section="flexbox"><a href="#flexbox">Flexbox</a></li>
@@ -863,6 +863,167 @@
         </div>
       </section>
 
+      <!-- **********************************************
+                Buttons
+     ********************************************** -->
+      <section id="buttons" class="bds-container bds-pad-y-lg">
+        <h2 class="bds-marg-b-sm bds-txt-bold" name="buttons">Buttons</h2>
+        <!-- base buttons -->
+        <div class="use-chart text-align">
+          <h4>Base Buttons</h4>
+          <table class="bds-marg-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th class="bds-hide-sm-down">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-btn-primary</td>
+                <td>Primary button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-primary">bds-btn-primary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-secondary</td>
+                <td>Secondary button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-secondary">bds-btn-secondary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-tertiary</td>
+                <td>Tertiary button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-tertiary">bds-btn-tertiary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-ghost</td>
+                <td>Ghost button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-ghost">bds-btn-ghost</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-i-primary</td>
+                <td>Inversed Primary Button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-i-primary">bds-btn-i-primary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-i-secondary</td>
+                <td>Inversed Secondary Button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-i-secondary">bds-btn-i-secondary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-i-tertiary</td>
+                <td>Inversed Tertiary Button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn-i-tertiary">bds-btn-i-tertiary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn</td>
+                <td>Base button</td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn">bds-btn</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--/base buttons-->
+
+
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Customizations</h4>
+          <p>
+            Custom buttons can be created by appending color and typography utility classes to bds-btn
+          </p>
+          <table class="bds-marg-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Example Classes</th>
+                <th class="bds-hide-sm-down">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-btn [VALUE]</td>
+                <td>
+                  bds-btn <br>
+                  bds-bg-orange <br>
+                  bds-txt-white <br>
+                  bds-hov-bg-white <br>
+                  bds-hov-txt-orange<br>
+                </td>
+                <td class="bds-hide-sm-down">
+                  <a href="#" class="bds-btn bds-bg-orange bds-txt-white bds-hov-bg-white bds-hov-txt-orange">Custom Button</a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!--/custom buttons -->
+        <div class="example">
+            <h6 class="bds-marg-y-xs">Example:</h6>
+            <div class="bds-marg-b-xs">
+                <a class="bds-btn-primary" href="">Button 1</a>
+                <a class="bds-btn bds-bg-black bds-txt-white bds-hov-bg-black bds-hov-txt-orange" href="">Button 2</a>
+                <a class="bds-btn-ghost bds-bg-green-65 bds-border-green" href="">Button 3</a>
+            </div>
+            <script src="https://gist.github.com/xianc/ab987a2afcac90e81221da847bc4c433.js"></script>
+        </div>
+
+
+
+        <div class="use-chart text-align bds-marg-t-lg">
+          <h4>Natural Width/Height</h4>
+          <p>Sets the button size to its natural width & height</p>
+          <table class="bds-marg-t-xs">
+            <thead>
+              <tr>
+                <th>Prefixes</th>
+                <th>Function</th>
+                <th class="bds-hide-md-down">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>bds-btn-auto [BASE BUTTONS]</td>
+                <td>
+                  Append base classes for this styling
+                </td>
+                <td class="bds-hide-md-down">
+                  <a href="#" class="bds-btn-auto bds-btn-primary">bds-btn-auto bds-btn-primary</a>
+                </td>
+              </tr>
+              <tr>
+                <td>bds-btn-auto [VALUES]</td>
+                <td>
+                  Append color and typography utility classes
+                </td>
+                <td class="bds-hide-md-down">
+                  <a href="#" class="bds-btn-auto bds-bg-grey-15">bds-btn-auto bds-bg-grey-15</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+
 
       <!-- **********************************************
                 Spacing
@@ -1120,167 +1281,6 @@
 
       </section>
 
-
-
-      <!-- **********************************************
-                Buttons
-     ********************************************** -->
-      <section id="buttons" class="bds-container bds-pad-y-lg">
-        <h2 class="bds-marg-b-sm bds-txt-bold" name="buttons">Buttons</h2>
-        <!-- base buttons -->
-        <div class="use-chart text-align">
-          <h4>Base Buttons</h4>
-          <table class="bds-marg-t-xs">
-            <thead>
-              <tr>
-                <th>Prefixes</th>
-                <th>Function</th>
-                <th class="bds-hide-sm-down">Preview</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>bds-btn-primary</td>
-                <td>Primary button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn-primary">bds-btn-primary</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn-secondary</td>
-                <td>Secondary button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn-secondary">bds-btn-secondary</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn-tertiary</td>
-                <td>Tertiary button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn-tertiary">bds-btn-tertiary</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn-ghost</td>
-                <td>Ghost button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn-ghost">bds-btn-ghost</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn-i-primary</td>
-                <td>Inversed Primary Button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn-i-primary">bds-btn-i-primary</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn-i-secondary</td>
-                <td>Inversed Secondary Button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn-i-secondary">bds-btn-i-secondary</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn-i-tertiary</td>
-                <td>Inversed Tertiary Button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn-i-tertiary">bds-btn-i-tertiary</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn</td>
-                <td>Base button</td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn">bds-btn</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!--/base buttons-->
-
-
-        <div class="use-chart text-align bds-marg-t-lg">
-          <h4>Customizations</h4>
-          <p>
-            Custom buttons can be created by appending color and typography utility classes to bds-btn
-          </p>
-          <table class="bds-marg-t-xs">
-            <thead>
-              <tr>
-                <th>Prefixes</th>
-                <th>Example Classes</th>
-                <th class="bds-hide-sm-down">Preview</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>bds-btn [VALUE]</td>
-                <td>
-                  bds-btn <br>
-                  bds-bg-orange <br>
-                  bds-txt-white <br>
-                  bds-hov-bg-white <br>
-                  bds-hov-txt-orange<br>
-                </td>
-                <td class="bds-hide-sm-down">
-                  <a href="#" class="bds-btn bds-bg-orange bds-txt-white bds-hov-bg-white bds-hov-txt-orange">Custom Button</a>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <!--/custom buttons -->
-        <div class="example">
-            <h6 class="bds-marg-y-xs">Example:</h6>
-            <div class="bds-marg-b-xs">
-                <a class="bds-btn-primary" href="">Button 1</a>
-                <a class="bds-btn bds-bg-black bds-txt-white bds-hov-bg-black bds-hov-txt-orange" href="">Button 2</a>
-                <a class="bds-btn-ghost bds-bg-green-65 bds-border-green" href="">Button 3</a>
-            </div>
-            <script src="https://gist.github.com/xianc/ab987a2afcac90e81221da847bc4c433.js"></script>
-        </div>
-
-
-
-        <div class="use-chart text-align bds-marg-t-lg">
-          <h4>Natural Width/Height</h4>
-          <p>Sets the button size to its natural width & height</p>
-          <table class="bds-marg-t-xs">
-            <thead>
-              <tr>
-                <th>Prefixes</th>
-                <th>Function</th>
-                <th class="bds-hide-md-down">Preview</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>bds-btn-auto [BASE BUTTONS]</td>
-                <td>
-                  Append base classes for this styling
-                </td>
-                <td class="bds-hide-md-down">
-                  <a href="#" class="bds-btn-auto bds-btn-primary">bds-btn-auto bds-btn-primary</a>
-                </td>
-              </tr>
-              <tr>
-                <td>bds-btn-auto [VALUES]</td>
-                <td>
-                  Append color and typography utility classes
-                </td>
-                <td class="bds-hide-md-down">
-                  <a href="#" class="bds-btn-auto bds-bg-grey-15">bds-btn-auto bds-bg-grey-15</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </section>
 
 
 
