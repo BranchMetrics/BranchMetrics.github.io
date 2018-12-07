@@ -1,4 +1,18 @@
 // buttons
+@mixin button-creator($txt-color, $bg-color, $hover-txt-color, $hover-bg-color) {
+  color: $txt-color;
+  background-color: $bg-color;
+
+  &:hover {
+    color: $hover-txt-color;
+    background-color: $hover-bg-color;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
 [class^='bds-btn'],
 [class*=' bds-btn'] {
   @include flex-center;
@@ -29,117 +43,33 @@
   }
 
   &-primary {
-    color: $white;
-    background-color: $blue;
-
-    &:hover {
-      color: $white;
-      background-color: $dark-blue;
-    }
-
-    &:focus {
-      outline: 0;
-    }
-  }
-
-  &-primary-iv {
-    color: $blue;
-    background-color: $white;
-
-    &:hover {
-      color: $white;
-      background-color: $blue;
-    }
-
-    &:focus {
-      outline: 0;
-    }
+    @include button-creator($white, $blue, $white, $dark-blue);
   }
 
   &-i-primary {
-    color: $blue;
-    background-color: $white;
-
-    &:hover {
-      color: $white;
-      background-color: $blue;
-    }
-
-    &:focus {
-      outline: 0;
-    }
+    @include button-creator($blue, $white, $white, $blue);
   }
 
   &-ghost {
-    color: $white;
+    @include button-creator($white, transparent, $black, $white);
     border: 1px solid $white;
-    background-color: transparent;
-
-    &:hover {
-      color: $black;
-      background-color: $white;
-    }
-
-    &:focus {
-      outline: 0;
-    }
   }
 
   &-secondary {
-    color: $white;
-    background-color: $orange;
-
-    &:hover {
-      color: $white;
-      background-color: $orange-85;
-    }
-
-    &:focus {
-      outline: 0;
-    }
+    @include button-creator($white, $orange, $white, $orange-85);
   }
 
 
   &-i-secondary {
-    color: $orange;
-    background-color: $white;
-
-    &:hover {
-      color: $white;
-      background-color: $orange;
-    }
-
-    &:focus {
-      outline: 0;
-    }
+    @include button-creator($orange, $white, $white, $orange);
   }
 
   &-tertiary {
-    color: $white;
-    background-color: $green;
-
-    &:hover {
-      color: $white;
-      background-color: $green-85;
-    }
-
-    &:focus {
-      outline: 0;
-    }
+    @include button-creator($white, $green, $white, $green-85);
   }
 
 
   &-i-tertiary {
-    color: $green;
-    background-color: $white;
-
-    &:hover {
-      color: $white;
-      background-color: $green;
-    }
-
-    &:focus {
-      outline: 0;
-    }
+    @include button-creator($green, $white, $white, $green);
   }
 }
