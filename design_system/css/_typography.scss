@@ -37,7 +37,7 @@ h5,
 h6,
 .bds-h6 { font-size: $font-size-20; }
 
-// body & lega/
+// body & legal
 .bds {
   &-b1 { font-size: $font-size-18; }
   &-b2 { font-size: $font-size-16; }
@@ -46,14 +46,33 @@ h6,
   &-l1 { font-size: $font-size-11; }
 }
 
-@mixin text-align-creator {
+@mixin txt-align-creator {
   &-left { text-align: left; }
   &-right { text-align: right; }
   &-center { text-align: center; }
 }
 
+@mixin font-weight-creator ($hover: false) {
+  @if $hover {
+    &-light:hover { font-weight: $font-weight-light; }
+    &-regular:hover { font-weight: $font-weight-regular; }
+    &-semi-bold:hover { font-weight: $font-weight-semi-bold; }
+    &-bold:hover { font-weight: $font-weight-bold; }
+  } @else {
+    &-light { font-weight: $font-weight-light; }
+    &-regular { font-weight: $font-weight-regular; }
+    &-semi-bold { font-weight: $font-weight-semi-bold; }
+    &-bold { font-weight: $font-weight-bold; }
+  }
+}
+
 // general font size & weight classe
 .bds-txt {
+  // font weight
+  @include font-weight-creator;
+  // align
+  @include txt-align-creator;
+
   &-44 { font-size: $font-size-44; }
   &-40 { font-size: $font-size-40; }
   &-34 { font-size: $font-size-34; }
@@ -66,18 +85,17 @@ h6,
   &-12 { font-size: $font-size-12; }
   &-11 { font-size: $font-size-11; }
 
-  // font weight
-  &-light { font-weight: $font-weight-light; }
-  &-regular { font-weight: $font-weight-regular; }
-  &-semi-bold { font-weight: $font-weight-semi-bold; }
-  &-bold { font-weight: $font-weight-bold; }
+  @media screen and (min-width: $md-bkpt) {
+    &-md { @include txt-align-creator; }
+  }
+
+  @media screen and (min-width: $lg-bkpt) {
+    &-lg { @include txt-align-creator; }
+  }
 
   // font cases
   &-upper { text-transform: uppercase; }
   &-lower { text-transform: lowercase; }
-
-  // align
-  @inlcude text-align-creator;
 
   // wrap
   &-wrap { white-space: normal; }
@@ -86,66 +104,5 @@ h6,
 
 // hover font weights
 .bds-hov-txt {
-  &-light:hover { font-weight: $font-weight-light; }
-  &-regular:hover { font-weight: $font-weight-regular; }
-  &-semi-bold:hover { font-weight: $font-weight-semi-bold; }
-  &-bold:hover { font-weight: $font-weight-bold; }
-}
-
-@media screen and (min-width: $md-bkpt) {
-  .bds-txt-md { @inlcude text-align-creator; }
-}
-
-@media screen and (min-width: $lg-bkpt) {
-  .bds-txt-lg { @inlcude text-align-creator; }
-}
-
-// scale font size at mob breakpoint
-@media screen and (max-width: $md-bkpt) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 { margin: 0; }
-
-  h1,
-  .bds-h1 { font-size: $font-size-44 * .8; }
-
-  h2,
-  .bds-h2 { font-size: $font-size-40 * .8; }
-
-  h3,
-  .bds-h3 { font-size: $font-size-34 * .8; }
-
-  h4,
-  .bds-h4 { font-size: $font-size-24 * .8; }
-
-  h5,
-  .bds-h5 { font-size: $font-size-22 * .8; }
-
-  h6,
-  .bds-h6 { font-size: $font-size-20 * .85; }
-
-  .bds {
-    &-b1 { font-size: $font-size-18 * .8; }
-    &-b2 { font-size: $font-size-16 * .9; }
-    &-b3 { font-size: $font-size-14 * .9; }
-    &-b4 { font-size: $font-size-12 * .9; }
-    &-l1 { font-size: $font-size-11 * .9; }
-  }
-
-  .bds-txt {
-    &-44 { font-size: $font-size-44 * .8; }
-    &-40 { font-size: $font-size-40 * .8; }
-    &-34 { font-size: $font-size-34 * .8; }
-    &-24 { font-size: $font-size-24 * .8; }
-    &-22 { font-size: $font-size-22 * .8; }
-    &-20 { font-size: $font-size-20 * .85; }
-    &-18 { font-size: $font-size-18 * .8; }
-    &-16 { font-size: $font-size-16 * .85; }
-    &-14 { font-size: $font-size-14 * .9; }
-    &-12 { font-size: $font-size-12 * .9; }
-    &-11 { font-size: $font-size-11 * .9; }
-  }
+  @include font-weight-creator(true);
 }

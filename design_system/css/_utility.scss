@@ -10,11 +10,7 @@
 
 
 // flexbox
-@mixin flex-center {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-}
+@mixin flex-center { display: inline-flex !important; align-items: center; justify-content: center; }
 
 .bds-flex {
   display: flex;
@@ -26,8 +22,9 @@
   flex-wrap: wrap;
 }
 
-.bds-flex,
-.bds-inline-flex {
+.bds-flex.bds,
+.bds-inline-flex.bds,
+.bds-flex {
   &-xy-center { top: auto; left: auto; transform: none; align-items: center; justify-content: center; }
   &-y-center { top: auto; transform: none; align-items: center; }
   &-y-stretch { align-items: stretch; }
