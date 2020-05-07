@@ -23,7 +23,8 @@ tr:nth-child(even) {
 }
 
 .esp-list img {
-  max-height: 80px;
+  max-height: 100%;
+  
 }
 
 .esp-list table {
@@ -45,7 +46,6 @@ tr:nth-child(even) {
 .esp-dropdown img {
   max-width: 100%;
   max-height: 60px;
-  display: block; /* remove extra space below image */
  } 
   
 .esp-dropdown button {
