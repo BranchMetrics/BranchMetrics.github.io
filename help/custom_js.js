@@ -45,32 +45,3 @@
       }
     }
   }
-
-  $( window ).on( "load", function() {
-    /* if on the ue search table page */
-    if (window.location.pathname.indexOf('email-partners-list') >= 0) {
-      $('#espList a').each(function() {
-        var dataHref = $(this).attr('href');
-        $(this).attr('data-href', dataHref);
-        $(this).attr('href', '#');
-      });
-    }
-    
-    // if on the universal email integration page, look at localstorage and populate dropdowns search field with value in local storage
-    if (window.location.pathname.indexOf('universal-email-integration-guide') >= 0){
-      if (localStorage.getItem('csp')!=null){
-        let cspName = localStorage.getItem('csp');
-        $('#espCTD input').val(cspName);
-        $('#espLinks input').val(cspName);
-        espFilter('espCTD');
-        espFilter('espLinks');
-      }
-    }
-
-    // partner click from single column dropdown 
-    $('#espList a').on( "click", function() {
-      let cspName = $(this).find('img').attr('alt');
-      localStorage.setItem('csp', cspName);
-      window.location.href = $(this).attr('data-href');
-    })
-  });

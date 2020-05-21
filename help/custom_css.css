@@ -14,6 +14,9 @@ p {
 tr:nth-child(even) {
     background-color: #f0f0f0;
 }
+.markdown-body img { 
+   box-shadow: 12px 12px 29px #555;
+}
 
 
 /* esp search */
@@ -93,11 +96,11 @@ tr:nth-child(even) {
 
 .esp-search-box {
   box-sizing: border-box;
-  background-image: url('https://files.readme.io/12fe62f-search-icon.png');
+  background-image: url('https://branch.io/img/icons/search-bold.svg');
   background-size: 20px 20px;
   background-position: 14px 16px;
   background-repeat: no-repeat;
-  font-size: 16px;
+  font-size: 20px;
   padding: 14px 20px 12px 45px;
   border: none;
   border-bottom: 1px solid #ddd;
