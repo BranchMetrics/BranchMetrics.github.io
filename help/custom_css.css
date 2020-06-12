@@ -12,7 +12,7 @@ p {
 }
 
 tr:nth-child(even),
-div.table div.tr:nth-child(even) {
+div.table div.tr:nth-child(odd) {
     background-color: #f0f0f0;
 }
 .markdown-body img { 
