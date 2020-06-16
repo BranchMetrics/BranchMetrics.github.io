@@ -20,11 +20,9 @@
   function espFilter(type) {
     var input, filter, ul, li, partner, i;
     div = document.getElementById(type);
-//     div = document.getElementById(document.getElementsByClassName("esp-show")[0].id);
-    input = div.getElementsByTagName("input")[0];
-    filter = input.value.toLowerCase();
 
     if(type == 'espLinks'){
+      div = document.getElementById(document.getElementsByClassName("esp-show")[0].id);
       partner = div.getElementsByTagName("tr");
       i = 1;
     }
@@ -36,7 +34,10 @@
       partner = div.getElementsByTagName("a");
       i = 0;
     }
-    
+
+    input = div.getElementsByTagName("input")[0];
+    filter = input.value.toLowerCase();
+
     for (i; i < partner.length; i++) {
       txtValue = partner[i].getElementsByTagName('img')[0].alt;
       if (txtValue.toLowerCase().indexOf(filter) > -1) {
