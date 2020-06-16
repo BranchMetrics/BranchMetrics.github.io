@@ -19,8 +19,8 @@
 
   function espFilter(type) {
     var input, filter, ul, li, partner, i;
-    // div = document.getElementById(type);
-    div = document.getElementById(document.getElementsByClassName("esp-show")[0].id);
+    div = document.getElementById(type);
+//     div = document.getElementById(document.getElementsByClassName("esp-show")[0].id);
     input = div.getElementsByTagName("input")[0];
     filter = input.value.toLowerCase();
 
