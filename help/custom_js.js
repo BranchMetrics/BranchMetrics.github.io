@@ -19,7 +19,8 @@
 
   function espFilter(type) {
     var input, filter, ul, li, partner, i;
-    div = document.getElementById(type);
+    // div = document.getElementById(type);
+    div = document.getElementById(document.getElementsByClassName("esp-show")[0].id);
     input = div.getElementsByTagName("input")[0];
     filter = input.value.toLowerCase();
 
@@ -45,3 +46,11 @@
       }
     }
   }
+
+// when clicked outside of dropdown, close dropdown
+  $(document).mouseup(function (e) {
+    let container = $(".esp-dropdown");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      $('.esp-dropdown-content').removeClass('esp-show');
+     }
+  });
