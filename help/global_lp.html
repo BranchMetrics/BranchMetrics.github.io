@@ -1,6 +1,10 @@
 <style>
+  :root {
+    --project-color-primary: #029bde;
+  }
+  
   html[lang="zh-CN"] header#hub-header #header-top #header-logo {
-    background-image: url(http://branch.io.s3-website-us-west-1.amazonaws.com/img/logos/branch-help-zh.svg) !important;
+    background-image: url(https://branch.io.s3-website-us-west-1.amazonaws.com/img/logos/branch-help-zh.svg) !important;
   }
   
   .branch-help {
@@ -61,52 +65,6 @@
     border-radius: 12%;
   }
 
-  div.searchbox {
-    width: 90%;
-  }
-  input.search-box {
-    color: #333E48;
-    background-image: url(https://branch.io/img/icons/search.svg);
-    background-repeat: no-repeat;
-    background-size: auto 50%;
-    background-position: 22px 15px;
-    padding: 15px 15px 15px 68px;
-    width: 100%;
-    outline: none;
-    margin-bottom: 0;
-    border: 0;
-    border-top-right-radius: unset;
-    border-bottom-right-radius: unset;
-    border-radius: 27px;
-    font-size: 20px;
-  }
-
-  #hub-search-results {
-    margin-top: 17px;
-    background-color: #f0f0f0;
-    width: 55%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-top: 0;
-    border-left: 1px solid rgba(0,0,0,.1);
-    border-right: 1px solid rgba(0,0,0,.1);
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    max-height: 400px;
-  }
-
-  #hub-search-results ul li.activeSearch a {
-    background-color: #f0f0f0;
-  }
- /* #hub-search-results ul li a em, 
-  #hub-search-results ul li a strong.hub-result-title {
-    color: #f0f0f0;
-  }
-  #hub-search-results ul li.activeSearch p,
-  #hub-search-results ul li:hover p {
-    color: #e3e2e2;
-  }*/
-
   header#hub-header {
     background-color: #f0f0f0;
   }
@@ -166,10 +124,6 @@
 
 
   @media (min-width: 992px){
-    div.searchbox {
-      width: 60%;
-    }
-    
     .attr-trap-l {
       font-size: 1rem;
       width: 20%;
@@ -183,6 +137,62 @@
       right: -5.5%;
     }
   
+  }
+
+  /* new modal search */
+  #hub-search-results {
+    text-align: left;
+  }
+  
+  #hub-search-results .fa-search {
+    display: block;
+  }
+
+  .search-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+   @media (min-width: 992px){
+    .search-wrapper {
+      width: 60%;
+    }
+  }
+
+  .searchbox {
+    width: 100%;
+    height: unset!important;
+  }
+  
+  .searchbox-input input,
+  .searchbox-button {
+    background-color: #fff;
+    background-image: url(https://branch.io/img/icons/search.svg);
+    background-position: 22px 15px;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    border-radius: 27px;
+    border: 0;
+    color: #757575;
+    font-size: 20px;
+    margin-bottom: 0;
+    outline: none;
+    padding: 15px 15px 15px 68px;
+    text-align: left;
+    width: 100%;
+  }
+  #hub-search-results:not(.new-search) {
+    width: calc(100% - 52px);
+    margin: 0 26px;
+    border: 1px solid rgb(240, 240, 240);
+    box-shadow: 0 4px 10px -4px #e3e2e2;
+  }
+
+  .searchbox-button:hover,
+  .searchbox-button:active,
+  .searchbox-button:focus {
+    color: #333E48;
   }
 </style>
 <div class="bds-hide">
@@ -223,7 +233,7 @@
             <div class="portal-header bds-row bds-pad-b-sm">
               <a class="bds-txt-grey-85" href="/using-branch/">
                 <div class="bds-col-2">
-                  <img src="/theme/user-guides.svg" alt="User Guides"/>
+                  <img src="https://help.branch.io/theme/user-guides.svg" alt="User Guides"/>
                 </div>
                 <div class="bds-col-10 bds-pad-l-xxs">
                   <h4 class="bds-txt-bold bds-pad-b-xxs bds-txt-grey">User Guides</h4>
@@ -261,7 +271,7 @@
             <div class="portal-header bds-row bds-pad-b-sm">
               <a class="bds-txt-grey-85" href="/developers-hub/">
                 <div class="bds-col-2">
-                  <img src="/theme/developer-docs.svg" alt="Developer docs"/>
+                  <img src="https://help.branch.io/theme/developer-docs.svg" alt="Developer docs"/>
                 </div>
                 <div class="bds-col-10 bds-pad-l-xxs">
                   <h4 class="bds-txt-bold bds-pad-b-xxs bds-txt-grey">Developer Docs</h4>
@@ -308,7 +318,7 @@
             <div class="portal-header bds-row bds-pad-b-sm">
               <a class="bds-txt-grey-85" href="/partners-portal">
                 <div class="bds-col-2">
-                  <img src="/theme/partners.svg" alt="Partners"/>
+                  <img src="https://help.branch.io/theme/partners.svg" alt="Partners"/>
                 </div>
                 <div class="bds-col-10 bds-pad-l-xxs">
                   <h4 class="bds-txt-bold bds-pad-b-xxs bds-txt-grey">Partners</h4>
@@ -362,7 +372,7 @@
       </div>
 
       <div class="bds-col-12 bds-col-lg-8 bds-col-lg-offset-4 wizard-position bds-show-at-lg">
-        <img src="/theme/branch-wizard.svg" alt="branch wizard"/>
+        <img src="https://help.branch.io/theme/branch-wizard.svg" alt="branch wizard"/>
       </div>
     </div>
 
@@ -383,7 +393,7 @@
           <div class="bds-col-12 bds-col-lg-4 bds-pad-l-sm bds-pad-lg-l-0 bds-pad-b-sm bds-pad-lg-b-0">
             <div class="bds-row">
               <div class="bds-col-2">
-                <img src="/theme/contact-us.svg" alt="contact us">
+                <img src="https://help.branch.io/theme/contact-us.svg" alt="contact us">
               </div>
                 <div class="bds-col-10 bds-pad-r-sm" style="border-right: 1px solid #fff;">
                   <div class="bds-txt-semi-bold bds-txt-white">Contact Us</div>
@@ -399,7 +409,7 @@
           <div class="bds-col-12 bds-col-lg-4 bds-pad-l-sm">
             <div class="bds-row">
               <div class="bds-col-2">
-                <img src="/theme/ask-the-community.svg" alt="contact us">
+                <img src="https://help.branch.io/theme/ask-the-community.svg" alt="contact us">
               </div>
               <div class="bds-col-10 bds-pad-r-sm" style="border-right: 1px solid #fff;">
                 <div class="bds-txt-semi-bold bds-txt-white">Ask the Community</div>
@@ -411,11 +421,11 @@
           </div>
         </a>
         
-        <a href="http://help.branch.io/developers-hub/docs" data-ol-has-click-handler="">
+        <a href="https://help.branch.io/developers-hub/docs" data-ol-has-click-handler="">
         <div class="bds-col-12 bds-col-lg-4 bds-pad-l-sm">
           <div class="bds-row">
             <div class="bds-col-2">
-              <img src="/theme/docs.svg" alt="contact us">
+              <img src="https://help.branch.io/theme/docs.svg" alt="contact us">
             </div>
             
               <div class="bds-col-10 bds-pad-r-sm">
@@ -511,7 +521,7 @@
                   <li><a href="https://docs.branch.io/apps/deep-linking-api/" data-element-tag="api-reference">API Reference</a></li>
                   <li><a href="https://docs.branch.io/partner-management/branch-integrated-partners/" data-element-tag="integrations">Integrations</a></li>
                   <li><a href="https://support.branch.io/" data-element-tag="support">Support</a></li>
-                  <li><a href="http://status.branch.io" data-element-tag="status">Status</a></li>
+                  <li><a href="https://status.branch.io" data-element-tag="status">Status</a></li>
                   <li><a href="javascript:CookieConsent.renew();CookieDeclaration.SetUserStatusLabel();" data-element-tag="change-consent">Cookie Consent</a></li>
                 </ul>
               </li>
@@ -582,15 +592,16 @@
   });
 
   $( document ).ready(function() {
-    $('.search-wrapper').append($('.searchbox'));
-    $('#hub-search-results').insertAfter('.searchbox');
+    let search = $('.searchbox');
+    if (!$('.searchbox-input').length) search = $('#hub-search').removeAttr('id');
+    $('.search-wrapper').append(search);
+    $('#hub-search-results').insertAfter(search);
+
     $(".subportal-links" ).insertBefore("ul#header-nav-right" );
     $(".hamburger").insertAfter('.header-link');
     $('.subportal-links-mob').insertAfter('#hub-header');
 
     let pageLang = $('html').attr('lang') || 'en-US';
     updateLangSwitcher(pageLang);
-    
   });
-
 </script>
