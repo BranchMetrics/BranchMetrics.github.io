@@ -1,3 +1,5 @@
+#enterprise p { color: inherit; }
+
 li p {
     padding: 0 !important;
 }
