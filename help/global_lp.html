@@ -1,0 +1,607 @@
+<style>
+  :root {
+    --project-color-primary: #029bde;
+  }
+  
+  html[lang="zh-CN"] header#hub-header #header-top #header-logo {
+    background-image: url(https://branch.io.s3-website-us-west-1.amazonaws.com/img/logos/branch-help-zh.svg) !important;
+  }
+  
+  .branch-help {
+    overflow-x: hidden;
+  }
+
+  .bds-head { margin-top: 0; padding-top: 0; }
+
+  .section-1 {
+    margin-top: -5rem;
+  }
+
+  .shadow {
+    border-radius: 10px;
+    box-shadow: -3px 4px 8px #e3e2e2;
+    border-width: 10px 0 0 0;
+  }
+
+  ul.help-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  ul.help-links ul li::before {
+    content: "\2022";
+    color: #0075C9;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: 1em;
+  }
+
+  .attr-trap-r,
+  .attr-trap-l {
+    border-top: 4em solid #fff;
+    top: -1px;
+  }
+
+  .full-height {
+    flex-grow: 1;
+    align-items: stretch;
+  }
+
+  .wizard-position {
+    position: absolute;
+    top: 5%;
+    right: -18rem;
+  }
+
+  .wizard-bg {
+    position: absolute;
+    top: 5%;
+    right: -6%;
+    width: 45%;
+    height: 90%;
+    border-radius: 12%;
+  }
+
+  header#hub-header {
+    background-color: #f0f0f0;
+  }
+
+  header#hub-header #header-top #header-logo {
+    width: 170px;
+    height: 45px;
+  }
+
+  nav { text-align: right;}
+
+  .fa-search,
+  #hub-subheader,
+  #hub-subheader-parent { display: none; }
+
+  .subportal-links {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+  }
+
+
+  header#hub-header #header-top { padding: 25px 0; }
+
+  .language-switcher a {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px){
+    header#hub-header #header-top {
+      position: relative;
+      padding: 25px 30px 20px;
+    }
+
+    #header-logo { margin-top: 20px; }
+
+    .hamburger {
+      width: 22px;
+      height: 4px;
+      margin-left: auto;
+      margin-top: -20px;
+    }
+
+    .hamburger div {
+      width: 22px;
+      height: 4px;
+      margin: 4px .25em;
+    }
+
+    .subportal-links-mob {
+      display: none;
+    }
+    .subportal-links-mob a {
+      padding: 15px 20px;
+    }
+  }
+
+
+  @media (min-width: 992px){
+    .attr-trap-l {
+      font-size: 1rem;
+      width: 20%;
+      border-right: 2em solid transparent;
+      left: -5.5%;
+    }
+    .attr-trap-r {
+      font-size: 1rem;
+      width: 20%;
+      border-left: 2em solid transparent;
+      right: -5.5%;
+    }
+  
+  }
+
+  /* new modal search */
+  #hub-search-results {
+    text-align: left;
+  }
+  
+  #hub-search-results .fa-search {
+    display: block;
+  }
+
+  .search-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+   @media (min-width: 992px){
+    .search-wrapper {
+      width: 60%;
+    }
+  }
+
+  .searchbox {
+    width: 100%;
+    height: unset!important;
+  }
+  
+  .searchbox-input input,
+  .searchbox-button {
+    background-color: #fff;
+    background-image: url(https://branch.io/img/icons/search.svg);
+    background-position: 22px 15px;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    border-radius: 27px;
+    border: 0;
+    color: #757575;
+    font-size: 20px;
+    margin-bottom: 0;
+    outline: none;
+    padding: 15px 15px 15px 68px;
+    text-align: left;
+    width: 100%;
+  }
+  #hub-search-results:not(.new-search) {
+    width: calc(100% - 52px);
+    margin: 0 26px;
+    border: 1px solid rgb(240, 240, 240);
+    box-shadow: 0 4px 10px -4px #e3e2e2;
+  }
+
+  .searchbox-button:hover,
+  .searchbox-button:active,
+  .searchbox-button:focus {
+    color: #333E48;
+  }
+</style>
+<div class="bds-hide">
+  <span class="hamburger bds-hide-at-lg" data-ol-has-click-handler="">
+    <div class="bds-bg-grey"></div>
+    <div class="bds-bg-grey"></div>
+    <div class="bds-bg-grey"></div>
+  </span>
+  <div class="subportal-links bds-inline-block bds-txt-grey bds-txt-16">
+    <a class="bds-pad-r-md bds-txt-grey" href="/using-branch/">User Guides</a>
+    <a class="bds-pad-r-md bds-txt-grey" href="/developers-hub">Developer Docs</a>
+    <a class="bds-pad-r-md bds-txt-grey" href="/partners-portal">Partners</a>
+  </div>
+  <div class="subportal-links-mob bds-txt-grey bds-txt-16">
+    <div class="bds-hide-at-lg">
+      <a class="bds-pad-r-md bds-txt-grey bds-block" href="/using-branch/">User Guides</a>
+      <a class="bds-pad-r-md bds-txt-grey bds-block" href="/developers-hub/">Developer Docs</a>
+      <a class="bds-pad-r-md bds-txt-grey bds-block" href="/partners-portal/">Partners</a>
+    </div>
+  </div>
+</div>
+<div class="branch-help bds-wrap">
+  <div class="bds-head bds-bg-grey-05 bds-txt-center">
+    <div class="bds-container bds-pad-y-xxl">
+      <div class="bds-h2 bds-grey bds-txt-bold bds-pad-b-md">How can we help? </div>
+      <div class="search-wrapper relative"></div>
+      <!-- spacing -->
+      <div class="bds-pad-y-lg"></div>
+    </div>
+  </div>
+  <div class="section-1">
+    <div class="bds-container bds-marg-b-xxl bds-txt-grey">
+      <div class="bds-row bds-flex">
+        <div class="bds-col-12 bds-col-lg-4 bds-flex bds-marg-b-md">
+          <!-- user guides -->
+          <div class="shadow bds-border-green bds-bg-white bds-pad-md bds-marg-lg-r-sm full-height">
+            <!-- section heading-->
+            <div class="portal-header bds-row bds-pad-b-sm">
+              <a class="bds-txt-grey-85" href="/using-branch/">
+                <div class="bds-col-2">
+                  <img src="https://help.branch.io/theme/user-guides.svg" alt="User Guides"/>
+                </div>
+                <div class="bds-col-10 bds-pad-l-xxs">
+                  <h4 class="bds-txt-bold bds-pad-b-xxs bds-txt-grey">User Guides</h4>
+                  <p class="bds-txt-14">Practical, step-by-step instructions to get the most out of your Branch usage. </p>
+                </div>
+              </a>
+            </div>
+            <!-- /section heading -->
+            <div class="bds-marg-x-xs bds-marg-b-md" style="border-top: 1px solid #f0f0f0"></div>
+
+            <!-- links -->
+            <div class="bds-row">
+              <div class="bds-col-12 bds-col-lg-10 bds-col-lg-offset-2 bds-txt-semi-bold bds-txt-16 bds-pad-l-xxs">
+                <ul class="help-links">
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs">Branch Fundamentals</a></li>
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs/branch-links-overview">Branch Links</a></li>
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs/journeys-overview">Journeys</a></li>
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs/ads-overview">Universal Ads</a></li>
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs/email-overview">Universal Email</a></li>
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs/additional-overview">Other Use Cases </a></li>
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs/data-feeds-overview">Data Feeds</a></li>
+                  <li class="bds-pad-b-xxs"><a href="/using-branch/docs/account-settings-overview">Account Settings</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /links-->
+
+          </div>
+          <!-- /user guides -->
+        </div>
+        <div class="bds-col-12 bds-col-lg-4 bds-flex bds-marg-b-md">
+          <!-- developer docs -->
+          <div class="shadow bds-border-red bds-bg-white bds-pad-md bds-marg-lg-x-xxs full-height">
+            <!-- section heading-->
+            <div class="portal-header bds-row bds-pad-b-sm">
+              <a class="bds-txt-grey-85" href="/developers-hub/">
+                <div class="bds-col-2">
+                  <img src="https://help.branch.io/theme/developer-docs.svg" alt="Developer docs"/>
+                </div>
+                <div class="bds-col-10 bds-pad-l-xxs">
+                  <h4 class="bds-txt-bold bds-pad-b-xxs bds-txt-grey">Developer Docs</h4>
+                  <p class="bds-txt-14">Implementation recipes to accelerate your mobile growth with Branch. </p>
+                </div>
+              </a>
+            </div>
+            <!-- /section heading -->
+            <div class="bds-marg-x-xs bds-marg-b-md" style="border-top: 1px solid #f0f0f0"></div>
+
+            <!-- links -->
+            <div class="bds-row">
+              <div class="bds-col-12 bds-col-lg-10 bds-col-lg-offset-2 bds-txt-semi-bold bds-txt-16 bds-pad-l-xxs">
+                <ul class="help-links">
+                  <li class="bds-pad-b-xxs">
+                    <a href="/developers-hub/docs/native-sdks-overview">Native Branch SDKS</a>
+                    <ul>
+                      <li class="bds-pad-b-xxs"><a href="/developers-hub/docs/android-sdk-overview">Android SDK</a></li>
+                      <li class="bds-pad-b-xxs"><a href="/developers-hub/docs/ios-sdk-overview">iOS SDK</a></li>
+                      <li class="bds-pad-b-xxs"><a href="/developers-hub/docs/web-sdk-overview">Web SDK</a></li>
+                    </ul>
+                  </li>
+                  <li class="bds-pad-b-xxs"><a href="/developers-hub/docs/plugins-overview">3rd Party SDKs & Plugins</a></li>
+                  <li class="bds-pad-b-xxs">
+                    <a href="/developers-hub/docs/overview">Branch APIs</a>
+                    <ul>
+                      <li class="bds-pad-b-xxs"><a href="/developers-hub/docs/aggregate-exports">Aggregate Exports</a></li>
+                      <li class="bds-pad-b-xxs"><a href="/developers-hub/docs/custom-exports">Custom Exports</a></li>
+                      <li class="bds-pad-b-xxs"><a href="/developers-hub/docs/deep-linking-api">Deep Linking API</a></li>
+                    </ul>
+                  </li>
+                  <li class="bds-pad-b-xxs"><a href="https://tune.docs.branch.io/">Legacy TUNE SDKs</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /links-->
+          </div>
+          <!-- /developer docs -->
+        </div>
+        <div class="bds-col-12 bds-col-lg-4 bds-flex bds-marg-b-md">
+          <!-- partners -->
+          <div class="shadow bds-border-orange bds-bg-white bds-pad-md bds-marg-lg-l-sm full-height">
+            <!-- section heading-->
+            <div class="portal-header bds-row bds-pad-b-sm">
+              <a class="bds-txt-grey-85" href="/partners-portal">
+                <div class="bds-col-2">
+                  <img src="https://help.branch.io/theme/partners.svg" alt="Partners"/>
+                </div>
+                <div class="bds-col-10 bds-pad-l-xxs">
+                  <h4 class="bds-txt-bold bds-pad-b-xxs bds-txt-grey">Partners</h4>
+                  <p class="bds-txt-14">Integrated partners that help our links work seamlessly across channels and platforms. </p>
+                </div>
+              </a>
+            </div>
+            <!-- /section heading -->
+            <div class="bds-marg-x-xs bds-marg-b-md" style="border-top: 1px solid #f0f0f0"></div>
+
+            <!-- links -->
+            <div class="bds-row">
+              <div class="bds-col-12 bds-col-lg-10 bds-col-lg-offset-2 bds-txt-semi-bold bds-txt-16 bds-pad-l-xxs">
+                <ul class="help-links">
+                  <li class="bds-pad-b-xs"><a href="/partners-portal/docs/branch-certified-partner-program">Branch Certified Partner Program Overview</a></li>
+                  <li class="bds-pad-b-xs"><a href="/partners-portal/docs/list-of-branch-certified-partners">List of Branch Certified Partners</a></li>
+                  <li class="bds-pad-b-xs"><a href="/partners-portal/docs/branch-partner-best-practices">Branch Partner Best Practices</a></li>
+                  <li class="bds-pad-b-xs"><a href="/partners-portal/docs/testing-setup-overview">Testing Setup</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /links-->
+          </div>
+          <!-- /partners -->
+        </div>
+    </div>
+  </div>
+
+  <div class="section-2 bds-bg-grey-05 bds-pad-t-lg bds-txt-grey relative">
+    <div class="attr-trap-l absolute"></div>
+    <div class="attr-trap-r absolute"></div>
+    <div class="wizard-bg bds-bg-dark-blue bds-show-at-lg"></div>
+    <div class="bds-container bds-pad-y-xxl relative">
+      <div class="bds-row">
+        <div class="bds-col-12 bds-col-lg-6">
+          <!-- quick start guide -->
+          <h4 class="bds-txt-blue bds-txt-bold bds-pad-b-xs">
+            Quick Start Onboarding Wizard
+          </h4>
+          <p class="bds-txt-18 bds-txt-light bds-pad-b-sm">
+            Get your personalized checklist to quickly start with Branch by answering a few questions.
+          </p>
+          <div class="bds-txt-20 bds-pad-l-md bds-pad-b-md">
+            <li class="bds-pad-b-xs">Create your features checklist</li>
+            <li class="bds-pad-b-xs">Set up your app</li>
+            <li class="bds-pad-b-xs">Save and share your checklist link</li>
+          </div>
+          <a href="https://wizard.docs.branch.io/" class="bds-btn-secondary">Get Started</a>
+          <!-- /quick start guide -->
+        </div>
+      </div>
+
+      <div class="bds-col-12 bds-col-lg-8 bds-col-lg-offset-4 wizard-position bds-show-at-lg">
+        <img src="https://help.branch.io/theme/branch-wizard.svg" alt="branch wizard"/>
+      </div>
+    </div>
+
+    <!-- spacing-->
+    <div class="bds-pad-y-xxl bds-show-at-lg"></div>
+  </div>
+
+
+  <div class="bds-bg-blue bds-txt-white">
+    <div class="bds-container bds-pad-y-lg bds-txt-white bds-txt-16">
+      <div class="bds-txt-center">
+        <h6 class="bds-txt-bold bds-txt-white">Can't find what you're looking for?</h6>
+      </div>
+      
+      <div class="bds-row bds-pad-t-lg bds-pad-lg-x-lg">
+        
+        <a href="/using-branch/page/submit-a-ticket" data-ol-has-click-handler="">
+          <div class="bds-col-12 bds-col-lg-4 bds-pad-l-sm bds-pad-lg-l-0 bds-pad-b-sm bds-pad-lg-b-0">
+            <div class="bds-row">
+              <div class="bds-col-2">
+                <img src="https://help.branch.io/theme/contact-us.svg" alt="contact us">
+              </div>
+                <div class="bds-col-10 bds-pad-r-sm" style="border-right: 1px solid #fff;">
+                  <div class="bds-txt-semi-bold bds-txt-white">Contact Us</div>
+                  <div class="bds-txt-grey-05 bds-txt-14 bds-pad-t-xxs">
+                    Send us a note and we'll get back to you as soon as we can.
+                  </div>
+                </div>
+              </div>
+          </div>
+        </a>
+        
+        <a href="https://stackoverflow.com/questions/tagged/branch.io" data-ol-has-click-handler="">
+          <div class="bds-col-12 bds-col-lg-4 bds-pad-l-sm">
+            <div class="bds-row">
+              <div class="bds-col-2">
+                <img src="https://help.branch.io/theme/ask-the-community.svg" alt="contact us">
+              </div>
+              <div class="bds-col-10 bds-pad-r-sm" style="border-right: 1px solid #fff;">
+                <div class="bds-txt-semi-bold bds-txt-white">Ask the Community</div>
+                <div class="bds-txt-grey-05 bds-txt-14 bds-pad-t-xxs">
+                  Find our developers and the Branch community on Stack Overflow.<br><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+        <a href="https://help.branch.io/developers-hub/docs" data-ol-has-click-handler="">
+        <div class="bds-col-12 bds-col-lg-4 bds-pad-l-sm">
+          <div class="bds-row">
+            <div class="bds-col-2">
+              <img src="https://help.branch.io/theme/docs.svg" alt="contact us">
+            </div>
+            
+              <div class="bds-col-10 bds-pad-r-sm">
+                <div class="bds-txt-semi-bold bds-txt-white">Docs</div>
+                <div class="bds-txt-grey-05 bds-txt-14 bds-pad-t-xxs">
+                  Refer to our documentation for technical integration details.
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<footer>
+  
+  <div class="footer bds-pad-t-xxl bds-pad-b-xxs" id="Footer">
+    <div class="bds-container">
+      <div class="bds-row">
+        <div class="bds-col-12 bds-col-lg-5 bds-pad-lg-r-lg">
+          <!-- left -->
+          <div class="logo-container bds-pad-b-xs bds-flex">
+              <img class="bds-pad-r-sm" src="https://branch.io/img/logo-dark.svg" alt="Branch" style="max-width: 105px;">
+              <div class="relative">    
+                <!-- language selector icon -->
+                <div class="language-selector bds-flex bds-txt-grey-85 bds-hov-txt-blue" data-ol-has-click-handler="">
+                  <img src="/theme/globe.svg" alt="language selector" style="visibility: visible;">
+                  <div class="current-locale bds-inline-block bds-pad-l-xxs">English</div>
+                </div>
+
+                <!-- languge menu -->
+                <div class="language-switcher bds-txt-left absolute bds-hide">
+                  <div class="bds-pad-sm bds-bg-blue">
+                    <span class="language-arrow-up bds-absolute bds-x-center"></span>
+                    <a class="en-US bds-pad-y-xxs bds-pad-r-xl bds-block bds-txt-white bds-hov-txt-grey-05" href="https://help.branch.io/" title="English">English</a>
+                    <!-- <a class="v bds-pad-y-xxs bds-pad-r-xl bds-block bds-txt-white bds-hov-txt-grey-05" href="https://help.branch.io/ko/" onclick="setLocale('ko-KR')" title="한국어">한국어</a>
+                    <a class="ja-JP bds-pad-y-xxs bds-pad-r-xl bds-block bds-txt-white bds-hov-txt-grey-05" href="https://help.branch.io/ja/" onclick="setLocale('ja-JP')" title="日本語">日本語</a> -->
+                    <a class="zh-CN bds-pad-y-xxs bds-pad-r-xl bds-block bds-txt-white bds-hov-txt-grey-05" href="https://help.branch.io/zh/" title="中文">中文</a>
+                  </div>
+                </div>
+                <!-- /language menu -->
+              </div>
+            </div>
+          <div class="about-branch bds-pad-b-xs bds-txt-grey-85 bds-txt-light">
+            Branch provides the leading mobile linking platform, with solutions that unify user experience and measurement across different devices, platforms, and channels.
+          </div>
+          <div class="legal bds-flex bds-space-around bds-txt-14">
+            <a href="https://branch.io/policies/#privacy" data-element-tag="privacy&quot;">Privacy</a>
+            <a href="https://branch.io/policies/#terms-and-conditions" data-element-tag="terms&quot;">Terms</a>
+            <a href="https://branch.io/gdpr/" data-element-tag="gdpr&quot;">GDPR</a>
+            <a href="https://branch.app.link/optout" data-element-tag="optout&quot;">Opt-Out</a>
+            <a href="https://branch.io/discovery-policies/#privacy" data-element-tag="discovery-policies&quot;">Discovery Policies</a>
+          </div>
+          <!--/left-->
+        </div>
+        <div class="bds-col-12 bds-col-lg-1"></div>
+        <div class="bds-col-12 bds-col-lg-6">
+          <!-- right -->
+          <div class="bds-row bds-txt-14">
+            <!-- bds-accordian -->
+            <ul class="bds-accordian">
+              <li class="bds-accordian-menu bds-txt-light">
+                <a class="bds-accordian-heading bds-txt-grey-85">Quick Links <span class="branch-angle-down"></span></a>
+                <ul class="bds-accordian-list">
+                  <li><a href="https://branch.io/security/" data-element-tag="security">Security</a></li>
+                  <li><a href="https://branch.io/pricing/" data-element-tag="pricing">Pricing</a></li>
+                  <li><a href="https://branch.io/contact-sales/" data-element-tag="contact-sales">Contact Sales</a></li>
+                  <li><a href="https://events.mobilegrowth.org" data-element-tag="mobile-growth">Mobile Growth</a></li>
+                </ul>
+              </li>
+              <li class="bds-accordian-menu bds-txt-light">
+                <a class="bds-accordian-heading bds-txt-grey-85">Company <span class="branch-angle-down"></span></a>
+                <ul class="bds-accordian-list">
+                  <li><a href="https://branch.io/about/" data-element-tag="about-branch">About Branch</a></li>
+                  <li><a href="https://branch.io/customers/" data-element-tag="customres">Customers</a></li>
+                  <li><a href="https://branch.io/partners/" data-element-tag="partners">Partner Program</a></li>
+                  <li><a href="https://branch.io/careers/" data-element-tag="careers">Careers</a></li>
+                  <li><a href="https://branch.io/press/" data-element-tag="press">Press</a></li>
+                  <li><a href="https://branch.io/contact/" data-element-tag="contact">Contact</a></li>
+                </ul>
+              </li>
+
+              <li class="bds-accordian-menu bds-txt-light">
+                <a class="bds-accordian-heading bds-txt-grey-85">Resources <span class="branch-angle-down"></span></a>
+                <ul class="bds-accordian-list">
+                  <li><a href="https://docs.branch.io/" data-element-tag="documentation">Documentation</a></li>
+                  <li><a href="https://docs.branch.io/resources/native-sdks-and-plugins/" data-element-tag="sdk-integration-docs">SDK Integration</a></li>
+                  <li><a href="https://docs.branch.io/apps/deep-linking-api/" data-element-tag="api-reference">API Reference</a></li>
+                  <li><a href="https://docs.branch.io/partner-management/branch-integrated-partners/" data-element-tag="integrations">Integrations</a></li>
+                  <li><a href="https://support.branch.io/" data-element-tag="support">Support</a></li>
+                  <li><a href="https://status.branch.io" data-element-tag="status">Status</a></li>
+                  <li><a href="javascript:CookieConsent.renew();CookieDeclaration.SetUserStatusLabel();" data-element-tag="change-consent">Cookie Consent</a></li>
+                </ul>
+              </li>
+            </ul>
+            <!-- /bds-accordian -->
+          </div>
+          <!--/right -->
+        </div>
+      </div>
+      <!-- social -->
+      <div class="bds-row">
+        <div class="social-icons bds-flex bds-pad-b-xxs">
+          <a href="https://twitter.com/branchmetrics" target="_blank" rel="noopener" data-element-tag="twitter-social">
+            <img src="https://branch.io/img/social-icons/twitter.svg" alt="Twitter">
+          </a>
+          <a href="https://www.facebook.com/branchmetrics/" target="_blank" rel="noopener" data-element-tag="facebook-social">
+            <img src="https://branch.io/img/social-icons/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://www.linkedin.com/company/branch-metrics/" target="_blank" rel="noopener" data-element-tag="linkedin-social">
+            <img src="https://branch.io/img/social-icons/linkedin.svg" alt="LinkedIn">
+          </a>
+          <a href="https://soundcloud.com/branchmetrics" target="_blank" rel="noopener" data-element-tag="soundcloud-social">
+            <img src="https://branch.io/img/social-icons/soundcloud.svg" alt="SoundCloud">
+          </a>
+        </div>
+        <div class="copyright bds-txt-light bds-txt-grey-85 bds-l1">
+          ©<span class="copyright-year">2019</span> Branch Metrics. All rights reserved.  
+        </div>
+      </div>
+      <!-- /social -->
+    </div>
+  </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  var lang = {
+    'zh-CN': '中文',
+    'ja-JP': '日本語',
+    'ko-KR': '한국어',
+    'en-US' : 'English'
+  };
+
+  function updateLangSwitcher(val){
+    $('.language-switcher a').removeClass('selected');
+    $('.language-switcher a.'+val).addClass('selected');
+    $('.current-locale').html(lang[val]);
+  }
+
+  function setLocale(val){
+    return true;
+  }
+
+  $('.language-selector').on('click', () => {
+    $(".language-switcher").toggleClass('bds-hide');
+  });
+
+  document.addEventListener("click", function(event) {
+    // if user clicks on the language switcher or selector, do nothing
+    if (event.target.closest(".language-switcher") || event.target.closest(".language-selector"))
+      return;
+    // if user clicks outside, close the menu
+    if(!$(".language-switcher").hasClass('bds-hide'))
+      $(".language-switcher").addClass("bds-hide");
+  });
+
+  $('.hamburger').on('click', function(){
+    $('.subportal-links-mob').toggle();
+  });
+
+  $( document ).ready(function() {
+    let search = $('.searchbox');
+    if (!$('.searchbox-input').length) search = $('#hub-search').removeAttr('id');
+    $('.search-wrapper').append(search);
+    $('#hub-search-results').insertAfter(search);
+
+    $(".subportal-links" ).insertBefore("ul#header-nav-right" );
+    $(".hamburger").insertAfter('.header-link');
+    $('.subportal-links-mob').insertAfter('#hub-header');
+
+    let pageLang = $('html').attr('lang') || 'en-US';
+    updateLangSwitcher(pageLang);
+  });
+</script>
