@@ -147,7 +147,59 @@
   width: 100%;
 }
 
-@media (min-width: $sm-bkpt) {
+.bds-col-offset-12 {
+  margin-left: 100%;
+}
+
+.bds-col-offset-11 {
+  margin-left: 91.66666667%;
+}
+
+.bds-col-offset-10 {
+  margin-left: 83.33333333%;
+}
+
+.bds-col-offset-9 {
+  margin-left: 75%;
+}
+
+.bds-col-offset-8 {
+  margin-left: 66.66666667%;
+}
+
+.bds-col-offset-7 {
+  margin-left: 58.33333333%;
+}
+
+.bds-col-offset-6 {
+  margin-left: 50%;
+}
+
+.bds-col-offset-5 {
+  margin-left: 41.66666667%;
+}
+
+.bds-col-offset-4 {
+  margin-left: 33.33333333%;
+}
+
+.bds-col-offset-3 {
+  margin-left: 25%;
+}
+
+.bds-col-offset-2 {
+  margin-left: 16.66666667%;
+}
+
+.bds-col-offset-1 {
+  margin-left: 8.33333333%;
+}
+
+.bds-col-offset-0 {
+  margin-left: 0%;
+}
+
+@media (max-width: $sm-bkpt) {
   .bds-col,
   .bds-col-sm-1,
   .bds-col-sm-2,
